@@ -13,13 +13,26 @@
             font-weight: 400;
         }
         
-        
         body {
             background-color: ligthgrey;
         }
 
         h1, h2, h3, h4, h5, h6 {
             font-weight: 600;
+        }
+
+        pre, code {
+            background-color: #E5E5CB;
+            white-space: pre-wrap;
+        }
+
+        blockquote p {
+            color: grey;
+            font-style: italic;
+        }
+
+        table, th, td {
+            border: 1px solid black;
         }
 
         li {
@@ -146,12 +159,11 @@
             #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
                 display: block;
             }
-
         }
     </style>
 </head>
 <body>
-    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/mortim/nocdoc">nocdoc</a></h1>
+    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     <h2>module : prelude</h2>
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -161,7 +173,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                 <h3 class="section-title">Table of contents</h6>
-                <li><a href="index.html">index</a></li><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="seq.html">seq</a></li><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li>
+                <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
                 <li class="more-link" id="btn-1">
                     <label for="check-1">more</label>
                     <input type="checkbox" id="check-1" />

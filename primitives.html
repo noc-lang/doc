@@ -1,0 +1,581 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
+    <title>Noc documentation</title>
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
+    <style>
+         * {
+            padding: 0;
+            font-family: 'Ubuntu', sans-serif;
+            font-weight: 400;
+        }
+        
+        body {
+            background-color: ligthgrey;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            font-weight: 600;
+        }
+
+        pre, code {
+            background-color: #E5E5CB;
+            white-space: pre-wrap;
+        }
+
+        blockquote p {
+            color: grey;
+            font-style: italic;
+        }
+
+        table, th, td {
+            border: 1px solid black;
+        }
+
+        li {
+            list-style: none;
+            word-break: break-all;
+            margin-top: 13px;
+        }
+
+        li a {
+            text-decoration: none;
+            color: rgb(63, 63, 63);
+            padding: 2px;
+            border-radius: 5px;
+        }
+
+        li a:hover {
+            color: rgb(83, 83, 83);
+        }
+
+        #table-of-contents {
+            border: 1px solid lightgrey;
+            margin-top: -1px;
+        }
+
+        #docs {
+            padding-left: 20px;
+            width: 100%;
+        }
+
+        #docs div {
+            border: 1px solid lightgrey;
+            padding-left: 10px;
+            padding-bottom: 15px;
+            background-color: #efe9e9;
+            border-radius: 10px;
+        }
+        
+        #top-btn {
+            position: fixed;
+            left: 90%;
+            top: 80%;
+            background-color: #008CBA;
+            padding: 15px;
+            color: #fff;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+
+        h6 {
+            color: grey;
+        }
+
+        #sidebar {
+            width: 240px;
+        }
+
+        #sidebar2 {
+            border: 1px solid lightgrey;
+        }
+
+        #sidebar ul {
+            border-radius: 10px;
+            padding: 0px 20px 20px;
+        }
+
+        #container {
+            display:flex;
+        }
+
+        .section-title {
+            text-align: center;
+        }
+
+        .more-link {
+            background-color: lightblue;
+            padding: 5px;
+            border-radius: 5px;
+            cursor: pointer;
+            display:none;
+        }
+
+        input[type=checkbox] {
+            display:none;
+        }
+
+        @media (max-width: 700px) {
+            #container {
+                display: block;
+            }
+
+            #docs {
+                padding-left: 0px;
+            }
+
+            #docs * {
+                word-break: break-all;
+            }
+
+            #top-btn {
+                left: 80%;
+            }
+
+            .more-link {
+                display:block;
+            }
+
+            #sidebar {
+                width: 100%;
+                text-align: center;
+            }
+
+            #table-of-contents li {
+                display:none;
+            }
+
+            #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:nth-child(4), #table-of-contents li:last-child {
+                display: block;
+            }
+
+            #sidebar2 li {
+                display:none;
+            }
+
+            #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
+                display: block;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
+    <h2>wiki : primitives</h2>
+    <div>
+        <a id="top-btn" href="#start-of-page">Top</a>
+
+        <div id="container">
+
+            <div id="sidebar">
+                <ul id="table-of-contents">
+                <h3 class="section-title">Table of contents</h6>
+                <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li><li>Reference<ul><li><a href="opcodes-prelude-v0.1.0.0.html">opcodes-prelude-v0.1.0.0</a></li><li><a href="primitives.html">primitives</a></li></ul></li>
+                <li class="more-link" id="btn-1">
+                    <label for="check-1">more</label>
+                    <input type="checkbox" id="check-1" />
+                </li>
+                </ul>
+
+                <ul id="sidebar2">
+                
+                <li class="more-link" id="btn-2">
+                    <label for="check-2">more</label>
+                    <input type="checkbox" id="check-2" />
+                </li>
+                </ul>
+            </div>
+            
+            <div id="docs"> 
+            <p>All primitives functions:</p>
+<ul>
+<li>- <a href="#Prelude">Prelude</a></li>
+<li>- <a href="#Internal">Internal</a></li>
+</ul>
+
+<h2 id="prelude">Prelude</h2>
+
+<h5 id="sourcebasehttpsgithubcomnoclangnocblobmastersrclanguagenocvmmodulespreludec">Source: <a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/VM/modules/prelude.c">base</a></h5>
+
+<blockquote>
+  <p>In the v0.1.0.0, all these functions are defined in the Noc <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/src/Language/Noc/Runtime/Prelude.hs">Prelude</a>, except the chr, ord functions.</p>
+</blockquote>
+
+<p>All the functions that we can use without load any module.</p>
+
+<h4 id="print">print</h4>
+
+<blockquote>
+  <p>Output a value (Standard output)</p>
+</blockquote>
+
+<pre><code>"Hello, World!" print =&gt; "Hello, World!"
+=&gt; []
+</code></pre>
+
+<h4 id="putstr">putstr</h4>
+
+<blockquote>
+  <p>Output a string value (Standard output)</p>
+</blockquote>
+
+<pre><code>"Hello!" putstr =&gt; Hello!=&gt; []
+</code></pre>
+
+<h3 id="onlyv0100">(only v0.1.0.0)</h3>
+
+<blockquote>
+  <p>Output a char value (Standard output)</p>
+</blockquote>
+
+<pre><code>'a' putchar =&gt; a =&gt; []
+</code></pre>
+
+<h4 id="ask">ask</h4>
+
+<blockquote>
+  <p>Read line from the standard input</p>
+</blockquote>
+
+<pre><code>"Your name: " ask
+Your name: john 
+=&gt; ["john"]
+</code></pre>
+
+<h4 id="id">id</h4>
+
+<blockquote>
+  <p>Get the top-stack element (does nothing)</p>
+</blockquote>
+
+<pre><code>stack: [5]
+id =&gt; [5]
+</code></pre>
+
+<h4 id="strintfloatbool">str, int, float, bool</h4>
+
+<blockquote>
+  <p>Type conversion </p>
+</blockquote>
+
+<pre><code>5 str =&gt; ["5"]
+"10" int =&gt; [10]
+"10.5" float =&gt; [10.5]
+1 bool =&gt; [True]
+</code></pre>
+
+<h4 id="help">help</h4>
+
+<blockquote>
+  <p>Get a function's doc-string</p>
+</blockquote>
+
+<pre><code>noc&gt; load std:io
+noc&gt; [pop] help putstrln
+Output: 
+docstring for 'pop' function: 
+------------ 
+Remove the top-stack element
+(example)
+  stack: [1 2]
+  pop =&gt; [1]
+=&gt; []
+</code></pre>
+
+<h4 id="case">case</h4>
+
+<blockquote>
+  <p>Pattern matching combinator</p>
+</blockquote>
+
+<pre><code class="scala language-scala">def fact = {
+   [
+     [[1] [1]]
+     [[_] [dup 1 - dup fact *]] # wildcard (match any pattern)
+   ] case
+}
+
+def main = {
+   6 dup fact print
+}
+
+=&gt; [720]
+</code></pre>
+
+<h4 id="trace">trace</h4>
+
+<blockquote>
+  <p>Trace the Noc stack</p>
+</blockquote>
+
+<pre><code class="scala language-scala">def main = {
+1 2 3 trace /* output: [1 2 3] */
++ trace /* output: [1 5] */
+}
+</code></pre>
+
+<h4 id="chr">chr</h4>
+
+<p><strong>In the v0.1.0.0, we have to import the '<a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/src/Language/Noc/Runtime/Lib/Char.hs">char</a>' module.</strong></p>
+
+<blockquote>
+  <p>Get the character Unicode representation of the decimal number.</p>
+</blockquote>
+
+<pre><code>97 chr =&gt; ['a']
+</code></pre>
+
+<h4 id="ord">ord</h4>
+
+<p><strong>In the v0.1.0.0, we have to import the '<a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/src/Language/Noc/Runtime/Lib/Char.hs">char</a>' module.</strong></p>
+
+<blockquote>
+  <p>Get the decimal representation of a Unicode character.</p>
+</blockquote>
+
+<pre><code>'A' ord =&gt; [65]
+</code></pre>
+
+<hr />
+
+<h2 id="internal">Internal</h2>
+
+<ul>
+<li><a href="#fs">FS</a></li>
+
+<li><a href="#str">Str</a></li>
+
+<li><a href="#sys">Sys</a></li>
+
+<li><a href="#seq">Seq</a></li>
+</ul>
+
+<hr />
+
+<h2 id="fs">fs</h2>
+
+<h5 id="sourcefshttpsgithubcomnoclangnocblobmastersrclanguagenocvmmodulesfsfsc">Source: <a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/VM/modules/fs/fs.c">fs</a></h5>
+
+<h5 id="sourcev0100fshttpsgithubcomnoclangnocblob23054fe0c3f28b03ca13359594aa99689035d19asrclanguagenocruntimelibfshs">Source (v0.1.0.0): <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/src/Language/Noc/Runtime/Lib/FS.hs">fs</a></h5>
+
+<pre><code class="scala language-scala">load fs
+</code></pre>
+
+<h4 id="open">open</h4>
+
+<blockquote>
+  <p>Proceed to 'read', 'write', 'append' actions to files</p>
+</blockquote>
+
+<pre><code>"filename" "" "r" open =&gt; ["This is a content."]
+pop "filename" "content" "w" open =&gt; []
+"filename" "
+content2" "a" open =&gt; []
+
+Modes combined:
+pop "filename" "This is a new content" "r+" open =&gt; ["content
+content2"]
+</code></pre>
+
+<hr />
+
+<h2 id="str">str</h2>
+
+<h5 id="sourcestrhttpsgithubcomnoclangnocblobmastersrclanguagenocvmmodulesstrstrc">Source: <a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/VM/modules/str/str.c">str</a></h5>
+
+<h5 id="sourcev0100strhttpsgithubcomnoclangnocblob23054fe0c3f28b03ca13359594aa99689035d19asrclanguagenocruntimelibstrhs">Source (v0.1.0.0): <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/src/Language/Noc/Runtime/Lib/Str.hs">str</a></h5>
+
+<pre><code class="scala language-scala">load str
+</code></pre>
+
+<h4 id="format">format</h4>
+
+<blockquote>
+  <p>Format string, replace braces by corresponding value</p>
+</blockquote>
+
+<pre><code>"Hello, {}!" ["John"] format =&gt; ["Hello, John!"]
+"Numbers: {} {}" [20 3.14] format =&gt; ["Numbers: 20 3.14"]
+"Boolean: {} {}" [True False] format =&gt; ["Boolean: True False"]
+"Quotes: {} {}" [[1 2 3] [["a" 1] ["b" 2]]] format => ["Quotes: [1 2 3] [[\"a\" 1] [\"b\" 2]]"]
+"Expression: {}" [[5 5 +] unquote 2 *] format =&gt; ["Expression: 20"]
+"Symbol: {}" ['&amp;'] format =&gt; ["Symbol: '&amp;'"]
+</code></pre>
+
+<h4 id="tostr">tostr</h4>
+
+<blockquote>
+  <p>Convert a quote of chars to string</p>
+</blockquote>
+
+<pre><code class="scala language-scala">['a' 'b' 'c'] tostr =&gt; ["abc"]
+</code></pre>
+
+<h4 id="chars">chars</h4>
+
+<blockquote>
+  <p>Convert a string to a quote of chars</p>
+</blockquote>
+
+<pre><code class="scala language-scala">"abc" chars =&gt; ['a' 'b' 'c']
+</code></pre>
+
+<p>or</p>
+
+<pre><code>noc&gt; load std:string
+noc&gt; "abc"$ 
+=&gt; ['a' 'b' 'c']
+</code></pre>
+
+<hr />
+
+<h2 id="sys">sys</h2>
+
+<h5 id="sourcesyshttpsgithubcomnoclangnocblobmastersrclanguagenocvmmodulessyssysc">Source: <a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/VM/modules/sys/sys.c">sys</a></h5>
+
+<h5 id="sourcev0100syshttpsgithubcomnoclangnocblob23054fe0c3f28b03ca13359594aa99689035d19asrclanguagenocruntimelibsyshs">Source (v0.1.0.0): <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/src/Language/Noc/Runtime/Lib/Sys.hs">sys</a></h5>
+
+<pre><code class="scala language-scala">load sys
+</code></pre>
+
+<h4 id="exit">exit</h4>
+
+<blockquote>
+  <p>Exit program after the current instruction</p>
+</blockquote>
+
+<pre><code>(exitCode) exit
+</code></pre>
+
+<pre><code class="scala language-scala">load sys
+load std:io
+
+def main = {
+  "ERROR! ..." putstrln
+  1 exit
+  "other instructions..." print 
+}
+/*
+Output: 
+ERROR! ...
+*/
+</code></pre>
+
+<h4 id="onlyv0100args">(only v0.1.0.0) args</h4>
+
+<blockquote>
+  <p>Print the argument after the noc command</p>
+</blockquote>
+
+<pre><code>noc test.noc a b c d
+=&gt; [["a" "b" "c" "d"]]
+</code></pre>
+
+<h4 id="onlyv0100catch">(only v0.1.0.0) catch</h4>
+
+<pre><code>docstring for 'catch' function:
+------------
+Catch errors in a quote
+
+(example)
+[1 + "2" +] ["An error has occured." putstrln] catch
+[1 2 +] ["Another error has occured." putstrln] catch
+== Output ==
+An error has occured.
+=&gt; []
+=&gt; [3]
+</code></pre>
+
+<hr />
+
+<h2 id="seq">seq</h2>
+
+<h5 id="sourceseqhttpsgithubcomnoclangnocblobmastersrclanguagenocvmmodulesseqseqc">Source: <a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/VM/modules/seq/seq.c">seq</a></h5>
+
+<h5 id="sourcev0100seqhttpsgithubcomnoclangnocblob23054fe0c3f28b03ca13359594aa99689035d19asrclanguagenocruntimelibseqhs">Source (v0.1.0.0): <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/src/Language/Noc/Runtime/Lib/Seq.hs">seq</a></h5>
+
+<pre><code class="scala language-scala">load seq
+</code></pre>
+
+<h4 id="onlyv0100unquote">(only v0.1.0.0) unquote</h4>
+
+<blockquote>
+  <p>Evaluate instruction into a quote</p>
+</blockquote>
+
+<pre><code>[[5 5 +] 5 5 +] unquote =&gt; [[5 5 +] 10]
+</code></pre>
+
+<h4 id="onlyv0100pushr">(only v0.1.0.0) pushr</h4>
+
+<blockquote>
+  <p>Push a value into a quote</p>
+</blockquote>
+
+<pre><code>[5] 5 pushr =&gt; [[5 5]]
+</code></pre>
+
+<h4 id="onlyv0100popr">(only v0.1.0.0) popr</h4>
+
+<blockquote>
+  <p>Get out the top-element in the quote</p>
+</blockquote>
+
+<pre><code>[1 2] popr =&gt; [[1] 2]
+</code></pre>
+
+<h4 id="step">step</h4>
+
+<blockquote>
+  <p>Execute a specific function for each element of a quote</p>
+</blockquote>
+
+<p><code>quote [function] step</code></p>
+
+<pre><code>noc&gt; load std:list
+noc&gt; load std:string
+noc&gt; ["noc" "hello" "world!"] [$ len] step 
+=&gt; [[3 5 6]]
+</code></pre>
+
+<h4 id="fold">fold</h4>
+
+<blockquote>
+  <p>Reduce a quote of elements to one value in accumulating each elements with a specific function</p>
+</blockquote>
+
+<p><code>quote (initial_value -&gt; accumulator) [function] fold</code></p>
+
+<pre><code>[1 2 3] 0 [+] fold =&gt; [6]
+</code></pre>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleMenu(button, menu, checkbox) {
+            button.addEventListener("click", () => {
+                for(let i = 3; i < menu.length-1; i++) {
+                    if(checkbox.checked) {
+                        menu[i].style.display = "block";
+                    } else {
+                        menu[i].style.display = "none";
+                    }
+                }
+            });
+        }
+    
+        let buttons = document.querySelectorAll(".more-link");
+        let menu1 = document.querySelectorAll("#table-of-contents li");
+        let menu2 = document.querySelectorAll("#sidebar2 li");
+        let checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+        toggleMenu(buttons[0], menu1, checkboxes[0]);
+        toggleMenu(buttons[1], menu2, checkboxes[1]);
+    </script>
+</body>
+</html>
+    

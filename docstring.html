@@ -164,7 +164,7 @@
 </head>
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
-    <h2>module : fs</h2>
+    <h2>wiki : docstring</h2>
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
 
@@ -173,7 +173,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                 <h3 class="section-title">Table of contents</h6>
-                <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
+                <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li><li>Reference<ul><li><a href="opcodes-prelude-v0.1.0.0.html">opcodes-prelude-v0.1.0.0</a></li><li><a href="primitives.html">primitives</a></li></ul></li>
                 <li class="more-link" id="btn-1">
                     <label for="check-1">more</label>
                     <input type="checkbox" id="check-1" />
@@ -181,7 +181,7 @@
                 </ul>
 
                 <ul id="sidebar2">
-                <h3 class="section-title">Functions</h3><li><a href="#[open]">[open]</a></li>
+                
                 <li class="more-link" id="btn-2">
                     <label for="check-2">more</label>
                     <input type="checkbox" id="check-2" />
@@ -190,7 +190,49 @@
             </div>
             
             <div id="docs"> 
-            <div id="[open]"><h3>[open]</h3>docstring for 'open' function:<br>------------<br>Proceed to 'read', 'write', 'append' actions to files<br><br>(example)<br> "filename" "" "r" open => ["This is a content.\n"]<br> pop "filename" "content" "w" open => []<br> "filename" "\ncontent2" "a" open => []<br><br> Modes combined: <br> "filename" "This is a new content" "rw" open => ["content\ncontent2"]<br> pop "filename" "This is a new content" "ra" open => ["This is a new content"]</div><br><br><br>
+            <p>We can document all the functions that we have declared</p>
+
+<p>Example:</p>
+
+<pre><code>def foo = {
+---
+Prints "Foo!"
+---
+"Foo!" print
+}
+</code></pre>
+
+<p>And thanks to the 'help' function we can print the function's docstring..</p>
+
+<pre><code>def main = {
+  [foo] help putstr
+}
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>docstring for 'foo' function:
+------------
+Prints "Foo!"
+</code></pre>
+
+<p>We can also print the prelude functions's docstring with help</p>
+
+<pre><code>def main = {
+  [pop] help putstr
+} 
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>docstring for 'pop' function:
+------------
+Remove the top-stack element
+
+(example)
+  stack: [1 2]
+  pop =&gt; [1]
+</code></pre>
             </div>
         </div>
     </div>
