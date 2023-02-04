@@ -13,7 +13,7 @@ jobs:
     - uses: haskell/actions/setup@v1.2
 
     # Build Noc
-    - run: wget https://github.com/mortim/noc/releases/download/v0.1.0.0/noc-v0.1.0.0-patch.zip
+    - run: wget https://github.com/noc-lang/noc/releases/download/v0.1.0.0/noc-v0.1.0.0-patch.zip
       name: Download the Noc v0.1.0.0 release version
     - run: unzip ./noc-v0.1.0.0-patch.zip
     - run: make install
@@ -22,7 +22,7 @@ jobs:
     - run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
 
     # Build the Noc documentation
-    - run: wget https://raw.githubusercontent.com/mortim/nocdoc/master/nocdoc.noc
+    - run: wget https://raw.githubusercontent.com/noc-lang/nocdoc/master/nocdoc.noc
       name: Download the nocdoc tool
       working-directory: noc-v0.1.0.0-patch
     - run: make build_doc
