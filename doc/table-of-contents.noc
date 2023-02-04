@@ -1,0 +1,40 @@
+def tableOfContentsLibrary = {
+    [
+        ["Overview" ["index.html" "noc-wiki.html"]]
+        ["Internal" ["prelude.html" "fs.html" "str.html" "sys.html" "seq.html"]]
+        ["Std" ["std-bool.html" "std-dict.html" "std-fs.html" "std-io.html" "std-list.html" "std-math.html" "std-stack.html" "std-string.html"]]
+    ]
+}
+
+def tableOfContentsWiki = {
+    [
+        [ "Overview" 
+            [ "index.html" 
+              "noc-wiki.html" ]]
+
+        [ "Introduction"
+            [ "concatenative-programming.html" ]] 
+
+
+        [ "Getting Started"
+            [ "installation.html"
+              "hello-world.html" ]]
+
+        [ "Basics"
+            [ "expressions.html"
+              "datatypes.html"
+              "functions.html"
+              "comments.html" ]]
+
+        [ "Advanced Topic"
+            [ "docstring.html"
+              "modules.html"
+              "quotes.html"
+              "control-flow.html"
+              "optimizations.html"]]
+
+        [ "Reference"
+            [ "opcodes-prelude-v0.1.0.0.html"
+              "primitives.html"]] 
+    ]
+}

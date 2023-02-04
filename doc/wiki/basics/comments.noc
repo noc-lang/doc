@@ -1,0 +1,22 @@
+def comments = {
+    "<p>Previously, we used the Noc CLI in the <a href=\"hello-world.html\">Hello, World!</a> chapter, now we are going to use the comments in a Noc program.</p>
+<p>We can create simple comments like this:</p>
+<pre><code>def square = {dup *}
+
+def main = {
+  # Output: [25]
+  5 square
+  print
+}
+</code></pre>
+<p>or multiline comments:</p>
+<pre><code class=\"language-scala\">/*
+Hello World in Noc !
+*/
+
+def main = {
+  &quot;Hello,World!&quot; print
+}
+</code></pre>"
+"comments"
+}

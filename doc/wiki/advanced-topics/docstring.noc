@@ -1,0 +1,46 @@
+def docstring = {
+    "<p>We can document all the functions that we have declared</p>
+
+<p>Example:</p>
+
+<pre><code>def foo = {
+---
+Prints \"Foo!\"
+---
+\"Foo!\" print
+}
+</code></pre>
+
+<p>And thanks to the 'help' function we can print the function's docstring..</p>
+
+<pre><code>def main = {
+  [foo] help putstr
+}
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>docstring for 'foo' function:
+------------
+Prints \"Foo!\"
+</code></pre>
+
+<p>We can also print the prelude functions's docstring with help</p>
+
+<pre><code>def main = {
+  [pop] help putstr
+} 
+</code></pre>
+
+<p>Output:</p>
+
+<pre><code>docstring for 'pop' function:
+------------
+Remove the top-stack element
+
+(example)
+  stack: [1 2]
+  pop =&gt; [1]
+</code></pre>"
+"docstring"
+}

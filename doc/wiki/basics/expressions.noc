@@ -1,0 +1,71 @@
+def expressions = {
+    "<p>As said before, the Noc expressions uses the reverse polish notation so the syntax used is like this: </p>
+<pre><code>Syntax          Noc language 
+f(x)      -&gt;    x f
+f(x,y)    -&gt;    x y f
+g(f(x))   -&gt;    x f g
+g(f(x,y)) -&gt;    x y f g 
+</code></pre>
+<blockquote>
+<p>The mostly examples of this wiki uses the Noc REPL provided in the Noc v0.1.0.0 but it also works in a Noc file (for the latest version).</p>
+</blockquote>
+<p>Example:</p>
+<pre><code class=\"language-scala\">noc&gt; 5 6 +
+=&gt; [11]
+</code></pre>
+<p>To understand this, here is the steps:</p>
+<pre><code class=\"language-scala\">noc&gt; 5
+=&gt; [5]
+noc&gt; 6
+=&gt; [5 6]
+noc&gt; + (# here &#39;+&#39; operation pop the 2 top-stack elements and operate them)
+=&gt; [11]
+</code></pre>
+<p>With function composition, we can combine several operators, like:</p>
+<pre><code class=\"language-scala\">noc&gt; 5 6 + 2 * 10 /
+=&gt; [2.2000000000]
+</code></pre>
+<blockquote>
+<p>With the v0.1.0.0 it returns 2.2</p>
+</blockquote>
+<p>Explanations:</p>
+<pre><code class=\"language-scala\">noc&gt; 5
+=&gt; [5]
+noc&gt; 6
+=&gt; [5 6]
+noc&gt; +
+=&gt; [11]
+noc&gt; 2
+=&gt; [11 2]
+noc&gt; *
+=&gt; [22]
+noc&gt; 10
+=&gt; [22 10]
+noc&gt; /
+=&gt; [2.2000000000]
+</code></pre>
+<p>The equivalent in infix notation is: <code>(5+6) * 2 / 10</code>, the reverse polish notation implements operator precedence.</p>
+<p>We saw some &quot;primitive operators&quot; (the native operators of the interpreter) but it&#39;s obviously possible to combine with the native functions, called &quot;primitive functions&quot;. These operators,functions are grouped in one module name Prelude. </p>
+<p>We can access to the documentation of the all primitive functions,operators <a href=\"primitives.html\">here</a>.</p>
+<p>Example:</p>
+<pre><code class=\"language-scala\">noc&gt; 1 2 3 dup + * /
+=&gt; [0.0833333333]
+</code></pre>
+<blockquote>
+<p>With the v0.1.0.0, in the runtime, Haskell uses the scientific notation. So it returns 8.333333333333333e-2</p>
+</blockquote>
+<p>Explanations:</p>
+<pre><code class=\"language-scala\">noc&gt; 1 2 3
+=&gt; [1 2 3]
+noc&gt; dup
+=&gt; [1 2 3 3]
+noc&gt; +
+=&gt; [1 2 6]
+noc&gt; *
+=&gt; [1 12]
+noc&gt; /
+=&gt; [0.0833333333]
+</code></pre>
+    "
+    "expressions"
+}

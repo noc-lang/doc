@@ -1,0 +1,36 @@
+def functions = {
+    "<p>We can declare a function like this:</p>
+<pre><code>def function = { atom1 atom2 ... atomN }
+</code></pre>
+<p>Example:</p>
+<pre><code class=\"language-scala\">noc&gt; def square = {dup *}
+noc&gt; 5 square
+=&gt; [25]
+noc&gt; zap
+noc&gt; def number = {6} # We define a constant
+noc&gt; number square
+=&gt; [36]
+</code></pre>
+<p>It&#39;s like the substitution, when we called the declared function, in fact it give this:</p>
+<pre><code class=\"language-scala\">noc&gt; 5 dup *
+</code></pre>
+<p>We can also declare a function like this:</p>
+<pre><code>def (function) = { atom1 atom2 ... atomN }
+</code></pre>
+<p>It&#39;s useful for have a better syntax to define operators.</p>
+<h5 id=\"source-stdstringnoc\">Source: <a href=\"https://github.com/noc-lang/noc/blob/master/std/string.noc#L7\">std/string.noc</a></h5>
+<pre><code>def ($) = {
+    ---
+    Convert a string to a quote of chars
+    (example)
+        &quot;abc&quot; $ =&gt; [&#39;a&#39; &#39;b&#39; &#39;c&#39;]
+    ---
+    chars
+}
+</code></pre>
+<p>When we declare a function, the function is pushed in the env. And we can access to this env with the &#39;env&#39; command:</p>
+<pre><code class=\"language-scala\">noc&gt; :env
+square: [dup *], 
+</code></pre>"
+"functions"
+}

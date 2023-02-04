@@ -1,0 +1,15 @@
+load nocdoc.noc
+load doc/library.noc
+load doc/wiki/wiki.noc
+
+def main = {
+    libInfo generateHomePage
+
+    [   # internal
+        prelude internalFs internalStr internalSys internalSeq
+        # std
+        stdBool stdDict stdFs stdIo stdList stdMath stdStack stdString ] generateModules
+
+    wikiInfo generateHomePage
+    wikiPageContents generateWikis
+}

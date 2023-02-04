@@ -1,0 +1,24 @@
+def helloWorld = {
+    "<p>Now, Noc is installed so we can run programs. We are going to start with the &quot;Hello,World&quot; program.</p>
+<h3 id=\"writing-and-running-a-noc-program\">Writing and Running a Noc program</h3>
+<p>Enter this following code in the hello-world.noc</p>
+<pre><code class=\"language-scala\">def main = {
+    &quot;Hello, Noc!&quot; print
+}
+</code></pre>
+<p>it prints <code>&quot;Hello, Noc!&quot;</code></p>
+<p>Save the file and run the noc file like this:</p>
+<pre><code>$ noc hello-world.noc
+&quot;Hello, Noc!&quot;
+</code></pre>
+<h3 id=\"anatomy-of-a-noc-program\">Anatomy of a Noc program</h3>
+<pre><code class=\"language-scala\">def main = {
+
+}
+</code></pre>
+<p>We declare a &#39;main&#39; function, this function is the first function that&#39;s executed by Noc. Nothing (except comments but it&#39;s ignored in parsing) is in the top-level, we write programs in functions. (see <a href=\"https://en.wikipedia.org/wiki/Function-level_programming\">function-level</a>).</p>
+<pre><code class=\"language-scala\">&quot;Hello, Noc!&quot; print
+</code></pre>
+<p>And the &#39;print&#39; function allows to print the text (&quot;Hello, World!&quot;) in the screen.</p>"
+"hello-world"
+}

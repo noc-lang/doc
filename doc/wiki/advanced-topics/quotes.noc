@@ -1,0 +1,61 @@
+def quotes = {
+    "<p>A quote is a kind of anonymous stack containing instructions, it's pretty useful because it's lazy. The quote allows to delay execution in order to evaluate later. The quotes are based on the <a href=\"https://en.wikipedia.org/wiki/Homoiconicity\">homoiconicity</a>, it means that it can represent a program (the set of instructions in the quote) like a data (the quote).</p>
+
+<p>To evaluate the quote, we use the <code>unquote</code> function available in the Prelude.</p>
+
+<p>Example:</p>
+
+<blockquote>
+  <p>In the latest version, the 'unquote' functions is considered like an opcode, so we don't have to import the 'seq' module.</p>
+</blockquote>
+
+<pre><code class=\"scala language-scala\">noc&gt; load seq
+noc&gt; 2
+noc&gt; def square = {dup *}
+noc&gt; [square]
+=&gt; [2 [square]]
+noc&gt; unquote
+=&gt; [4]
+</code></pre>
+
+<h1 id=\"list\">List</h1>
+
+<p>We can construct list with quotes thanks to the delay execution.</p>
+
+<p>Example:</p>
+
+<pre><code class=\"scala language-scala\">noc&gt; [1 2 3]
+=&gt; [[1 2 3]]
+</code></pre>
+
+<p>We can efficiently pattern match a string in converting her to a quote of chars. Indeed, with the <a href=\"primitives.html#tostr\">tostr</a> and <a href=\"primitives.html#chars\">chars</a> combinators, we can manipulate easily the strings.</p>
+
+<blockquote>
+  <p>There is a Noc module dedicated to lists in the Noc STD.</p>
+</blockquote>
+
+<h5 id=\"sourcestdlistnochttpsgithubcommortimnocblobmasterstdlistnoc\">Source: <a href=\"https://github.com/noc-lang/noc/blob/master/std/list.noc\">std/list.noc</a></h5>
+
+<pre><code class=\"scala language-scala\">[1 2 3] len =&gt; [3]
+</code></pre>
+
+<h3 id=\"dict\">Dict</h3>
+
+<p>With nested quotes, we can also construct dictionaries.</p>
+
+<p>Example:</p>
+
+<pre><code class=\"scala language-scala\">noc&gt; [[\"A\" 1] [\"B\" 2] [\"C\" 3]]
+=&gt; [[[\"A\" 1] [\"B\" 2] [\"C\" 3]]]
+</code></pre>
+
+<blockquote>
+  <p>There is a Noc module dedicated to dicts in the Noc STD.</p>
+</blockquote>
+
+<h5 id=\"sourcestddictnochttpsgithubcomnoclangnocblobmasterstddictnoc\">Source: <a href=\"https://github.com/noc-lang/noc/blob/master/std/dict.noc\">std/dict.noc</a></h5>
+
+<pre><code class=\"scala language-scala\">[[\"A\" 1] [\"B\" 2] [\"C\" 3]] keys =&gt; [[\"A\" \"B\" \"C\"]]
+</code></pre>"
+    "quotes"
+}

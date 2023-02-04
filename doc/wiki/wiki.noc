@@ -1,0 +1,56 @@
+load nocdoc.noc
+load doc/wiki/introduction/concatenative-language.noc
+load doc/wiki/getting-started/hello-world.noc
+load doc/wiki/getting-started/installation.noc
+load doc/wiki/basics/expressions.noc
+load doc/wiki/basics/datatypes.noc
+load doc/wiki/basics/functions.noc
+load doc/wiki/basics/comments.noc
+load doc/wiki/advanced-topics/docstring.noc
+load doc/wiki/advanced-topics/modules.noc
+load doc/wiki/advanced-topics/quotes.noc
+load doc/wiki/advanced-topics/control-flow.noc
+load doc/wiki/advanced-topics/optimizations.noc
+load doc/wiki/reference/opcodes-prelude-v0.1.0.0.noc
+load doc/wiki/reference/primitives.noc
+load doc/table-of-contents.noc
+
+def wikiInfo = {
+    [
+        "noc-wiki" # wiki name
+        "mortim" # author
+        "The official Noc wiki." # description library
+        "https://github.com/noc-lang/noc" # the repository library
+        tableOfContentsWiki
+    ]
+}
+
+def wikiPageContents = {
+    [   # introduction
+        concatenativeProgramming 
+        # Getting started
+        installation
+        helloWorld
+        # Basics
+        expressions
+        datatypes
+        functions
+        comments
+        # Advanced Topics
+        docstring
+        modules
+        quotes
+        controlFlow
+        optimizations
+        # Reference
+        opcodesAndPrelude
+        primitives ]
+}
+
+def generateWikis = {
+    dup
+    [
+        [[[]] [pop]]
+        [[_] [popr wikiInfo 3 1 rotNM generateWikiPage generateWikis]]
+    ] case
+}
