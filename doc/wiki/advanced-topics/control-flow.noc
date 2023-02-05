@@ -1,4 +1,3 @@
-
 def controlFlow = {
     "<p>Noc has <a href=\"https://en.wikipedia.org/wiki/Control_flow\">control flow</a> thanks to the <a href=\"https://en.wikipedia.org/wiki/Pattern_matching\">pattern matching</a> with the <strong>case</strong> combinator. With control flow we can have a particular order for the expressions and the pattern matching allows to match to some patterns like <code>[\"john\"]</code> or <code>[_]</code>: </p>
 

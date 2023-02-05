@@ -14,17 +14,12 @@ def installation = {
 <p><strong>Install Noc (for all versions)</strong></p>
 <pre><code>make install
 </code></pre>
-<h2 id=\"building-the-noc-documentation-only-the-v0100\">Building the Noc documentation (only the v0.1.0.0)</h2>
-<p>There is a tool written in Noc to generate the documentation (<a href=\"https://github.com/noc-lang/nocdoc\">nocdoc</a>), this tool is used in the Makefile to automatically generate the Noc documentation in HTML.</p>
-<blockquote>
-<p>When you have generated the documentation, you can check the starting page &quot;noc_documentation/index.html&quot;.</p>
-</blockquote>
-<pre><code># you have to install before noc and wget
-make build_doc
-</code></pre>
+<h2 id=\"building-locally-the-noc-documentation-only-the-v0100\">Building locally the Noc documentation (only the v0.1.0.0)</h2>
+<p>There is a tool written in Noc to generate the documentation (<a href=\"https://github.com/noc-lang/nocdoc\">nocdoc</a>), check the <a href=\"https://github.com/noc-lang/docs#readme\">README</a> of the 'docs' repos to build the Noc documentation.</p>
 <blockquote>
 <p>You can also document your own functions, check the <a href=\"https://github.com/noc-lang/nocdoc#readme\">README</a> of this tool.</p>
 </blockquote>
+<p>When you have generated the documentation, you can check the starting page in &quot;noc_documentation/index.html&quot;.</p>
 <h2 id=\"updating-and-uninstalling\">Updating and Uninstalling</h2>
 <p>We can reinstall Noc with the latest version.</p>
 <pre><code>git clone https://github.com/mortim/noc &amp;&amp; cd noc

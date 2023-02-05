@@ -4,12 +4,7 @@ load doc/wiki/wiki.noc
 
 def main = {
     libInfo generateHomePage
-
-    [   # internal
-        prelude internalFs internalStr internalSys internalSeq
-        # std
-        stdBool stdDict stdFs stdIo stdList stdMath stdStack stdString ] generateModules
-
+    libFunctions generateModules
     wikiInfo generateHomePage
     wikiPageContents generateWikis
 }

@@ -27,7 +27,7 @@ jobs:
     
     - run: wget https://raw.githubusercontent.com/noc-lang/nocdoc/master/nocdoc.noc
       name: Download the nocdoc tool
-    - run: noc build_doc.noc && mkdir noc_documentation && mv noc.html index.html && mv *.html noc_documentation
+    - run: ./run_build.sh
       name: Generate the documentation with the nocdoc tool
     
     # Deploy the Noc documentation

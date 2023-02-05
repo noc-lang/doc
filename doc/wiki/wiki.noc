@@ -1,5 +1,5 @@
 load nocdoc.noc
-load doc/wiki/introduction/concatenative-language.noc
+load doc/wiki/introduction/concatenative-programming.noc
 load doc/wiki/getting-started/hello-world.noc
 load doc/wiki/getting-started/installation.noc
 load doc/wiki/basics/expressions.noc
@@ -11,15 +11,114 @@ load doc/wiki/advanced-topics/modules.noc
 load doc/wiki/advanced-topics/quotes.noc
 load doc/wiki/advanced-topics/control-flow.noc
 load doc/wiki/advanced-topics/optimizations.noc
-load doc/wiki/reference/opcodes-prelude-v0.1.0.0.noc
-load doc/wiki/reference/primitives.noc
 load doc/table-of-contents.noc
 
 def wikiInfo = {
     [
         "noc-wiki" # wiki name
         "mortim" # author
-        "The official Noc wiki." # description library
+        # description library
+        "<h4 id=\"noc-versions\">Noc versions</h4>
+        <p>To get Noc, check the <a href=\"installation.html\">Installation guide</a>.</p>
+        <h4 id=\"the-noc-latest-version\">The Noc latest version</h4>
+        <blockquote>
+        <p>This version was rewritten partially (check this <a href=\"optimizations.html\">section</a>) in C to embark a VM and it&#39;s not longer maintained, there are still some bugs or lack of features:</p>
+        <ul>
+        <li>- callstack not works with recursive functions calls</li>
+        <li>- cannot format quotes</li>
+        <li>- cannot operate big ints (Arbitrary precision integers)</li>
+        </ul>
+        </blockquote>
+        <h4 id=\"the-noc-v0100\">The Noc v0.1.0.0</h4>
+        <blockquote>
+        <p>This version is more operational but slower than the latest version because it&#39;s fully interpreted.</p>
+        </blockquote>
+        <h4 id=\"some-examples\">Some examples</h4>
+        <p>fact.noc</p>
+        <pre><code class=\"language-scala\">def fact = {
+        [
+            [[1] []]
+            [[_] [dup 1 - dup fact *]]
+        ] case
+        }
+
+        def main = {
+        6 dup fact print
+        }
+        </code></pre>
+        <p>greater-or-less.noc</p>
+        <pre><code class=\"language-scala\">
+        load std:stack
+        load std:bool
+
+        def readInput = {&quot;Choose a number: &quot; ask}
+
+        def mysteryNumber = { 45 }
+
+        def greaterOrLess = {
+            dup
+            [
+                [[mysteryNumber] [&quot;You won !&quot; print]]
+                [[_] [
+                    [&quot;Less!&quot; print readInput int greaterOrLess] [&quot;Greater!&quot; print readInput int greaterOrLess] 3 -1 rotNM mysteryNumber &lt; if 
+                ]]
+            ] case
+        }
+
+        def main = {
+            readInput int greaterOrLess
+        }
+        </code></pre>
+        <p>caesar.noc</p>
+        <pre><code class=\"language-scala\">
+        load seq
+        load std:string
+        /* in the latest version the functions of the &#39;char&#39; module are integrated in the Noc Prelude */
+        load char
+        load std:stack
+        load std:io
+        load sys
+
+        def caesar = {
+            [
+                [[[cipher]] [
+                        [ord swap dup 3 -1 rotNM + chr swap] step
+                    ]]
+                [[[decipher]] [
+                        [ord swap dup 3 -1 rotNM swap - chr swap] step
+                    ]]
+                [[_] [&quot;error.&quot; putstrln 1 exit]]
+            ] case
+
+            popr pop swap quote swap &lt;&gt; tostr
+        }
+
+        def encrypt = {
+            [cipher] caesar
+        }
+
+        def decrypt = {
+            [decipher] caesar
+        }
+
+        def main = {
+            /* [offset] [msg in array of chars] [encrypt/decrypt] */
+            3 &quot;Hello&quot;$ encrypt print
+            3 &quot;Khoor&quot;$ decrypt print
+        }
+        </code></pre>
+        <h4 id=\"features\">Features</h4>
+        <ul>
+        <li>- Stack-based language</li>
+        <li>- An embbeded REPL <strong>(only v0.1.0.0)</strong></li>
+        <li>- Running in VM <strong>(only the latest version)</strong></li>
+        <li>- A list of combinators for the stack manipulation</li>
+        <li>- Typed dynamically</li>
+        <li>- Homoiconic (quotes)</li>
+        <li>- Provides a module system</li>
+        <li>- Includes a STD (Standard Library)</li>
+        <li>- Pattern matching</li>
+        </ul>"
         "https://github.com/noc-lang/noc" # the repository library
         tableOfContentsWiki
     ]
@@ -41,10 +140,7 @@ def wikiPageContents = {
         modules
         quotes
         controlFlow
-        optimizations
-        # Reference
-        opcodesAndPrelude
-        primitives ]
+        optimizations ]
 }
 
 def generateWikis = {
