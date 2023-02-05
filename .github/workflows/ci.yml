@@ -24,9 +24,6 @@ jobs:
 
     # Build the Noc documentation
     - uses: actions/checkout@v3
-    
-    - run: wget https://raw.githubusercontent.com/noc-lang/nocdoc/master/nocdoc.noc
-      name: Download the nocdoc tool
     - run: ./run_build.sh
       name: Generate the documentation with the nocdoc tool
     
