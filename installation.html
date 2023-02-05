@@ -173,7 +173,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                 <h3 class="section-title">Table of contents</h6>
-                <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li><li>Reference<ul><li><a href="opcodes-prelude-v0.1.0.0.html">opcodes-prelude-v0.1.0.0</a></li><li><a href="primitives.html">primitives</a></li></ul></li>
+                <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
                 <li class="more-link" id="btn-1">
                     <label for="check-1">more</label>
                     <input type="checkbox" id="check-1" />
@@ -205,17 +205,12 @@
 <p><strong>Install Noc (for all versions)</strong></p>
 <pre><code>make install
 </code></pre>
-<h2 id="building-the-noc-documentation-only-the-v0100">Building the Noc documentation (only the v0.1.0.0)</h2>
-<p>There is a tool written in Noc to generate the documentation (<a href="https://github.com/noc-lang/nocdoc">nocdoc</a>), this tool is used in the Makefile to automatically generate the Noc documentation in HTML.</p>
-<blockquote>
-<p>When you have generated the documentation, you can check the starting page &quot;noc_documentation/index.html&quot;.</p>
-</blockquote>
-<pre><code># you have to install before noc and wget
-make build_doc
-</code></pre>
+<h2 id="building-locally-the-noc-documentation-only-the-v0100">Building locally the Noc documentation (only the v0.1.0.0)</h2>
+<p>There is a tool written in Noc to generate the documentation (<a href="https://github.com/noc-lang/nocdoc">nocdoc</a>), check the <a href="https://github.com/noc-lang/docs#readme">README</a> of the 'docs' repos to build the Noc documentation.</p>
 <blockquote>
 <p>You can also document your own functions, check the <a href="https://github.com/noc-lang/nocdoc#readme">README</a> of this tool.</p>
 </blockquote>
+<p>When you have generated the documentation, you can check the starting page in &quot;noc_documentation/index.html&quot;.</p>
 <h2 id="updating-and-uninstalling">Updating and Uninstalling</h2>
 <p>We can reinstall Noc with the latest version.</p>
 <pre><code>git clone https://github.com/mortim/noc &amp;&amp; cd noc
