@@ -1,4 +1,3 @@
-
 def optimizations = {
     "<p>In the latest version, Noc runs in a virtual machine written in C, this feature was implemented in order to earn performances, reduce time execution.</p>
 

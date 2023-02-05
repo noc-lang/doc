@@ -1,4 +1,3 @@
- 
 def modules = {
     "<p>Noc works with a basic module system, thanks to this module system we can load <a href=\"https://github.com/noc-lang/noc/tree/master/std\">STD</a> modules, <a href=\"primitives.html\">Internal</a> modules or our own modules.</p>
 

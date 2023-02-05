@@ -1,4 +1,4 @@
-load nocdoc.noc
+load nocdoc/nocdoc.noc
 load doc/library.noc
 load doc/wiki/wiki.noc
 

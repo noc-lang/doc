@@ -1,3 +1,4 @@
+load nocdoc/nocdoc.noc
 load fs
 load str
 load sys

@@ -1,4 +1,4 @@
-load nocdoc.noc
+load nocdoc/nocdoc.noc
 load doc/wiki/introduction/concatenative-programming.noc
 load doc/wiki/getting-started/hello-world.noc
 load doc/wiki/getting-started/installation.noc
