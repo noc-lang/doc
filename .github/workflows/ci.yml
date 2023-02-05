@@ -24,6 +24,8 @@ jobs:
 
     # Build the Noc documentation
     - uses: actions/checkout@v3
+      with:
+        submodules: 'true'
     - run: ./run_build.sh
       name: Generate the documentation with the nocdoc tool
     
