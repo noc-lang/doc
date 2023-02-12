@@ -3,200 +3,200 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
+    <title>module : prelude</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
-    <title>Noc documentation</title>
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
-    <style>
-         * {
-            padding: 0;
-            font-family: 'Ubuntu', sans-serif;
-            font-weight: 400;
-        }
-        
-        body {
-            background-color: ligthgrey;
-        }
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    * {
+        padding: 0;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 400;
+    }
 
-        h1, h2, h3, h4, h5, h6 {
-            font-weight: 600;
-        }
+    body {
+        background-color: ligthgrey;
+    }
 
-        pre, code {
-            background-color: #E5E5CB;
-            white-space: pre-wrap;
-        }
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+    }
 
-        blockquote p {
-            color: grey;
-            font-style: italic;
-        }
+    pre, code {
+        background-color: #E5E5CB;
+        white-space: pre-wrap;
+    }
 
-        table, th, td {
-            border: 1px solid black;
-        }
+    blockquote p {
+        color: grey;
+        font-style: italic;
+    }
 
-        li {
-            list-style: none;
-            word-break: break-all;
-            margin-top: 13px;
-        }
+    table, th, td {
+        border: 1px solid black;
+    }
 
-        li a {
-            text-decoration: none;
-            color: rgb(63, 63, 63);
-            padding: 2px;
-            border-radius: 5px;
-        }
+    li {
+        list-style: none;
+        word-break: break-all;
+        margin-top: 13px;
+    }
 
-        li a:hover {
-            color: rgb(83, 83, 83);
-        }
+    li a {
+        text-decoration: none;
+        color: rgb(63, 63, 63);
+        padding: 2px;
+        border-radius: 5px;
+    }
 
-        #table-of-contents {
-            border: 1px solid lightgrey;
-            margin-top: -1px;
+    li a:hover {
+        color: rgb(83, 83, 83);
+    }
+
+    #table-of-contents {
+        border: 1px solid lightgrey;
+        margin-top: -1px;
+    }
+
+    #docs {
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    #docs div {
+        border: 1px solid lightgrey;
+        padding-left: 10px;
+        padding-bottom: 15px;
+        background-color: #efe9e9;
+        border-radius: 10px;
+    }
+
+    #top-btn {
+        position: fixed;
+        left: 90%;
+        top: 80%;
+        background-color: #008CBA;
+        padding: 15px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    h6 {
+        color: grey;
+    }
+
+    #sidebar {
+        width: 240px;
+    }
+
+    #sidebar2 {
+        border: 1px solid lightgrey;
+    }
+
+    #sidebar ul {
+        border-radius: 10px;
+        padding: 0px 20px 20px;
+    }
+
+    #container {
+        display:flex;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .more-link {
+        background-color: lightblue;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        display:none;
+    }
+
+    input[type=checkbox] {
+        display:none;
+    }
+
+    @media (max-width: 700px) {
+        #container {
+            display: block;
         }
 
         #docs {
-            padding-left: 20px;
-            width: 100%;
+            padding-left: 0px;
         }
 
-        #docs div {
-            border: 1px solid lightgrey;
-            padding-left: 10px;
-            padding-bottom: 15px;
-            background-color: #efe9e9;
-            border-radius: 10px;
+        #docs * {
+            word-break: break-all;
         }
-        
+
         #top-btn {
-            position: fixed;
-            left: 90%;
-            top: 80%;
-            background-color: #008CBA;
-            padding: 15px;
-            color: #fff;
-            text-decoration: none;
-            border-radius: 5px;
-        }
-
-        h6 {
-            color: grey;
-        }
-
-        #sidebar {
-            width: 240px;
-        }
-
-        #sidebar2 {
-            border: 1px solid lightgrey;
-        }
-
-        #sidebar ul {
-            border-radius: 10px;
-            padding: 0px 20px 20px;
-        }
-
-        #container {
-            display:flex;
-        }
-
-        .section-title {
-            text-align: center;
+            left: 80%;
         }
 
         .more-link {
-            background-color: lightblue;
-            padding: 5px;
-            border-radius: 5px;
-            cursor: pointer;
+            display:block;
+        }
+
+        #sidebar {
+            width: 100%;
+            text-align: center;
+        }
+
+        #table-of-contents li {
             display:none;
         }
 
-        input[type=checkbox] {
+        #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
+            display: block;
+        }
+
+        #sidebar2 li {
             display:none;
         }
 
-        @media (max-width: 700px) {
-            #container {
-                display: block;
-            }
-
-            #docs {
-                padding-left: 0px;
-            }
-
-            #docs * {
-                word-break: break-all;
-            }
-
-            #top-btn {
-                left: 80%;
-            }
-
-            .more-link {
-                display:block;
-            }
-
-            #sidebar {
-                width: 100%;
-                text-align: center;
-            }
-
-            #table-of-contents li {
-                display:none;
-            }
-
-            #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
-                display: block;
-            }
-
-            #sidebar2 li {
-                display:none;
-            }
-
-            #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
-                display: block;
-            }
+        #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
+            display: block;
         }
-    </style>
-</head>
+}
+</style>
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
+    
     <h2>module : prelude</h2>
+
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
 
         <div id="container">
-
             <div id="sidebar">
                 <ul id="table-of-contents">
-                <h3 class="section-title">Table of contents</h6>
-                <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
-                <li class="more-link" id="btn-1">
-                    <label for="check-1">more</label>
-                    <input type="checkbox" id="check-1" />
-                </li>
+                    <h3 class="section-title">Table of contents</h6>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="noc-wiki.html">noc-wiki</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
+                    <li class="more-link" id="btn-1">
+                        <label for="check-1">more</label>
+                        <input type="checkbox" id="check-1" />
+                    </li>
                 </ul>
 
                 <ul id="sidebar2">
-                <h3 class="section-title">Functions</h3><li><a href="#[dup]">[dup]</a></li><li><a href="#[pop]">[pop]</a></li><li><a href="#[zap]">[zap]</a></li><li><a href="#[cat]">[cat]</a></li><li><a href="#[rotNM]">[rotNM]</a></li><li><a href="#[+]">[+]</a></li><li><a href="#[-]">[-]</a></li><li><a href="#[*]">[*]</a></li><li><a href="#[/]">[/]</a></li><li><a href="#[^]">[^]</a></li><li><a href="#[print]">[print]</a></li><li><a href="#[putstr]">[putstr]</a></li><li><a href="#[putchar]">[putchar]</a></li><li><a href="#[ask]">[ask]</a></li><li><a href="#[>]">[>]</a></li><li><a href="#[<]">[<]</a></li><li><a href="#[>=]">[>=]</a></li><li><a href="#[<=]">[<=]</a></li><li><a href="#[and]">[and]</a></li><li><a href="#[or]">[or]</a></li><li><a href="#[id]">[id]</a></li><li><a href="#[str]">[str]</a></li><li><a href="#[int]">[int]</a></li><li><a href="#[float]">[float]</a></li><li><a href="#[bool]">[bool]</a></li><li><a href="#[help]">[help]</a></li><li><a href="#[case]">[case]</a></li><li><a href="#[trace]">[trace]</a></li>
-                <li class="more-link" id="btn-2">
-                    <label for="check-2">more</label>
-                    <input type="checkbox" id="check-2" />
-                </li>
+                    <h3 class="section-title">Functions</h3><li><a href="#[dup]">[dup]</a></li><li><a href="#[pop]">[pop]</a></li><li><a href="#[zap]">[zap]</a></li><li><a href="#[cat]">[cat]</a></li><li><a href="#[rotNM]">[rotNM]</a></li><li><a href="#[+]">[+]</a></li><li><a href="#[-]">[-]</a></li><li><a href="#[*]">[*]</a></li><li><a href="#[/]">[/]</a></li><li><a href="#[^]">[^]</a></li><li><a href="#[print]">[print]</a></li><li><a href="#[putstr]">[putstr]</a></li><li><a href="#[putchar]">[putchar]</a></li><li><a href="#[ask]">[ask]</a></li><li><a href="#[>]">[>]</a></li><li><a href="#[<]">[<]</a></li><li><a href="#[>=]">[>=]</a></li><li><a href="#[<=]">[<=]</a></li><li><a href="#[and]">[and]</a></li><li><a href="#[or]">[or]</a></li><li><a href="#[id]">[id]</a></li><li><a href="#[str]">[str]</a></li><li><a href="#[int]">[int]</a></li><li><a href="#[float]">[float]</a></li><li><a href="#[bool]">[bool]</a></li><li><a href="#[help]">[help]</a></li><li><a href="#[case]">[case]</a></li><li><a href="#[trace]">[trace]</a></li>
+                    <li class="more-link" id="btn-2">
+                        <label for="check-2">more</label>
+                        <input type="checkbox" id="check-2" />
+                    </li>
                 </ul>
             </div>
             
-            <div id="docs"> 
-            <div id="[dup]"><h3>[dup]</h3>docstring for 'dup' function:<br>------------<br>Duplicate the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  dup => [1 2 2]</div><br><br><br><div id="[pop]"><h3>[pop]</h3>docstring for 'pop' function:<br>------------<br>Remove the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  pop => [1]</div><br><br><br><div id="[zap]"><h3>[zap]</h3>docstring for 'zap' function:<br>------------<br>Clear all the stack<br><br>(example)<br>  stack: [1 2 3]<br>  zap: []</div><br><br><br><div id="[cat]"><h3>[cat]</h3>docstring for 'cat' function:<br>------------<br>Concatenate 2 values (string and quotes)<br><br>(example)<br>  [1] [2] cat => [1 2]<br>  "Hello, " "World!" cat => "Hello, World!"</div><br><br><br><div id="[rotNM]"><h3>[rotNM]</h3>docstring for 'rotNM' function:<br>------------<br>Rotate the stack N elements M times<br><br>(example)<br>  stack: [1 2 3]<br>  2 1 rotNM => [1 3 2]<br>  3 -1 rotNM => [2 3 1]</div><br><br><br><div id="[+]"><h3>[+]</h3>docstring for '+' function:<br>------------<br>Sum of the 2 top-stack elements<br><br>(example)<br>  stack: [5 6]<br>  + => [11]</div><br><br><br><div id="[-]"><h3>[-]</h3>docstring for '-' function:<br>------------<br>Difference of the 2 top-stack elements<br><br>(example)<br>  stack: [10 9]<br>  - => [1]</div><br><br><br><div id="[*]"><h3>[*]</h3>docstring for '*' function:<br>------------<br>Product of the 2 top-stack elements<br><br>(example)<br>  stack: [20 0.5]<br>  * => [10.0]</div><br><br><br><div id="[/]"><h3>[/]</h3>docstring for '/' function:<br>------------<br>Quotient of the 2 top-stack elements<br><br>(example)<br>  stack: [10 2]<br>  / => [5.0]</div><br><br><br><div id="[^]"><h3>[^]</h3>docstring for '^' function:<br>------------<br>The exponent of a number<br><br>(example)<br>  stack: [10 2]<br>  ^ => [100]</div><br><br><br><div id="[print]"><h3>[print]</h3>docstring for 'print' function:<br>------------<br>Output a value (Standard output)<br><br>(example)<br>  "Hello, World!" print => "Hello, World!"<br>  => []</div><br><br><br><div id="[putstr]"><h3>[putstr]</h3>docstring for 'putstr' function:<br>------------<br>Output a string value (Standard output)<br><br>(example)<br>  "Hello!" putstr => Hello!<br>  => []</div><br><br><br><div id="[putchar]"><h3>[putchar]</h3>docstring for 'putchar' function:<br>------------<br>Output a char value (Standard output)<br><br>(example)<br>  'a' putchar => a=> []</div><br><br><br><div id="[ask]"><h3>[ask]</h3>docstring for 'ask' function:<br>------------<br>Read line from the standard input<br><br>(example)<br>  "Your name: " ask<br>  Your name: john<br>  => ["john"]</div><br><br><br><div id="[>]"><h3>[>]</h3>docstring for '>' function:<br>------------<br>Compare if the first value is greater than the second value<br><br>(example)<br>  stack: [5 6]<br>  > => [False]</div><br><br><br><div id="[<]"><h3>[<]</h3>docstring for '<' function:<br>------------<br>Compare if the first value is less than the second value<br><br>(example)<br>  stack: [5 6]<br>  < => [True]</div><br><br><br><div id="[>=]"><h3>[>=]</h3>docstring for '>=' function:<br>------------<br>Compare if the first value is greater or equal than the second value<br><br>(example)<br>  stack: [5 5]<br>  >= => [True]</div><br><br><br><div id="[<=]"><h3>[<=]</h3>docstring for '<=' function:<br>------------<br>Compare if the first value is less or equal than the second value<br><br>(example)<br>  stack: [4 5]<br>  <= => [True]</div><br><br><br><div id="[and]"><h3>[and]</h3>docstring for 'and' function:<br>------------<br>The 'AND' logic operator<br><br>(example)<br>  True True and => [True]</div><br><br><br><div id="[or]"><h3>[or]</h3>docstring for 'or' function:<br>------------<br>The 'OR' logic operator<br><br>(example)<br>  False False or => [False]</div><br><br><br><div id="[id]"><h3>[id]</h3>docstring for 'id' function:<br>------------<br>Get the top-stack element (does nothing)<br><br>(example)<br>  stack: [5]<br>  id => [5]</div><br><br><br><div id="[str]"><h3>[str]</h3>docstring for 'str' function:<br>------------<br>Type conversion<br><br>(example)<br>  5 str => ["5"]</div><br><br><br><div id="[int]"><h3>[int]</h3>docstring for 'int' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10" int => [10]</div><br><br><br><div id="[float]"><h3>[float]</h3>docstring for 'float' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10.5" float => [10.5]</div><br><br><br><div id="[bool]"><h3>[bool]</h3>docstring for 'bool' function:<br>------------<br>Convert a value to boolean value<br><br>(example)<br> 1 Bool => [True]</div><br><br><br><div id="[help]"><h3>[help]</h3>docstring for 'help' function:<br>------------<br>Get a function's doc-string<br><br>(example)<br> [pop] help putstr <br> Output: <br> docstring for 'pop' function: <br> ------------ <br> Remove the top-stack element<br><br> (example)<br>   stack: [1 2]<br>   pop => [1]</div><br><br><br><div id="[case]"><h3>[case]</h3>docstring for 'case' function:<br>------------<br>Pattern matching combinator<br><br>(example)<br> def fact = { <br>   [<br>     [[0] [pop 1]]<br>     [[_] [dup 1 - quote [dup] cat fact *]] # wildcard (match any pattern)<br>   ] case<br> }<br> <br> def main = { <br>   [6 dup] fact <br> }</div><br><br><br><div id="[trace]"><h3>[trace]</h3>docstring for 'trace' function:<br>------------<br>Trace the Noc stack<br><br>(example)<br> 1 2 3 trace + => stack: [1 5]<br> output: [1 2 3]</div><br><br><br>
-            </div>
+            <div id="docs"><div id="[dup]"><h3>[dup]</h3>docstring for 'dup' function:<br>------------<br>Duplicate the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  dup => [1 2 2]</div><br><br><div id="[pop]"><h3>[pop]</h3>docstring for 'pop' function:<br>------------<br>Remove the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  pop => [1]</div><br><br><div id="[zap]"><h3>[zap]</h3>docstring for 'zap' function:<br>------------<br>Clear all the stack<br><br>(example)<br>  stack: [1 2 3]<br>  zap: []</div><br><br><div id="[cat]"><h3>[cat]</h3>docstring for 'cat' function:<br>------------<br>Concatenate 2 values (string and quotes)<br><br>(example)<br>  [1] [2] cat => [1 2]<br>  "Hello, " "World!" cat => "Hello, World!"</div><br><br><div id="[rotNM]"><h3>[rotNM]</h3>docstring for 'rotNM' function:<br>------------<br>Rotate the stack N elements M times<br><br>(example)<br>  stack: [1 2 3]<br>  2 1 rotNM => [1 3 2]<br>  3 -1 rotNM => [2 3 1]</div><br><br><div id="[+]"><h3>[+]</h3>docstring for '+' function:<br>------------<br>Sum of the 2 top-stack elements<br><br>(example)<br>  stack: [5 6]<br>  + => [11]</div><br><br><div id="[-]"><h3>[-]</h3>docstring for '-' function:<br>------------<br>Difference of the 2 top-stack elements<br><br>(example)<br>  stack: [10 9]<br>  - => [1]</div><br><br><div id="[*]"><h3>[*]</h3>docstring for '*' function:<br>------------<br>Product of the 2 top-stack elements<br><br>(example)<br>  stack: [20 0.5]<br>  * => [10.0]</div><br><br><div id="[/]"><h3>[/]</h3>docstring for '/' function:<br>------------<br>Quotient of the 2 top-stack elements<br><br>(example)<br>  stack: [10 2]<br>  / => [5.0]</div><br><br><div id="[^]"><h3>[^]</h3>docstring for '^' function:<br>------------<br>The exponent of a number<br><br>(example)<br>  stack: [10 2]<br>  ^ => [100]</div><br><br><div id="[print]"><h3>[print]</h3>docstring for 'print' function:<br>------------<br>Output a value (Standard output)<br><br>(example)<br>  "Hello, World!" print => "Hello, World!"<br>  => []</div><br><br><div id="[putstr]"><h3>[putstr]</h3>docstring for 'putstr' function:<br>------------<br>Output a string value (Standard output)<br><br>(example)<br>  "Hello!" putstr => Hello!<br>  => []</div><br><br><div id="[putchar]"><h3>[putchar]</h3>docstring for 'putchar' function:<br>------------<br>Output a char value (Standard output)<br><br>(example)<br>  'a' putchar => a=> []</div><br><br><div id="[ask]"><h3>[ask]</h3>docstring for 'ask' function:<br>------------<br>Read line from the standard input<br><br>(example)<br>  "Your name: " ask<br>  Your name: john<br>  => ["john"]</div><br><br><div id="[>]"><h3>[>]</h3>docstring for '>' function:<br>------------<br>Compare if the first value is greater than the second value<br><br>(example)<br>  stack: [5 6]<br>  > => [False]</div><br><br><div id="[<]"><h3>[<]</h3>docstring for '<' function:<br>------------<br>Compare if the first value is less than the second value<br><br>(example)<br>  stack: [5 6]<br>  < => [True]</div><br><br><div id="[>=]"><h3>[>=]</h3>docstring for '>=' function:<br>------------<br>Compare if the first value is greater or equal than the second value<br><br>(example)<br>  stack: [5 5]<br>  >= => [True]</div><br><br><div id="[<=]"><h3>[<=]</h3>docstring for '<=' function:<br>------------<br>Compare if the first value is less or equal than the second value<br><br>(example)<br>  stack: [4 5]<br>  <= => [True]</div><br><br><div id="[and]"><h3>[and]</h3>docstring for 'and' function:<br>------------<br>The 'AND' logic operator<br><br>(example)<br>  True True and => [True]</div><br><br><div id="[or]"><h3>[or]</h3>docstring for 'or' function:<br>------------<br>The 'OR' logic operator<br><br>(example)<br>  False False or => [False]</div><br><br><div id="[id]"><h3>[id]</h3>docstring for 'id' function:<br>------------<br>Get the top-stack element (does nothing)<br><br>(example)<br>  stack: [5]<br>  id => [5]</div><br><br><div id="[str]"><h3>[str]</h3>docstring for 'str' function:<br>------------<br>Type conversion<br><br>(example)<br>  5 str => ["5"]</div><br><br><div id="[int]"><h3>[int]</h3>docstring for 'int' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10" int => [10]</div><br><br><div id="[float]"><h3>[float]</h3>docstring for 'float' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10.5" float => [10.5]</div><br><br><div id="[bool]"><h3>[bool]</h3>docstring for 'bool' function:<br>------------<br>Convert a value to boolean value<br><br>(example)<br> 1 Bool => [True]</div><br><br><div id="[help]"><h3>[help]</h3>docstring for 'help' function:<br>------------<br>Get a function's doc-string<br><br>(example)<br> [pop] help putstr <br> Output: <br> docstring for 'pop' function: <br> ------------ <br> Remove the top-stack element<br><br> (example)<br>   stack: [1 2]<br>   pop => [1]</div><br><br><div id="[case]"><h3>[case]</h3>docstring for 'case' function:<br>------------<br>Pattern matching combinator<br><br>(example)<br> def fact = { <br>   [<br>     [[0] [pop 1]]<br>     [[_] [dup 1 - quote [dup] cat fact *]] # wildcard (match any pattern)<br>   ] case<br> }<br> <br> def main = { <br>   [6 dup] fact <br> }</div><br><br><div id="[trace]"><h3>[trace]</h3>docstring for 'trace' function:<br>------------<br>Trace the Noc stack<br><br>(example)<br> 1 2 3 trace + => stack: [1 5]<br> output: [1 2 3]</div><br><br></div>
         </div>
     </div>
 
     <script>
-        function toggleMenu(button, menu, checkbox) {
+        let toggle = (button, menu, checkbox) => {
             button.addEventListener("click", () => {
                 for(let i = 3; i < menu.length-1; i++) {
                     if(checkbox.checked) {
@@ -207,15 +207,14 @@
                 }
             });
         }
-    
+
         let buttons = document.querySelectorAll(".more-link");
         let menu1 = document.querySelectorAll("#table-of-contents li");
         let menu2 = document.querySelectorAll("#sidebar2 li");
         let checkboxes = document.querySelectorAll("input[type=checkbox]");
 
-        toggleMenu(buttons[0], menu1, checkboxes[0]);
-        toggleMenu(buttons[1], menu2, checkboxes[1]);
+        toggle(buttons[0], menu1, checkboxes[0]);
+        toggle(buttons[1], menu2, checkboxes[1]);
     </script>
 </body>
 </html>
-    
