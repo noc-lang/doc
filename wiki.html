@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <title>library : wiki</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    * {
+        padding: 0;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 400;
+    }
+
+    body {
+        background-color: ligthgrey;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+    }
+
+    p > code {
+        background-color: #efe9e9;
+        padding: 1px;
+        border-radius: 5px;
+    }
+
+    blockquote p {
+        color: grey;
+        font-style: italic;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    li {
+        list-style: none;
+        word-break: break-all;
+        margin-top: 13px;
+    }
+
+    li a {
+        text-decoration: none;
+        color: rgb(63, 63, 63);
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+    li a:hover {
+        color: rgb(83, 83, 83);
+    }
+
+    #table-of-contents {
+        border: 1px solid lightgrey;
+        margin-top: -1px;
+    }
+
+    #docs {
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    #docs div {
+        border: 1px solid lightgrey;
+        padding-left: 10px;
+        padding-bottom: 11px;
+        background-color: #efe9e9;
+        border-radius: 10px;
+    }
+
+    #top-btn {
+        position: fixed;
+        left: 90%;
+        top: 80%;
+        background-color: #008CBA;
+        padding: 15px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    h6 {
+        color: grey;
+    }
+
+    #sidebar {
+        width: 240px;
+    }
+
+    #sidebar2 {
+        border: 1px solid lightgrey;
+    }
+
+    #sidebar ul {
+        border-radius: 10px;
+        padding: 0px 20px 20px;
+    }
+
+    #container {
+        display:flex;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .more-link {
+        background-color: lightblue;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        display:none;
+    }
+
+    input[type=checkbox] {
+        display:none;
+    }
+
+    @media (max-width: 700px) {
+        #container {
+            display: block;
+        }
+
+        #docs {
+            padding-left: 0px;
+        }
+
+        #docs * {
+            word-break: break-all;
+        }
+
+        #top-btn {
+            left: 80%;
+        }
+
+        .more-link {
+            display:block;
+        }
+
+        #sidebar {
+            width: 100%;
+            text-align: center;
+        }
+
+        #table-of-contents li {
+            display:none;
+        }
+
+        #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
+            display: block;
+        }
+
+        #sidebar2 li {
+            display:none;
+        }
+
+        #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
+            display: block;
+        }
+}
+</style>
+<body>
+    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
+    
+    <h2>library : wiki</h2>
+
+    <div>
+        <a id="top-btn" href="#start-of-page">Top</a>
+
+        <div id="container">
+            <div id="sidebar">
+                <ul id="table-of-contents">
+                    <h3 class="section-title">Table of contents</h6>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
+                    <li class="more-link" id="btn-1">
+                        <label for="check-1">more</label>
+                        <input type="checkbox" id="check-1" />
+                    </li>
+                </ul>
+
+                <ul id="sidebar2">
+                    <h3 class="section-title">Details</h3><li><b>Author:</b> mortim</li><li><b>Git repos: </b><a href="https://github.com/noc-lang/noc">https://github.com/noc-lang/noc</a></li>
+                    <li class="more-link" id="btn-2">
+                        <label for="check-2">more</label>
+                        <input type="checkbox" id="check-2" />
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="docs"><p>Welcome to the Noc Programming Language’s wiki.</p>
+<h2 id="noc-versions">Noc versions</h2>
+<p>To get Noc, check the <a href="installation.html">Installation guide</a>.</p>
+<h4 id="the-noc-latest-version">The Noc latest version</h4>
+<blockquote>
+<p>This version was rewritten partially (check this <a href="optimizations.html">section</a> in C to embark a VM and it’s not longer maintained, there are still some bugs or lack of features: - callstack not works with recursive functions calls - cannot format quotes - cannot operate big ints (Arbitrary precision integers)</p>
+</blockquote>
+<h4 id="the-noc-v0.1.0.0">The Noc v0.1.0.0</h4>
+<blockquote>
+<p>This version is more operational but slower than the latest version because it’s fully interpreted.</p>
+</blockquote>
+<h3 id="some-examples">Some examples</h3>
+<p>fact.noc</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> fact = {</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>   [</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>     [[<span class="dv">1</span>] []]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>     [[_] [dup <span class="dv">1</span> - dup fact *]]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>   ] <span class="kw">case</span></span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>   <span class="dv">6</span> dup fact print</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>}</span></code></pre></div>
+<p>greater-or-less.noc</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>load std:stack</span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>load std:bool</span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a><span class="kw">def</span> readInput = {<span class="st">&quot;Choose a number: &quot;</span> ask}</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a></span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a><span class="kw">def</span> mysteryNumber = { <span class="dv">45</span> }</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a><span class="kw">def</span> greaterOrLess = {</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a>    dup</span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a>    [</span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a>        [[mysteryNumber] [<span class="st">&quot;You won !&quot;</span> print]]</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>        [[_] [</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>            [<span class="st">&quot;Less!&quot;</span> print readInput <span class="dt">int</span> greaterOrLess] [<span class="st">&quot;Greater!&quot;</span> print readInput <span class="dt">int</span> greaterOrLess] <span class="dv">3</span> <span class="dv">-1</span> rotNM mysteryNumber &lt; <span class="kw">if</span> </span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>        ]]</span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a>    ] <span class="kw">case</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a>}</span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>    readInput <span class="dt">int</span> greaterOrLess</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a>}</span></code></pre></div>
+<p>caesar.noc</p>
+<div class="sourceCode" id="cb3"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>load seq</span>
+<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a>load std:string</span>
+<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="co">/* in the latest version the functions of the &#39;char&#39; module are integrated in the Noc Prelude */</span></span>
+<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>load <span class="dt">char</span></span>
+<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>load std:stack</span>
+<span id="cb3-6"><a href="#cb3-6" aria-hidden="true"></a>load std:io</span>
+<span id="cb3-7"><a href="#cb3-7" aria-hidden="true"></a>load sys</span>
+<span id="cb3-8"><a href="#cb3-8" aria-hidden="true"></a></span>
+<span id="cb3-9"><a href="#cb3-9" aria-hidden="true"></a><span class="kw">def</span> caesar = {</span>
+<span id="cb3-10"><a href="#cb3-10" aria-hidden="true"></a>    [</span>
+<span id="cb3-11"><a href="#cb3-11" aria-hidden="true"></a>        [[[cipher]] [</span>
+<span id="cb3-12"><a href="#cb3-12" aria-hidden="true"></a>                [ord swap dup <span class="dv">3</span> <span class="dv">-1</span> rotNM + chr swap] step</span>
+<span id="cb3-13"><a href="#cb3-13" aria-hidden="true"></a>            ]]</span>
+<span id="cb3-14"><a href="#cb3-14" aria-hidden="true"></a>        [[[decipher]] [</span>
+<span id="cb3-15"><a href="#cb3-15" aria-hidden="true"></a>                [ord swap dup <span class="dv">3</span> <span class="dv">-1</span> rotNM swap - chr swap] step</span>
+<span id="cb3-16"><a href="#cb3-16" aria-hidden="true"></a>            ]]</span>
+<span id="cb3-17"><a href="#cb3-17" aria-hidden="true"></a>        [[_] [<span class="st">&quot;error.&quot;</span> putstrln <span class="dv">1</span> exit]]</span>
+<span id="cb3-18"><a href="#cb3-18" aria-hidden="true"></a>    ] <span class="kw">case</span></span>
+<span id="cb3-19"><a href="#cb3-19" aria-hidden="true"></a></span>
+<span id="cb3-20"><a href="#cb3-20" aria-hidden="true"></a>    popr pop swap quote swap &lt;&gt; tostr</span>
+<span id="cb3-21"><a href="#cb3-21" aria-hidden="true"></a>}</span>
+<span id="cb3-22"><a href="#cb3-22" aria-hidden="true"></a></span>
+<span id="cb3-23"><a href="#cb3-23" aria-hidden="true"></a><span class="kw">def</span> encrypt = {</span>
+<span id="cb3-24"><a href="#cb3-24" aria-hidden="true"></a>    [cipher] caesar</span>
+<span id="cb3-25"><a href="#cb3-25" aria-hidden="true"></a>}</span>
+<span id="cb3-26"><a href="#cb3-26" aria-hidden="true"></a></span>
+<span id="cb3-27"><a href="#cb3-27" aria-hidden="true"></a><span class="kw">def</span> decrypt = {</span>
+<span id="cb3-28"><a href="#cb3-28" aria-hidden="true"></a>    [decipher] caesar</span>
+<span id="cb3-29"><a href="#cb3-29" aria-hidden="true"></a>}</span>
+<span id="cb3-30"><a href="#cb3-30" aria-hidden="true"></a></span>
+<span id="cb3-31"><a href="#cb3-31" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
+<span id="cb3-32"><a href="#cb3-32" aria-hidden="true"></a>    <span class="co">/* [offset] [msg in array of chars] [encrypt/decrypt] */</span></span>
+<span id="cb3-33"><a href="#cb3-33" aria-hidden="true"></a>    <span class="dv">3</span> <span class="st">&quot;Hello&quot;</span>$ encrypt print</span>
+<span id="cb3-34"><a href="#cb3-34" aria-hidden="true"></a>    <span class="dv">3</span> <span class="st">&quot;Khoor&quot;</span>$ decrypt print</span>
+<span id="cb3-35"><a href="#cb3-35" aria-hidden="true"></a>}</span></code></pre></div>
+<h2 id="features">Features</h2>
+<ul>
+<li>Stack-based language</li>
+<li>An embbeded REPL <strong>(only v0.1.0.0)</strong></li>
+<li>Running in VM <strong>(only the latest version)</strong></li>
+<li>A list of combinators for the stack manipulation</li>
+<li>Typed dynamically</li>
+<li>Homoiconic (quotes)</li>
+<li>Provides a module system</li>
+<li>Includes a STD (Standard Library)</li>
+<li>Pattern matching</li>
+</ul>
+</div>
+        </div>
+    </div>
+
+    <script>
+        let toggle = (button, menu, checkbox) => {
+            button.addEventListener("click", () => {
+                for(let i = 3; i < menu.length-1; i++) {
+                    if(checkbox.checked) {
+                        menu[i].style.display = "block";
+                    } else {
+                        menu[i].style.display = "none";
+                    }
+                }
+            });
+        }
+
+        let buttons = document.querySelectorAll(".more-link");
+        let menu1 = document.querySelectorAll("#table-of-contents li");
+        let menu2 = document.querySelectorAll("#sidebar2 li");
+        let checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+        toggle(buttons[0], menu1, checkboxes[0]);
+        toggle(buttons[1], menu2, checkboxes[1]);
+    </script>
+</body>
+</html>
