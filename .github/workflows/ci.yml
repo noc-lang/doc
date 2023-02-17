@@ -26,8 +26,8 @@ jobs:
     - uses: actions/checkout@v3
       with:
         submodules: 'true'
-    - run: ./run_build.sh
-      name: Generate the documentation with the nocdoc tool
+    - run: ./setup_doc.sh
+      name: Setup the Noc documentation (Convert the Markdown snippets in HTML with pandoc and build the Noc documentation with nocdoc)
     
     # Deploy the Noc documentation
     - uses: peaceiris/actions-gh-pages@v3

@@ -2,7 +2,7 @@ def tableOfContentsLibrary = {
     [
         [ "Overview" 
             [ "index.html"
-               "noc-wiki.html" ]]
+               "wiki.html" ]]
 
         [ "Internal"
             [ "prelude.html"
@@ -28,7 +28,7 @@ def tableOfContentsWiki = {
     [
         [ "Overview" 
             [ "index.html" 
-              "noc-wiki.html" ]]
+              "wiki.html" ]]
 
         [ "Introduction"
             [ "concatenative-programming.html" ]] 

@@ -1,8 +1,10 @@
 load nocdoc/nocdoc.noc
 load doc/library.noc
 load doc/wiki/wiki.noc
+load docs_utils.noc
 
 def main = {
+    "index" putVerbose
     libInfo generateHomePage
     libFunctions generateModules
     wikiInfo generateHomePage
