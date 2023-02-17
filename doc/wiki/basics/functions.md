@@ -1,8 +1,6 @@
 We can declare a function like this:
 
-```
-def function = { atom1 atom2 ... atomN }
-```
+``def function = { atom1 atom2 ... atomN }``
 
 Example:
 
