@@ -193,32 +193,32 @@
             </div>
             
             <div id="docs"><p>We can declare a function like this:</p>
-<pre><code>def function = { atom1 atom2 ... atomN }</code></pre>
+<p><code>def function = { atom1 atom2 ... atomN }</code></p>
 <p>Example:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>noc&gt; <span class="kw">def</span> square = {dup *}</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>noc&gt; <span class="dv">5</span> square</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>=&gt; [<span class="dv">25</span>]</span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>noc&gt; zap</span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>noc&gt; <span class="kw">def</span> number = {<span class="dv">6</span>} # We define a constant</span>
-<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>noc&gt; number square</span>
-<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>=&gt; [<span class="dv">36</span>]</span></code></pre></div>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>noc&gt; <span class="kw">def</span> square = {dup *}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>noc&gt; <span class="dv">5</span> square</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>=&gt; [<span class="dv">25</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>noc&gt; zap</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>noc&gt; <span class="kw">def</span> number = {<span class="dv">6</span>} # We define a constant</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>noc&gt; number square</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>=&gt; [<span class="dv">36</span>]</span></code></pre></div>
 <p>It’s like the substitution, when we called the declared function, in fact it give this:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>noc&gt; <span class="dv">5</span> dup *</span></code></pre></div>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>noc&gt; <span class="dv">5</span> dup *</span></code></pre></div>
 <p>We can also declare a function like this:</p>
 <pre><code>def (function) = { atom1 atom2 ... atomN }</code></pre>
 <p>It’s useful for have a better syntax to define operators.</p>
 <h5 id="source-stdstring.noc">Source: <a href="https://github.com/noc-lang/noc/blob/master/std/string.noc#L7">std/string.noc</a></h5>
-<div class="sourceCode" id="cb5"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="kw">def</span> ($) = {</span>
-<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>    ---</span>
-<span id="cb5-3"><a href="#cb5-3" aria-hidden="true"></a>    Convert a string to a quote of chars</span>
-<span id="cb5-4"><a href="#cb5-4" aria-hidden="true"></a>    (example)</span>
-<span id="cb5-5"><a href="#cb5-5" aria-hidden="true"></a>    <span class="st">&quot;abc&quot;</span> $ =&gt; [<span class="ch">&#39;a&#39;</span> <span class="ch">&#39;b&#39;</span> <span class="ch">&#39;c&#39;</span>]</span>
-<span id="cb5-6"><a href="#cb5-6" aria-hidden="true"></a>    ---</span>
-<span id="cb5-7"><a href="#cb5-7" aria-hidden="true"></a>    chars</span>
-<span id="cb5-8"><a href="#cb5-8" aria-hidden="true"></a>}</span></code></pre></div>
+<div class="sourceCode" id="cb4"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">def</span> ($) = {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    ---</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    Convert a string to a quote of chars</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    (example)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    <span class="st">&quot;abc&quot;</span> $ =&gt; [<span class="ch">&#39;a&#39;</span> <span class="ch">&#39;b&#39;</span> <span class="ch">&#39;c&#39;</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    ---</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    chars</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>}</span></code></pre></div>
 <p>When we declare a function, the function is pushed in the env. And we can access to this env with the 'env' command:</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a>noc&gt; :env</span>
-<span id="cb6-2"><a href="#cb6-2" aria-hidden="true"></a>square: [dup *],</span></code></pre></div>
+<div class="sourceCode" id="cb5"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>noc&gt; :env</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>square: [dup *],</span></code></pre></div>
 </div>
         </div>
     </div>
