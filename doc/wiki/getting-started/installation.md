@@ -28,7 +28,7 @@ make install
 
 There is a tool written in Noc to generate the documentation ([nocdoc](https://github.com/noc-lang/nocdoc))
 
-You can build the documentation with the Makefile, but you have to have to install in the first place the pandoc tool to convert some Markdown snippets in HTML.
+You can build the documentation with the Makefile, but you have to install in the first place the pandoc tool to convert some Markdown snippets in HTML.
 
 ```sh
 make build_doc
