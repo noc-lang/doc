@@ -9,7 +9,7 @@ Pre-requisite:
 
 ```
 git clone --recursive https://github.com/noc-lang/docs && cd docs
-./run_build.sh
+./setup_doc.sh
 ```
 
 All HTML files are generated in a ``noc_documentation`` folder.
