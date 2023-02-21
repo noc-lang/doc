@@ -1,14 +1,16 @@
-A basic documentation generator for the [Noc language programming language](https://github.com/noc-lang/noc) written in Noc.
+A basic documentation generator for the [Noc Programming Language](https://github.com/noc-lang/noc) written in Noc.
 
-- Check how to build locally the Noc manual, [here](https://github.com/noc-lang).
+> Check [this](https://noc-lang.github.io/manual/installation.html#building-locally-the-noc-manual-only-the-v0.1.0.0) page if you want to build locally the Noc Manual
 
-or if you want to document your own Noc functions:
+### Document your own Noc functions
 
 ```
 git clone https://github.com/noc-lang/nocdoc
 ```
 
 then you have to create a Noc file out of the nocdoc repos:
+
+#### Example
 
 ```scala
 load nocdoc/nocdoc.noc
