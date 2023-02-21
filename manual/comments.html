@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>wiki : hello-world</title>
+    <title>wiki : comments</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
     <link rel="stylesheet" href="style.css" />
@@ -167,7 +167,7 @@
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     
-    <h2>wiki : hello-world</h2>
+    <h2>wiki : comments</h2>
 
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -176,7 +176,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                     <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="library/index.html">library/index</a></li><li><a href="nocdoc/index.html">nocdoc/index</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
                     <li class="more-link" id="btn-1">
                         <label for="check-1">more</label>
                         <input type="checkbox" id="check-1" />
@@ -192,23 +192,23 @@
                 </ul>
             </div>
             
-            <div id="docs"><p>Now, Noc is installed so we can run programs. We are going to start with the “Hello,World” program.</p>
-<h3 id="writing-and-running-a-noc-program">Writing and Running a Noc program</h3>
-<p>Enter this following code in the hello-world.noc</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="st">&quot;Hello, Noc!&quot;</span> print</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span></code></pre></div>
-<p>it prints <code>"Hello, Noc!"</code></p>
-<p>Save the file and run the noc file like this:</p>
-<pre><code>$ noc hello-world.noc
-&quot;Hello, Noc!&quot;</code></pre>
-<h3 id="anatomy-of-a-noc-program">Anatomy of a Noc program</h3>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a>}</span></code></pre></div>
-<p>We declare a ‘main’ function, this function is the first function that’s executed by Noc. Nothing (except comments but it’s ignored in parsing) is in the top-level, we write programs in functions. (see <a href="https://en.wikipedia.org/wiki/Function-level_programming">function-level</a>).</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="st">&quot;Hello, Noc!&quot;</span> print</span></code></pre></div>
-<p>And the ‘print’ function allows to print the text <code>"Hello, World!"</code> in the screen.</p>
+            <div id="docs"><p>Previously, we used the Noc CLI in the <a href="hello-world.html">Hello, World!</a> chapter, now we are going to use the comments in a Noc program.</p>
+<p>We can create simple comments like this:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> square = {dup *}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a></span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>  # Output: [<span class="dv">25</span>]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  <span class="dv">5</span> square</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>  print</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span></code></pre></div>
+<p>or multiline comments:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="co">/*</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a><span class="co">Hello World in Noc !</span></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="co">*/</span></span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a></span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>  <span class="st">&quot;Hello,World!&quot;</span> print</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>}</span></code></pre></div>
 </div>
         </div>
     </div>

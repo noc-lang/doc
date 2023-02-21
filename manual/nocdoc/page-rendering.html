@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>wiki : docstring</title>
+    <title>module : page-rendering</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
     <link rel="stylesheet" href="style.css" />
@@ -167,7 +167,7 @@
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     
-    <h2>wiki : docstring</h2>
+    <h2>module : page-rendering</h2>
 
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -176,7 +176,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                     <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../library/index.html">../library/index</a></li></ul></li><li>Functions<ul><li><a href="page-rendering.html">page-rendering</a></li><li><a href="generate-page.html">generate-page</a></li></ul></li><li>Reference<ul><li><a href="constants.html">constants</a></li></ul></li>
                     <li class="more-link" id="btn-1">
                         <label for="check-1">more</label>
                         <input type="checkbox" id="check-1" />
@@ -184,7 +184,7 @@
                 </ul>
 
                 <ul id="sidebar2">
-                    <h3 class="section-title">Details</h3><li><b>Author:</b> mortim</li><li><b>Git repos: </b><a href="https://github.com/noc-lang/noc">https://github.com/noc-lang/noc</a></li>
+                    <h3 class="section-title">Functions</h3><li><a href="#[formatHTML]">[formatHTML]</a></li><li><a href="#[renderHomePage]">[renderHomePage]</a></li><li><a href="#[renderModule]">[renderModule]</a></li><li><a href="#[renderWikiPage]">[renderWikiPage]</a></li>
                     <li class="more-link" id="btn-2">
                         <label for="check-2">more</label>
                         <input type="checkbox" id="check-2" />
@@ -192,35 +192,7 @@
                 </ul>
             </div>
             
-            <div id="docs"><p>We can document all the functions that we have declared</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> foo = {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  ---</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>  Prints <span class="st">&quot;Foo!&quot;</span></span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>  ---</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>  <span class="st">&quot;Foo!&quot;</span> print</span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span></code></pre></div>
-<p>And thanks to the ‘help’ function we can print the function’s docstring..</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>  [foo] help putstr</span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>}</span></code></pre></div>
-<p>Output:</p>
-<pre><code>docstring for &#39;foo&#39; function:
-------------
-Prints &quot;Foo!&quot;</code></pre>
-<p>We can also print the prelude functions's docstring with help</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>  [pop] help putstr</span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>}</span></code></pre></div>
-<p>Output:</p>
-<pre><code>docstring for &#39;pop&#39; function:
-------------
-Remove the top-stack element
-
-(example)
-  stack: [1 2]
-  pop =&gt; [1]</code></pre>
-</div>
+            <div id="docs"><div id="[formatHTML]"><h3>[formatHTML]</h3>docstring for 'formatHTML' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L9">github.com/noc-lang/nocdoc/nocdoc.noc#formatHTML</a><br><br>    Format some website blocks in HTML<br><br>    Syntax: [const] formatHTML => "html_content"<br>        consts:<br>            - <a href="constants.html#[TABLE_OF_CONTENTS_SIDEBAR]">TABLE_OF_CONTENTS_SIDEBAR</a><br>            - <a href="constants.html#[TABLE_OF_CONTENTS_LINKS]">TABLE_OF_CONTENTS_LINKS</a><br>            - <a href="constants.html#[DETAILS_SIDEBAR]">DETAILS_SIDEBAR</a><br>            - <a href="constants.html#[FUNCTIONS_SIDEBAR]">FUNCTIONS_SIDEBAR</a><br>            - <a href="constants.html#[NOC_FUNCTIONS_DOCUMENTATION]">NOC_FUNCTIONS_DOCUMENTATION</a><br>            - <a href="constants.html#[PAGE]">PAGE</a></div><br><br><div id="[renderHomePage]"><h3>[renderHomePage]</h3>docstring for 'renderHomePage' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L108">github.com/noc-lang/nocdoc/nocdoc.noc#renderHomePage</a><br><br>    Render the homepage in HTML format string<br><br>    Syntax: info renderHomePage => "name.html" "html_content"<br>        info -> ["name" "author" [desc] "url_git" table_of_contents]</div><br><br><div id="[renderModule]"><h3>[renderModule]</h3>docstring for 'renderModule' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L157">github.com/noc-lang/nocdoc/nocdoc.noc#renderModule</a><br><br>    Render the Noc module in HTML format string<br><br>    Syntax: info functions "module_name" renderModule => "module_name.html" "html_content"<br>        info -> ["name" "author" [desc] "url_git" table_of_contents]<br>        functions -> [[func_a] [func_b] ...]</div><br><br><div id="[renderWikiPage]"><h3>[renderWikiPage]</h3>docstring for 'renderWikiPage' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L201">github.com/noc-lang/nocdoc/nocdoc.noc#renderWikiPage</a><br><br>    Render the Noc wiki in HTML format string<br><br>    Syntax: wikiInfo wikiPage "wiki_page_name" renderModule => "wiki_page_name.html" "html_content"<br>        wikiInfo -> ["name" "author" "desc" "url_git" table_of_contents]<br>        wikiPage -> content page in HTML</div><br><br></div>
         </div>
     </div>
 

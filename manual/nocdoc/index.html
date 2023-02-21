@@ -1,0 +1,309 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <title>homepage : nocdoc</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    * {
+        padding: 0;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 400;
+    }
+
+    body {
+        background-color: ligthgrey;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+    }
+
+    p > code {
+        background-color: #efe9e9;
+        padding: 1px;
+        border-radius: 5px;
+    }
+
+    blockquote p {
+        color: grey;
+        font-style: italic;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    li {
+        list-style: none;
+        word-break: break-all;
+        margin-top: 13px;
+    }
+
+    li a {
+        text-decoration: none;
+        color: rgb(63, 63, 63);
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+    li a:hover {
+        color: rgb(83, 83, 83);
+    }
+
+    #table-of-contents {
+        border: 1px solid lightgrey;
+        margin-top: -1px;
+    }
+
+    #docs {
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    #docs div {
+        border: 1px solid lightgrey;
+        padding-left: 10px;
+        padding-bottom: 11px;
+        background-color: #efe9e9;
+        border-radius: 10px;
+    }
+
+    #top-btn {
+        position: fixed;
+        left: 90%;
+        top: 80%;
+        background-color: #008CBA;
+        padding: 15px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    h6 {
+        color: grey;
+    }
+
+    #sidebar {
+        width: 240px;
+    }
+
+    #sidebar2 {
+        border: 1px solid lightgrey;
+    }
+
+    #sidebar ul {
+        border-radius: 10px;
+        padding: 0px 20px 20px;
+    }
+
+    #container {
+        display:flex;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .more-link {
+        background-color: lightblue;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        display:none;
+    }
+
+    input[type=checkbox] {
+        display:none;
+    }
+
+    @media (max-width: 700px) {
+        #container {
+            display: block;
+        }
+
+        #docs {
+            padding-left: 0px;
+        }
+
+        #docs * {
+            word-break: break-all;
+        }
+
+        #top-btn {
+            left: 80%;
+        }
+
+        .more-link {
+            display:block;
+        }
+
+        #sidebar {
+            width: 100%;
+            text-align: center;
+        }
+
+        #table-of-contents li {
+            display:none;
+        }
+
+        #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
+            display: block;
+        }
+
+        #sidebar2 li {
+            display:none;
+        }
+
+        #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
+            display: block;
+        }
+}
+</style>
+<body>
+    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
+    
+    <h2>homepage : nocdoc</h2>
+
+    <div>
+        <a id="top-btn" href="#start-of-page">Top</a>
+
+        <div id="container">
+            <div id="sidebar">
+                <ul id="table-of-contents">
+                    <h3 class="section-title">Table of contents</h6>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../library/index.html">../library/index</a></li></ul></li><li>Functions<ul><li><a href="page-rendering.html">page-rendering</a></li><li><a href="generate-page.html">generate-page</a></li></ul></li><li>Reference<ul><li><a href="constants.html">constants</a></li></ul></li>
+                    <li class="more-link" id="btn-1">
+                        <label for="check-1">more</label>
+                        <input type="checkbox" id="check-1" />
+                    </li>
+                </ul>
+
+                <ul id="sidebar2">
+                    <h3 class="section-title">Details</h3><li><b>Author:</b> mortim</li><li><b>Git repos: </b><a href="https://github.com/noc-lang/nocdoc">https://github.com/noc-lang/nocdoc</a></li>
+                    <li class="more-link" id="btn-2">
+                        <label for="check-2">more</label>
+                        <input type="checkbox" id="check-2" />
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="docs"><p>A basic documentation generator for the <a href="https://github.com/noc-lang/noc">Noc language programming language</a> written in Noc.</p>
+<ul>
+<li>Check how to build locally the Noc manual, <a href="https://github.com/noc-lang">here</a>.</li>
+</ul>
+<p>or if you want to document your own Noc functions:</p>
+<pre><code>git clone https://github.com/noc-lang/nocdoc</code></pre>
+<p>then you have to create a Noc file out of the nocdoc repos:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>load nocdoc/nocdoc.<span class="fu">noc</span></span>
+<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a></span>
+<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a><span class="kw">def</span> randomFunction1 = {</span>
+<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>    ---</span>
+<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>    docstring...</span>
+<span id="cb2-6"><a href="#cb2-6" aria-hidden="true"></a>    ---</span>
+<span id="cb2-7"><a href="#cb2-7" aria-hidden="true"></a>    <span class="co">/* some code... */</span></span>
+<span id="cb2-8"><a href="#cb2-8" aria-hidden="true"></a>}</span>
+<span id="cb2-9"><a href="#cb2-9" aria-hidden="true"></a></span>
+<span id="cb2-10"><a href="#cb2-10" aria-hidden="true"></a><span class="co">/* The documented functions can be linked with this id in HTML &#39;[name_function]&#39; (ex: &quot;#[randomFunction1]&quot;) */</span></span>
+<span id="cb2-11"><a href="#cb2-11" aria-hidden="true"></a><span class="kw">def</span> moduleFunctions = {</span>
+<span id="cb2-12"><a href="#cb2-12" aria-hidden="true"></a>    [</span>
+<span id="cb2-13"><a href="#cb2-13" aria-hidden="true"></a>        [randomFunction1]</span>
+<span id="cb2-14"><a href="#cb2-14" aria-hidden="true"></a>        <span class="co">/*</span></span>
+<span id="cb2-15"><a href="#cb2-15" aria-hidden="true"></a><span class="co">        ...</span></span>
+<span id="cb2-16"><a href="#cb2-16" aria-hidden="true"></a><span class="co">        [randomFunctionN]</span></span>
+<span id="cb2-17"><a href="#cb2-17" aria-hidden="true"></a><span class="co">        */</span></span>
+<span id="cb2-18"><a href="#cb2-18" aria-hidden="true"></a>    ]</span>
+<span id="cb2-19"><a href="#cb2-19" aria-hidden="true"></a>}</span>
+<span id="cb2-20"><a href="#cb2-20" aria-hidden="true"></a></span>
+<span id="cb2-21"><a href="#cb2-21" aria-hidden="true"></a><span class="kw">def</span> wikiPage1 = {</span>
+<span id="cb2-22"><a href="#cb2-22" aria-hidden="true"></a>    <span class="st">&quot;</span></span>
+<span id="cb2-23"><a href="#cb2-23" aria-hidden="true"></a>    HTML content...</span>
+<span id="cb2-24"><a href="#cb2-24" aria-hidden="true"></a>    <span class="st">&quot;</span></span>
+<span id="cb2-25"><a href="#cb2-25" aria-hidden="true"></a>}</span>
+<span id="cb2-26"><a href="#cb2-26" aria-hidden="true"></a></span>
+<span id="cb2-27"><a href="#cb2-27" aria-hidden="true"></a><span class="co">/* Doc generation */</span></span>
+<span id="cb2-28"><a href="#cb2-28" aria-hidden="true"></a></span>
+<span id="cb2-29"><a href="#cb2-29" aria-hidden="true"></a><span class="co">/* library info */</span></span>
+<span id="cb2-30"><a href="#cb2-30" aria-hidden="true"></a><span class="co">/* IMPORTANT: You have to keep the same order */</span></span>
+<span id="cb2-31"><a href="#cb2-31" aria-hidden="true"></a><span class="kw">def</span> libInfo = {</span>
+<span id="cb2-32"><a href="#cb2-32" aria-hidden="true"></a>    [</span>
+<span id="cb2-33"><a href="#cb2-33" aria-hidden="true"></a>        <span class="st">&quot;library_name&quot;</span></span>
+<span id="cb2-34"><a href="#cb2-34" aria-hidden="true"></a>        <span class="st">&quot;author&quot;</span></span>
+<span id="cb2-35"><a href="#cb2-35" aria-hidden="true"></a>        <span class="co">/* or load std:fs and [&quot;file_desc&quot; read] */</span></span>
+<span id="cb2-36"><a href="#cb2-36" aria-hidden="true"></a>        [<span class="st">&quot;library_description in HTML...&quot;</span>]</span>
+<span id="cb2-37"><a href="#cb2-37" aria-hidden="true"></a>        <span class="st">&quot;git repos url&quot;</span></span>
+<span id="cb2-38"><a href="#cb2-38" aria-hidden="true"></a>        <span class="co">/* Table of contents */</span></span>
+<span id="cb2-39"><a href="#cb2-39" aria-hidden="true"></a>        [</span>
+<span id="cb2-40"><a href="#cb2-40" aria-hidden="true"></a>            [ <span class="st">&quot;overview&quot;</span></span>
+<span id="cb2-41"><a href="#cb2-41" aria-hidden="true"></a>              [ <span class="st">&quot;library_name.html&quot;</span></span>
+<span id="cb2-42"><a href="#cb2-42" aria-hidden="true"></a>                <span class="st">&quot;wiki_name.html&quot;</span> ]]</span>
+<span id="cb2-43"><a href="#cb2-43" aria-hidden="true"></a></span>
+<span id="cb2-44"><a href="#cb2-44" aria-hidden="true"></a>            [ <span class="st">&quot;modules&quot;</span></span>
+<span id="cb2-45"><a href="#cb2-45" aria-hidden="true"></a>              [ <span class="st">&quot;random_module.html&quot;</span> ]]</span>
+<span id="cb2-46"><a href="#cb2-46" aria-hidden="true"></a>        ]</span>
+<span id="cb2-47"><a href="#cb2-47" aria-hidden="true"></a>    ]</span>
+<span id="cb2-48"><a href="#cb2-48" aria-hidden="true"></a>}</span>
+<span id="cb2-49"><a href="#cb2-49" aria-hidden="true"></a></span>
+<span id="cb2-50"><a href="#cb2-50" aria-hidden="true"></a><span class="co">/* wiki info */</span></span>
+<span id="cb2-51"><a href="#cb2-51" aria-hidden="true"></a><span class="kw">def</span> wikiInfo = {</span>
+<span id="cb2-52"><a href="#cb2-52" aria-hidden="true"></a>    [</span>
+<span id="cb2-53"><a href="#cb2-53" aria-hidden="true"></a>        <span class="st">&quot;wiki_name&quot;</span></span>
+<span id="cb2-54"><a href="#cb2-54" aria-hidden="true"></a>        <span class="st">&quot;author&quot;</span></span>
+<span id="cb2-55"><a href="#cb2-55" aria-hidden="true"></a>        <span class="co">/* or load std:fs and [&quot;file_desc&quot; read] */</span></span>
+<span id="cb2-56"><a href="#cb2-56" aria-hidden="true"></a>        [<span class="st">&quot;wiki_description in HTML...&quot;</span>]</span>
+<span id="cb2-57"><a href="#cb2-57" aria-hidden="true"></a>        <span class="st">&quot;git repos url&quot;</span></span>
+<span id="cb2-58"><a href="#cb2-58" aria-hidden="true"></a>        <span class="co">/* Table of contents */</span></span>
+<span id="cb2-59"><a href="#cb2-59" aria-hidden="true"></a>        [</span>
+<span id="cb2-60"><a href="#cb2-60" aria-hidden="true"></a>            [ <span class="st">&quot;overview&quot;</span></span>
+<span id="cb2-61"><a href="#cb2-61" aria-hidden="true"></a>              [ <span class="st">&quot;library_name.html&quot;</span></span>
+<span id="cb2-62"><a href="#cb2-62" aria-hidden="true"></a>                <span class="st">&quot;wiki_name.html&quot;</span> ]]</span>
+<span id="cb2-63"><a href="#cb2-63" aria-hidden="true"></a>        </span>
+<span id="cb2-64"><a href="#cb2-64" aria-hidden="true"></a>            [ <span class="st">&quot;wiki&quot;</span></span>
+<span id="cb2-65"><a href="#cb2-65" aria-hidden="true"></a>              [ <span class="st">&quot;wiki_page_name.html&quot;</span> ]]</span>
+<span id="cb2-66"><a href="#cb2-66" aria-hidden="true"></a>        ]</span>
+<span id="cb2-67"><a href="#cb2-67" aria-hidden="true"></a>    ]</span>
+<span id="cb2-68"><a href="#cb2-68" aria-hidden="true"></a>}</span>
+<span id="cb2-69"><a href="#cb2-69" aria-hidden="true"></a></span>
+<span id="cb2-70"><a href="#cb2-70" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
+<span id="cb2-71"><a href="#cb2-71" aria-hidden="true"></a>    <span class="co">/* (library_info|wiki_info) generateHomePage */</span></span>
+<span id="cb2-72"><a href="#cb2-72" aria-hidden="true"></a>    <span class="co">/* library_info documented_functions module_name generateModule */</span></span>
+<span id="cb2-73"><a href="#cb2-73" aria-hidden="true"></a>    <span class="co">/* wiki_info html_content wiki_page_name generateWikiPage */</span></span>
+<span id="cb2-74"><a href="#cb2-74" aria-hidden="true"></a>    </span>
+<span id="cb2-75"><a href="#cb2-75" aria-hidden="true"></a>    <span class="co">/* example */</span></span>
+<span id="cb2-76"><a href="#cb2-76" aria-hidden="true"></a>    <span class="co">/* A HTML file is generated by these functions */</span></span>
+<span id="cb2-77"><a href="#cb2-77" aria-hidden="true"></a>    libInfo generateHomePage</span>
+<span id="cb2-78"><a href="#cb2-78" aria-hidden="true"></a>    wikiInfo generateHomePage</span>
+<span id="cb2-79"><a href="#cb2-79" aria-hidden="true"></a>    libInfo moduleFunctions <span class="st">&quot;random_module&quot;</span> generateModule</span>
+<span id="cb2-80"><a href="#cb2-80" aria-hidden="true"></a>    wikiInfo wikiPage1 <span class="st">&quot;wiki_page_name&quot;</span> generateWikiPage</span>
+<span id="cb2-81"><a href="#cb2-81" aria-hidden="true"></a>}</span></code></pre></div>
+</div>
+        </div>
+    </div>
+
+    <script>
+        let toggle = (button, menu, checkbox) => {
+            button.addEventListener("click", () => {
+                for(let i = 3; i < menu.length-1; i++) {
+                    if(checkbox.checked) {
+                        menu[i].style.display = "block";
+                    } else {
+                        menu[i].style.display = "none";
+                    }
+                }
+            });
+        }
+
+        let buttons = document.querySelectorAll(".more-link");
+        let menu1 = document.querySelectorAll("#table-of-contents li");
+        let menu2 = document.querySelectorAll("#sidebar2 li");
+        let checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+        toggle(buttons[0], menu1, checkboxes[0]);
+        toggle(buttons[1], menu2, checkboxes[1]);
+    </script>
+</body>
+</html>

@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>wiki : optimizations</title>
+    <title>wiki : concatenative-programming</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
     <link rel="stylesheet" href="style.css" />
@@ -167,7 +167,7 @@
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     
-    <h2>wiki : optimizations</h2>
+    <h2>wiki : concatenative-programming</h2>
 
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -176,7 +176,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                     <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="library/index.html">library/index</a></li><li><a href="nocdoc/index.html">nocdoc/index</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
                     <li class="more-link" id="btn-1">
                         <label for="check-1">more</label>
                         <input type="checkbox" id="check-1" />
@@ -192,46 +192,17 @@
                 </ul>
             </div>
             
-            <div id="docs"><p>In the latest version, Noc runs in a virtual machine written in C, this feature was implemented in order to earn performances, reduce time execution.</p>
-<p>Here is the Noc codebase:</p>
-<ul>
-<li><a href="https://github.com/noc-lang/noc/blob/master/app/Command/CLI.hs">CLI</a> (written in Haskell)</li>
-<li><a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Syntax/AST.hs">Parser</a>/<a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Syntax/Lexer.hs">Lexer</a> (written in Haskell)</li>
-<li>Pre-compilation (written in Haskell)
-<ul>
-<li><a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Resolution/Imports.hs">Name Resolution</a></li>
-</ul></li>
-<li>Compiler (written in Haskell)
-<ul>
-<li><a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Compiler/Bytecode.hs">Bytecode</a></li>
-<li><a href="https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Compiler/Serialize.hs">Serializer</a></li>
-</ul></li>
-<li><a href="https://github.com/noc-lang/noc/tree/master/src/Language/Noc/VM">Virtual Machine</a> (written in C)</li>
-</ul>
-<hr />
-<p>Noc generates a bytecode, an intermediate representation much easier to read for the VM.</p>
-<p>Bytecode structure: <code>Bytecode {sym = [], constant = [], doc = [], opcodes = []}</code></p>
-<p><code>sym</code> =&gt; The Noc symbols (primitive functions, noc functions, opcodes (for the quote =&gt; it used to push opcode like a symbol in a quote))</p>
-<p><code>constant</code> =&gt; All Noc values</p>
-<p><code>doc</code> =&gt; All Noc functions docstrings</p>
-<blockquote>
-<p>The fields above are used to earn time in storing essential datas like (constants, call functions) in indexing her thanks to the operand in opcodes <code>PUSH_CONST index_const_table</code> for example. With this tables, we can avoid the use of hashtables that have usually O(n) time complexity against the indexing that have O(1) in complexity.</p>
-</blockquote>
-<p><code>opcodes</code> =&gt; The Noc program represented with a set of instructions named opcodes</p>
-<blockquote>
-<p>The opcodes are linearly represented to avoid trees-recursion and execute each instructions with a basic for loop. A simple loop is much quicker.</p>
-</blockquote>
-<p>Example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>    <span class="dv">5</span> <span class="dv">5</span> + print</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>}</span></code></pre></div>
-<p>Bytecode output:</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode hs"><code class="sourceCode haskell"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="dt">Bytecode</span> {</span>
-<span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>sym <span class="ot">=</span> [<span class="dt">FuncSym</span> <span class="st">&quot;main&quot;</span> <span class="dv">0</span>,<span class="dt">OpcodeSym</span> <span class="dt">ADD_OP</span>,<span class="dt">FuncPrim</span> <span class="st">&quot;print&quot;</span> <span class="dv">10</span>], </span>
-<span id="cb2-3"><a href="#cb2-3" aria-hidden="true"></a>constant <span class="ot">=</span> [<span class="dt">IntConst</span> <span class="dv">5</span>], </span>
-<span id="cb2-4"><a href="#cb2-4" aria-hidden="true"></a>doc <span class="ot">=</span> [], </span>
-<span id="cb2-5"><a href="#cb2-5" aria-hidden="true"></a>opcodes <span class="ot">=</span> [<span class="dt">PUSH_CONST</span> <span class="dv">0</span>,<span class="dt">PUSH_CONST</span> <span class="dv">0</span>,<span class="dt">ADD_OP</span>,<span class="dt">CALL_SYMBOL</span> <span class="dv">2</span>,<span class="dt">RETURN</span>]}</span></code></pre></div>
-<p>Then, this bytecode is serialized in a file in order to read this bytecode in the VM (written C) in deserializing her.</p>
+            <div id="docs"><p>Noc language is based on the concatenative paradigm, this paradigm is based on the <a href="https://en.wikipedia.org/wiki/Function_composition_(computer_science)">function composition</a> in which we compose several functions to construct a more complex function, for instance:</p>
+<pre><code>[Applicative language]
+y = foo(x)
+z = bar(y)
+w = baz(z)
+
+[Concatenative language]
+foo bar baz</code></pre>
+<p>Noc is also <a href="https://en.wikipedia.org/wiki/Stack-oriented_programming">stack-based</a> so the expressions can be easily evaluated thanks to the stack machine, when we write an expression is pushed in an stack instead of processus registers. Consequently, Noc use the <a href="https://en.wikipedia.org/wiki/Reverse_Polish_notation">Reverse polish notation</a> for evaluate expressions, it’s the most used notation when we compose functions.</p>
+<pre><code>Infix     Postfix (reverse polish notation)
+5 + 6     5 6 +</code></pre>
 </div>
         </div>
     </div>

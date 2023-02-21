@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>wiki : installation</title>
+    <title>wiki : functions</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
     <link rel="stylesheet" href="style.css" />
@@ -167,7 +167,7 @@
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     
-    <h2>wiki : installation</h2>
+    <h2>wiki : functions</h2>
 
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -176,7 +176,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                     <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="library/index.html">library/index</a></li><li><a href="nocdoc/index.html">nocdoc/index</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
                     <li class="more-link" id="btn-1">
                         <label for="check-1">more</label>
                         <input type="checkbox" id="check-1" />
@@ -192,40 +192,33 @@
                 </ul>
             </div>
             
-            <div id="docs"><p>Pre-requisite:</p>
-<ul>
-<li><p><a href="https://docs.haskellstack.org/en/stable/install_and_upgrade/">Stack</a></p></li>
-<li><p><a href="https://git-scm.com/">Git</a></p></li>
-</ul>
-<h2 id="installing-noc">Installing Noc</h2>
-<p>If you’re using Linux, macOS (or BSD) (<em>For the Windows users, use <a href="https://docs.microsoft.com/en-us/windows/wsl/about">WSL</a></em>)</p>
-<p><strong>Get the latest version</strong></p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/noc-lang/noc <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> noc</span></code></pre></div>
-<p><strong>Get the Noc v0.1.0.0</strong></p>
-<p>Download from this <a href="https://github.com/noc-lang/noc/releases/tag/v0.1.0.0">release</a>.</p>
-<p><strong>Install Noc (for all versions)</strong></p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a><span class="fu">make</span> install</span></code></pre></div>
-<h2 id="building-locally-the-noc-documentation-only-the-v0.1.0.0">Building locally the Noc documentation (only the v0.1.0.0)</h2>
-<p>There is a tool written in Noc to generate the documentation (<a href="https://github.com/noc-lang/nocdoc">nocdoc</a>)</p>
-<p>You can build the documentation with the Makefile, but you have to install in the first place the pandoc tool to convert some Markdown snippets in HTML.</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a><span class="fu">make</span> build_doc</span></code></pre></div>
-<p>All HTML files are generated in a noc_documentation folder. The starting page is noc_documentation/index.html</p>
-<blockquote>
-<p>You can also document your own functions, check the <a href="https://github.com/noc-lang/nocdoc#readme">README</a> of this tool.</p>
-</blockquote>
-<h2 id="updating-and-uninstalling">Updating and Uninstalling</h2>
-<p>We can reinstall Noc with the latest version.</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="fu">git</span> clone https://github.com/noc-lang/noc <span class="kw">&amp;&amp;</span> <span class="bu">cd</span> noc</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="co"># or if the repos is already cloned</span></span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a><span class="fu">git</span> pull origin main</span></code></pre></div>
-<p>then</p>
-<div class="sourceCode" id="cb5"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a><span class="fu">make</span> update</span></code></pre></div>
-<p>To uninstall Noc.</p>
-<div class="sourceCode" id="cb6"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true"></a><span class="fu">make</span> uninstall</span></code></pre></div>
-<h2 id="troubleshooting">Troubleshooting</h2>
-<p>To check if we have Noc installed:</p>
-<div class="sourceCode" id="cb7"><pre class="sourceCode sh"><code class="sourceCode bash"><span id="cb7-1"><a href="#cb7-1" aria-hidden="true"></a><span class="ex">noc</span> --version</span></code></pre></div>
+            <div id="docs"><p>We can declare a function like this:</p>
+<p><code>def function = { atom1 atom2 ... atomN }</code></p>
+<p>Example:</p>
+<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>noc&gt; <span class="kw">def</span> square = {dup *}</span>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>noc&gt; <span class="dv">5</span> square</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>=&gt; [<span class="dv">25</span>]</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>noc&gt; zap</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>noc&gt; <span class="kw">def</span> number = {<span class="dv">6</span>} # We define a constant</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>noc&gt; number square</span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>=&gt; [<span class="dv">36</span>]</span></code></pre></div>
+<p>It’s like the substitution, when we called the declared function, in fact it give this:</p>
+<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>noc&gt; <span class="dv">5</span> dup *</span></code></pre></div>
+<p>We can also declare a function like this:</p>
+<pre><code>def (function) = { atom1 atom2 ... atomN }</code></pre>
+<p>It’s useful for have a better syntax to define operators.</p>
+<h5 id="source-stdstring.noc">Source: <a href="https://github.com/noc-lang/noc/blob/master/std/string.noc#L7">std/string.noc</a></h5>
+<div class="sourceCode" id="cb4"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a><span class="kw">def</span> ($) = {</span>
+<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a>    ---</span>
+<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a>    Convert a string to a quote of chars</span>
+<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    (example)</span>
+<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>    <span class="st">&quot;abc&quot;</span> $ =&gt; [<span class="ch">&#39;a&#39;</span> <span class="ch">&#39;b&#39;</span> <span class="ch">&#39;c&#39;</span>]</span>
+<span id="cb4-6"><a href="#cb4-6" aria-hidden="true"></a>    ---</span>
+<span id="cb4-7"><a href="#cb4-7" aria-hidden="true"></a>    chars</span>
+<span id="cb4-8"><a href="#cb4-8" aria-hidden="true"></a>}</span></code></pre></div>
+<p>When we declare a function, the function is pushed in the env. And we can access to this env with the 'env' command:</p>
+<div class="sourceCode" id="cb5"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb5-1"><a href="#cb5-1" aria-hidden="true"></a>noc&gt; :env</span>
+<span id="cb5-2"><a href="#cb5-2" aria-hidden="true"></a>square: [dup *],</span></code></pre></div>
 </div>
         </div>
     </div>

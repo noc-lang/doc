@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>module : seq</title>
+    <title>module : std-list</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
     <link rel="stylesheet" href="style.css" />
@@ -167,7 +167,7 @@
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     
-    <h2>module : seq</h2>
+    <h2>module : std-list</h2>
 
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -176,7 +176,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                     <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../nocdoc/index.html">../nocdoc/index</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
                     <li class="more-link" id="btn-1">
                         <label for="check-1">more</label>
                         <input type="checkbox" id="check-1" />
@@ -184,7 +184,7 @@
                 </ul>
 
                 <ul id="sidebar2">
-                    <h3 class="section-title">Functions</h3><li><a href="#[unquote]">[unquote]</a></li><li><a href="#[pushr]">[pushr]</a></li><li><a href="#[popr]">[popr]</a></li><li><a href="#[step]">[step]</a></li><li><a href="#[fold]">[fold]</a></li>
+                    <h3 class="section-title">Functions</h3><li><a href="#[len]">[len]</a></li><li><a href="#[findByIndex]">[findByIndex]</a></li><li><a href="#[enumerate]">[enumerate]</a></li><li><a href="#[filter]">[filter]</a></li>
                     <li class="more-link" id="btn-2">
                         <label for="check-2">more</label>
                         <input type="checkbox" id="check-2" />
@@ -192,7 +192,7 @@
                 </ul>
             </div>
             
-            <div id="docs"><div id="[unquote]"><h3>[unquote]</h3>docstring for 'unquote' function:<br>------------<br>Evaluate instruction into a quote<br><br>(example)<br>  [[5 5 +] 5 5 +] unquote => [[5 5 +] 10]</div><br><br><div id="[pushr]"><h3>[pushr]</h3>docstring for 'pushr' function:<br>------------<br>Push a value into a quote<br><br>(example)<br>  [5] 5 pushr => [[5 5]]</div><br><br><div id="[popr]"><h3>[popr]</h3>docstring for 'popr' function:<br>------------<br>Get out the top-element in the quote<br>n<br>(example)<br>  [1 2] popr => [[1] 2]</div><br><br><div id="[step]"><h3>[step]</h3>docstring for 'step' function:<br>------------<br>Execute a specific function for each element of a quote<br><br>quote [function] step <br><br>(example)<br> ["noc" "hello" "world!"] [$ len] step => [[3 5 6]]</div><br><br><div id="[fold]"><h3>[fold]</h3>docstring for 'fold' function:<br>------------<br>Reduce a quote of elements to one value in accumulating each elements with a specific function<br><br>quote (initial_value -> accumulator) [function] fold <br><br>(example)<br> [1 2 3] 0 [+] fold => [6]</div><br><br></div>
+            <div id="docs"><div id="[len]"><h3>[len]</h3>docstring for 'len' function:<br>------------<br>Get a list's length<br><br>    (example)<br>    [1 2 3] len => [3]</div><br><br><div id="[findByIndex]"><h3>[findByIndex]</h3>docstring for 'findByIndex' function:<br>------------<br>Find a element in a list with his index.<br><br>    (example)<br>    2 [[0 "A"] [1 "B"] [2 "C"]] findByIndex<br>    => ["C"]<br><br>    (or with the 'enumerate' function)<br>    2 ["A" "B" "C"] enumerate findByIndex</div><br><br><div id="[enumerate]"><h3>[enumerate]</h3>docstring for 'enumerate' function:<br>------------<br>Listing a list with a successive indexes<br><br>    (example)<br>    ["A" "B" "C"] enumerate<br>    => [[0 "A"] [1 "B"] [2 "C"]]</div><br><br><div id="[filter]"><h3>[filter]</h3>docstring for 'filter' function:<br>------------<br>Filter a list following a predicat.<br><br>    (example)<br>    [1 2 3] [2 >] filter<br>    => [3]</div><br><br></div>
         </div>
     </div>
 

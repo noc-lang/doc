@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>wiki : datatypes</title>
+    <title>module : std-io</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
     <link rel="stylesheet" href="style.css" />
@@ -167,7 +167,7 @@
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     
-    <h2>wiki : datatypes</h2>
+    <h2>module : std-io</h2>
 
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -176,7 +176,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                     <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../nocdoc/index.html">../nocdoc/index</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
                     <li class="more-link" id="btn-1">
                         <label for="check-1">more</label>
                         <input type="checkbox" id="check-1" />
@@ -184,7 +184,7 @@
                 </ul>
 
                 <ul id="sidebar2">
-                    <h3 class="section-title">Details</h3><li><b>Author:</b> mortim</li><li><b>Git repos: </b><a href="https://github.com/noc-lang/noc">https://github.com/noc-lang/noc</a></li>
+                    <h3 class="section-title">Functions</h3><li><a href="#[putstrln]">[putstrln]</a></li>
                     <li class="more-link" id="btn-2">
                         <label for="check-2">more</label>
                         <input type="checkbox" id="check-2" />
@@ -192,63 +192,7 @@
                 </ul>
             </div>
             
-            <div id="docs"><p>Noc is dynamically typed language like the most concatenative languages (except some languages like Cat), it means that the type errors are reported at the runtime, also it’s strongly typed (when types does not match it report at the runtime).</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>noc&gt; <span class="dv">1</span> <span class="ch">&#39;1&#39;</span> +</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>TypeError <span class="st">&quot;cannot operate with different types.&quot;</span></span></code></pre></div>
-<h3 id="primitive-types">Primitive types</h3>
-<table>
-<colgroup>
-<col style="width: 9%" />
-<col style="width: 50%" />
-<col style="width: 40%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th>Name</th>
-<th>Description</th>
-<th>Example</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td>Integer</td>
-<td>An arbitrary precision integers, relative number</td>
-<td><code>15</code>, <code>-86</code></td>
-</tr>
-<tr class="even">
-<td>Float</td>
-<td>Double-precision floating point numbers (real numbers)</td>
-<td><code>1.5</code>, <code>-3.9</code></td>
-</tr>
-<tr class="odd">
-<td>String</td>
-<td>UTF8 string</td>
-<td><code>"Hello,World!"</code>, <br> <code>"Hello</code> <br> <code>World"</code></td>
-</tr>
-<tr class="even">
-<td>Char</td>
-<td>Char type</td>
-<td><code>'a'</code>, <code>'\n'</code></td>
-</tr>
-<tr class="odd">
-<td>Bool</td>
-<td>Boolean type</td>
-<td><code>True</code> or <code>False</code></td>
-</tr>
-<tr class="even">
-<td>Symbol</td>
-<td>Symbol type</td>
-<td><code>dup</code></td>
-</tr>
-<tr class="odd">
-<td>Quote</td>
-<td>Anonymous stack containing instructions</td>
-<td><code>[1 2 3]</code> <code>[5 5 +]</code> <code>[['a' 1] ['b' 2] ['c' 3]]</code></td>
-</tr>
-</tbody>
-</table>
-</div>
+            <div id="docs"><div id="[putstrln]"><h3>[putstrln]</h3>docstring for 'putstrln' function:<br>------------<br>putstr function with newline<br><br>    (example)<br>    "Hello, World!" putstrln<br>    Output:<br>    Hello, World</div><br><br></div>
         </div>
     </div>
 

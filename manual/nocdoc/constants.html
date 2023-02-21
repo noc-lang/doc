@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <title>module : constants</title>
+    <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
+    <link rel="stylesheet" href="style.css" />
+</head>
+<style>
+    * {
+        padding: 0;
+        font-family: 'Ubuntu', sans-serif;
+        font-weight: 400;
+    }
+
+    body {
+        background-color: ligthgrey;
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-weight: 600;
+    }
+
+    p > code {
+        background-color: #efe9e9;
+        padding: 1px;
+        border-radius: 5px;
+    }
+
+    blockquote p {
+        color: grey;
+        font-style: italic;
+    }
+
+    table, th, td {
+        border: 1px solid black;
+    }
+
+    li {
+        list-style: none;
+        word-break: break-all;
+        margin-top: 13px;
+    }
+
+    li a {
+        text-decoration: none;
+        color: rgb(63, 63, 63);
+        padding: 2px;
+        border-radius: 5px;
+    }
+
+    li a:hover {
+        color: rgb(83, 83, 83);
+    }
+
+    #table-of-contents {
+        border: 1px solid lightgrey;
+        margin-top: -1px;
+    }
+
+    #docs {
+        padding-left: 20px;
+        width: 100%;
+    }
+
+    #docs div {
+        border: 1px solid lightgrey;
+        padding-left: 10px;
+        padding-bottom: 11px;
+        background-color: #efe9e9;
+        border-radius: 10px;
+    }
+
+    #top-btn {
+        position: fixed;
+        left: 90%;
+        top: 80%;
+        background-color: #008CBA;
+        padding: 15px;
+        color: #fff;
+        text-decoration: none;
+        border-radius: 5px;
+    }
+
+    h6 {
+        color: grey;
+    }
+
+    #sidebar {
+        width: 240px;
+    }
+
+    #sidebar2 {
+        border: 1px solid lightgrey;
+    }
+
+    #sidebar ul {
+        border-radius: 10px;
+        padding: 0px 20px 20px;
+    }
+
+    #container {
+        display:flex;
+    }
+
+    .section-title {
+        text-align: center;
+    }
+
+    .more-link {
+        background-color: lightblue;
+        padding: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        display:none;
+    }
+
+    input[type=checkbox] {
+        display:none;
+    }
+
+    @media (max-width: 700px) {
+        #container {
+            display: block;
+        }
+
+        #docs {
+            padding-left: 0px;
+        }
+
+        #docs * {
+            word-break: break-all;
+        }
+
+        #top-btn {
+            left: 80%;
+        }
+
+        .more-link {
+            display:block;
+        }
+
+        #sidebar {
+            width: 100%;
+            text-align: center;
+        }
+
+        #table-of-contents li {
+            display:none;
+        }
+
+        #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
+            display: block;
+        }
+
+        #sidebar2 li {
+            display:none;
+        }
+
+        #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
+            display: block;
+        }
+}
+</style>
+<body>
+    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
+    
+    <h2>module : constants</h2>
+
+    <div>
+        <a id="top-btn" href="#start-of-page">Top</a>
+
+        <div id="container">
+            <div id="sidebar">
+                <ul id="table-of-contents">
+                    <h3 class="section-title">Table of contents</h6>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../library/index.html">../library/index</a></li></ul></li><li>Functions<ul><li><a href="page-rendering.html">page-rendering</a></li><li><a href="generate-page.html">generate-page</a></li></ul></li><li>Reference<ul><li><a href="constants.html">constants</a></li></ul></li>
+                    <li class="more-link" id="btn-1">
+                        <label for="check-1">more</label>
+                        <input type="checkbox" id="check-1" />
+                    </li>
+                </ul>
+
+                <ul id="sidebar2">
+                    <h3 class="section-title">Functions</h3><li><a href="#[TABLE_OF_CONTENTS_SIDEBAR]">[TABLE_OF_CONTENTS_SIDEBAR]</a></li><li><a href="#[TABLE_OF_CONTENTS_LINKS]">[TABLE_OF_CONTENTS_LINKS]</a></li><li><a href="#[DETAILS_SIDEBAR]">[DETAILS_SIDEBAR]</a></li><li><a href="#[FUNCTIONS_SIDEBAR]">[FUNCTIONS_SIDEBAR]</a></li><li><a href="#[NOC_FUNCTIONS_DOCUMENTATION]">[NOC_FUNCTIONS_DOCUMENTATION]</a></li><li><a href="#[PAGE]">[PAGE]</a></li>
+                    <li class="more-link" id="btn-2">
+                        <label for="check-2">more</label>
+                        <input type="checkbox" id="check-2" />
+                    </li>
+                </ul>
+            </div>
+            
+            <div id="docs"><div id="[TABLE_OF_CONTENTS_SIDEBAR]"><h3>[TABLE_OF_CONTENTS_SIDEBAR]</h3>docstring for 'TABLE_OF_CONTENTS_SIDEBAR' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/include/constants.noc#L1">github.com/noc-lang/nocdoc/constants.noc#TABLE_OF_CONTENTS_SIDEBAR</a><br><br>    Render the table of contents in HTML (see <a href="page-rendering.html#[formatHTML]">formatHTML</a>)</div><br><br><div id="[TABLE_OF_CONTENTS_LINKS]"><h3>[TABLE_OF_CONTENTS_LINKS]</h3>docstring for 'TABLE_OF_CONTENTS_LINKS' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/include/constants.noc#L10">github.com/noc-lang/nocdoc/constants.noc#TABLE_OF_CONTENTS_LINKS</a><br><br>    Render the links for the table of contents in HTML (see <a href="page-rendering.html#[formatHTML]">formatHTML</a>)</div><br><br><div id="[DETAILS_SIDEBAR]"><h3>[DETAILS_SIDEBAR]</h3>docstring for 'DETAILS_SIDEBAR' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/include/constants.noc#L19">github.com/noc-lang/nocdoc/constants.noc#DETAILS_SIDEBAR</a><br><br>    Render the details sidebar (author, url_git_repos) in HTML (see <a href="page-rendering.html#[formatHTML]">formatHTML</a>)</div><br><br><div id="[FUNCTIONS_SIDEBAR]"><h3>[FUNCTIONS_SIDEBAR]</h3>docstring for 'FUNCTIONS_SIDEBAR' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/include/constants.noc#L28">github.com/noc-lang/nocdoc/constants.noc#FUNCTIONS_SIDEBAR</a><br><br>    Render the summary of all Noc functions from a module in HTML (see <a href="page-rendering.html#[formatHTML]">formatHTML</a>)</div><br><br><div id="[NOC_FUNCTIONS_DOCUMENTATION]"><h3>[NOC_FUNCTIONS_DOCUMENTATION]</h3>docstring for 'NOC_FUNCTIONS_DOCUMENTATION' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/include/constants.noc#L37">github.com/noc-lang/nocdoc/constants.noc#NOC_FUNCTIONS_DOCUMENTATION</a><br><br>    Render the Noc functions documentation in HTML (see <a href="page-rendering.html#[formatHTML]">formatHTML</a>)</div><br><br><div id="[PAGE]"><h3>[PAGE]</h3>docstring for 'PAGE' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/include/constants.noc#L46">github.com/noc-lang/nocdoc/constants.noc#PAGE</a><br><br>    Render the entire HTML page (see <a href="page-rendering.html#[formatHTML]">formatHTML</a>)</div><br><br></div>
+        </div>
+    </div>
+
+    <script>
+        let toggle = (button, menu, checkbox) => {
+            button.addEventListener("click", () => {
+                for(let i = 3; i < menu.length-1; i++) {
+                    if(checkbox.checked) {
+                        menu[i].style.display = "block";
+                    } else {
+                        menu[i].style.display = "none";
+                    }
+                }
+            });
+        }
+
+        let buttons = document.querySelectorAll(".more-link");
+        let menu1 = document.querySelectorAll("#table-of-contents li");
+        let menu2 = document.querySelectorAll("#sidebar2 li");
+        let checkboxes = document.querySelectorAll("input[type=checkbox]");
+
+        toggle(buttons[0], menu1, checkboxes[0]);
+        toggle(buttons[1], menu2, checkboxes[1]);
+    </script>
+</body>
+</html>

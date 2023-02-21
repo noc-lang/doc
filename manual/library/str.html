@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>wiki : modules</title>
+    <title>module : str</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
     <link rel="stylesheet" href="style.css" />
@@ -167,7 +167,7 @@
 <body>
     <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
     
-    <h2>wiki : modules</h2>
+    <h2>module : str</h2>
 
     <div>
         <a id="top-btn" href="#start-of-page">Top</a>
@@ -176,7 +176,7 @@
             <div id="sidebar">
                 <ul id="table-of-contents">
                     <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="wiki.html">wiki</a></li></ul></li><li>Introduction<ul><li><a href="concatenative-programming.html">concatenative-programming</a></li></ul></li><li>Getting Started<ul><li><a href="installation.html">installation</a></li><li><a href="hello-world.html">hello-world</a></li></ul></li><li>Basics<ul><li><a href="expressions.html">expressions</a></li><li><a href="datatypes.html">datatypes</a></li><li><a href="functions.html">functions</a></li><li><a href="comments.html">comments</a></li></ul></li><li>Advanced Topic<ul><li><a href="docstring.html">docstring</a></li><li><a href="modules.html">modules</a></li><li><a href="quotes.html">quotes</a></li><li><a href="control-flow.html">control-flow</a></li><li><a href="optimizations.html">optimizations</a></li></ul></li>
+                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../nocdoc/index.html">../nocdoc/index</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
                     <li class="more-link" id="btn-1">
                         <label for="check-1">more</label>
                         <input type="checkbox" id="check-1" />
@@ -184,7 +184,7 @@
                 </ul>
 
                 <ul id="sidebar2">
-                    <h3 class="section-title">Details</h3><li><b>Author:</b> mortim</li><li><b>Git repos: </b><a href="https://github.com/noc-lang/noc">https://github.com/noc-lang/noc</a></li>
+                    <h3 class="section-title">Functions</h3><li><a href="#[format]">[format]</a></li><li><a href="#[tostr]">[tostr]</a></li><li><a href="#[chars]">[chars]</a></li>
                     <li class="more-link" id="btn-2">
                         <label for="check-2">more</label>
                         <input type="checkbox" id="check-2" />
@@ -192,30 +192,7 @@
                 </ul>
             </div>
             
-            <div id="docs"><p>Noc works with a basic module system, thanks to this module system we can load <a href="https://github.com/noc-lang/noc/tree/master/std">STD</a> modules, <a href="primitives.html">Internal</a> modules or our own modules.</p>
-<blockquote>
-<p>We can also load modules in the Noc REPL</p>
-</blockquote>
-<p>To load any module we use this instruction:</p>
-<div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a>load module</span></code></pre></div>
-<p>or</p>
-<div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>load <span class="st">&quot;module&quot;</span></span></code></pre></div>
-<p>To import a STD module we type firstly “std:” and the STD module name among these <a href="https://github.com/noc-lang/noc/tree/master/std">STD modules</a>.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb3"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true"></a>load std:stack</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true"></a></span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb3-4"><a href="#cb3-4" aria-hidden="true"></a>    <span class="dv">1</span> <span class="dv">2</span> swap print</span>
-<span id="cb3-5"><a href="#cb3-5" aria-hidden="true"></a>}</span></code></pre></div>
-<p>We can load internal modules, they are listed <a href="primitives.html">here</a>.</p>
-<p>Example:</p>
-<div class="sourceCode" id="cb4"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true"></a>load seq</span>
-<span id="cb4-2"><a href="#cb4-2" aria-hidden="true"></a></span>
-<span id="cb4-3"><a href="#cb4-3" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb4-4"><a href="#cb4-4" aria-hidden="true"></a>    [<span class="dv">1</span> <span class="dv">2</span> <span class="dv">3</span>] [<span class="dv">1</span> +] step print</span>
-<span id="cb4-5"><a href="#cb4-5" aria-hidden="true"></a>}</span></code></pre></div>
-<pre><code>[2 3 4]</code></pre>
-</div>
+            <div id="docs"><div id="[format]"><h3>[format]</h3>docstring for 'format' function:<br>------------<br>Format string, replace braces by corresponding value<br><br>(example)<br> "Hello, {}!" ["John"] format => ["Hello, John!"]<br> "Numbers: {} {}" [20 3.14] format => ["Numbers: 20 3.14"]<br> "Boolean: {} {}" [True False] format => ["Boolean: True False"]<br> "Quotes: {} {}" [[1 2 3] [["a" 1] ["b" 2]]] format => ["Quotes: [1 2 3] [[\"a\" 1] [\"b\" 2]]"]</div><br><br><div id="[tostr]"><h3>[tostr]</h3>docstring for 'tostr' function:<br>------------<br>Convert a quote of chars to string<br><br>(example)<br> ['a' 'b' 'c'] tostr => ["abc"]</div><br><br><div id="[chars]"><h3>[chars]</h3>docstring for 'chars' function:<br>------------<br>Convert a string to a quote of chars<br><br>(example)<br> "abc" chars => ['a' 'b' 'c']</div><br><br></div>
         </div>
     </div>
 
