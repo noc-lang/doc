@@ -1,7 +1,0 @@
-load std:stack
-load str
-load seq
-
-def putVerbose = {
-    "-> '{}' \x1b[32mbuilt\x1b[0m\n\n" swap quote format putstr
-}

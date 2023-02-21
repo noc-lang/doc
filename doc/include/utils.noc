@@ -1,0 +1,41 @@
+load nocdoc/nocdoc.noc
+load std:stack
+load str
+load seq
+
+# [TYPE] info [a b c] -> ()
+def generate = {
+    dup
+    [
+        [[[]] [pop pop pop]]
+        [[_] [ 
+                # [TYPE] info info [a b c]
+                swap dup 3 1 rotNM swap 
+                
+                # [TYPE] info info [a b] c "c"
+                4 -1 rotNM dup 5 1 rotNM
+                [
+                    [[[LIBRARY]] [popr]]
+                    [[[WIKI]] [popr unquote]]
+                ] case
+
+                # [TYPE] info [a b] info c "c"
+                4 -1 rotNM 3 1 rotNM
+                
+                dup putVerbose
+
+                # [TYPE] info [a b]
+                6 -1 rotNM dup 7 1 rotNM
+                [
+                    [[[LIBRARY]] [generateModule]]
+                    [[[WIKI]] [generateWikiPage]]
+                ] case
+            
+                generate
+        ]]
+    ] case
+}
+
+def putVerbose = {
+    "-> '{}' \x1b[32mbuilt\x1b[0m\n\n" swap quote format putstr
+}

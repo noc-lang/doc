@@ -1,0 +1,61 @@
+load nocdoc/nocdoc.noc
+load nocdoc/include/constants.noc
+load std:fs
+
+def nocdocInfo = {
+    [
+        "nocdoc" # library name
+        "mortim" # author
+        ["include_html/nocdoc/home.html" read] # description library
+        "https://github.com/noc-lang/nocdoc" # the repository library
+        # table of contents
+        [
+            [ "Overview" 
+                [ "index.html" 
+                  "../index.html" 
+                  "../library/index.html" ]]
+
+            [ "Functions"
+                [ "page-rendering.html"
+                  "generate-page.html" ]]
+
+            [ "Reference"
+                [ "constants.html" ]]
+        ]
+    ]
+}
+
+def pageRendering = {
+    [
+        [formatHTML]
+        [renderHomePage]
+        [renderModule]
+        [renderWikiPage]
+    ]
+    "page-rendering"
+}
+
+def generatePage = {
+    [
+        [generateHomePage]
+        [generateModule]
+        [generateWikiPage]
+    ]
+    "generate-page"
+}
+
+def constants = {
+    [
+        [TABLE_OF_CONTENTS_SIDEBAR]
+        [TABLE_OF_CONTENTS_LINKS]
+        [DETAILS_SIDEBAR]
+        [FUNCTIONS_SIDEBAR]
+        [NOC_FUNCTIONS_DOCUMENTATION]
+        [PAGE]
+    ]
+    "constants"
+}
+
+def nocdocFunctions = {
+    [ pageRendering generatePage constants ]
+}

@@ -26,15 +26,16 @@ jobs:
       name: Building/Installing the Noc interpreter
     - run: echo "${HOME}/.local/bin" >> $GITHUB_PATH
 
-    # Setup the Noc documentation
+    # Setup the Noc Manual
     - uses: actions/checkout@v3
       with:
         submodules: 'true'
-    - run: ./setup_doc.sh
-      name: Setup the Noc documentation (Convert the Markdown snippets in HTML with pandoc and build the Noc documentation with nocdoc)
+    - run: ./setup.sh
+      name: Setup The Noc Manual (Convert the Markdown snippets in HTML with pandoc and build The Noc Manual with nocdoc)
+    - run: mkdir noc_manual && mv manual noc_manual
     
-    # Deploy the Noc documentation
+    # Deploy the Noc Manual
     - uses: peaceiris/actions-gh-pages@v3
       with:
         github_token: ${{secrets.GITHUB_TOKEN}}
-        publish_dir: ./noc_documentation
+        publish_dir: ./noc_manual

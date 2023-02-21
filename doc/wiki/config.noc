@@ -1,0 +1,60 @@
+load std:fs
+load nocdoc/nocdoc.noc
+load doc/include/utils.noc
+
+def wikiInfo = {
+    [
+        "wiki" # wiki name
+        "mortim" # author
+        ["include_html/wiki/home.html" read] # description library
+        "https://github.com/noc-lang/noc" # the repository library
+        # table of contents
+        [
+            [ "Overview"
+                [ "index.html" 
+                  "library/index.html" 
+                  "nocdoc/index.html" ]]
+
+            [ "Introduction"
+                [ "concatenative-programming.html" ]] 
+
+
+            [ "Getting Started"
+                [ "installation.html"
+                "hello-world.html" ]]
+
+            [ "Basics"
+                [ "expressions.html"
+                "datatypes.html"
+                "functions.html"
+                "comments.html" ]]
+
+            [ "Advanced Topic"
+                [ "docstring.html"
+                "modules.html"
+                "quotes.html"
+                "control-flow.html"
+                "optimizations.html"]]
+        ]
+    ]
+}
+
+def wikiPageContents = {
+    [   # introduction
+        ["include_html/wiki/concatenative-programming.html" read "concatenative-programming"] 
+        # Getting started
+        ["include_html/wiki/installation.html" read "installation"]
+        ["include_html/wiki/hello-world.html" read "hello-world"]
+        # Basics
+        ["include_html/wiki/expressions.html" read "expressions"]
+        ["include_html/wiki/datatypes.html" read "datatypes"]
+        ["include_html/wiki/functions.html" read "functions"]
+        ["include_html/wiki/comments.html" read "comments"]
+        # Advanced Topics
+        ["include_html/wiki/docstring.html" read "docstring"]
+        ["include_html/wiki/modules.html" read "modules"]
+        ["include_html/wiki/quotes.html" read "quotes"]
+        ["include_html/wiki/control-flow.html" read "control-flow"]
+        ["include_html/wiki/optimizations.html" read "optimizations"] 
+    ]
+}

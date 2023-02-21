@@ -12,16 +12,38 @@ load std:list
 load std:math
 load std:stack
 load std:string
-load doc/table-of-contents.noc
-load docs_utils.noc
 
 def libInfo = {
     [
         "noc" # library name
         "mortim" # author
-        ["include_html/library_desc.html" read] # description library
+        ["include_html/library/home.html" read] # description library
         "https://github.com/noc-lang/noc" # the repository library
-        tableOfContentsLibrary
+        # table of contents
+        [
+            [ "Overview" 
+                [ "index.html" 
+                  "../index.html" 
+                  "../nocdoc/index.html" ]]
+
+            [ "Internal"
+                [ "prelude.html"
+                "fs.html"
+                "str.html"
+                "sys.html"
+                "char.html"
+                "seq.html" ]]
+
+            [ "Std"
+                [ "std-bool.html"
+                "std-dict.html"
+                "std-fs.html"
+                "std-io.html"
+                "std-list.html"
+                "std-math.html"
+                "std-stack.html"
+                "std-string.html" ]]
+        ]
     ]
 }
 
@@ -61,12 +83,4 @@ def libFunctions = {
       prelude internalFs internalStr internalSys internalChar internalSeq
       # std
       stdBool stdDict stdFs stdIo stdList stdMath stdStack stdString ]
-}
-
-def generateModules = {
-    dup
-    [
-        [[[]] [pop]]
-        [[_] [popr libInfo 3 1 rotNM dup putVerbose generateModule generateModules]]
-    ] case
 }

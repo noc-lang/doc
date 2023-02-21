@@ -24,19 +24,19 @@ Download from this [release](https://github.com/noc-lang/noc/releases/tag/v0.1.0
 make install
 ```
 
-## Building locally the Noc documentation (only the v0.1.0.0)
+## Building locally the Noc Manual (only the v0.1.0.0)
 
-There is a tool written in Noc to generate the documentation ([nocdoc](https://github.com/noc-lang/nocdoc))
+There is a tool written in Noc to generate the Noc Manual (includes noc and nocdoc documentation) ([nocdoc](https://github.com/noc-lang/nocdoc))
 
-You can build the documentation with the Makefile, but you have to install in the first place the pandoc tool to convert some Markdown snippets in HTML.
+You can build the manual with the Makefile, but you have to install in the first place the pandoc tool to convert some Markdown snippets in HTML.
 
 ```sh
 make build_doc
 ```
 
-All HTML files are generated in a noc_documentation folder. The starting page is noc_documentation/index.html
+All HTML files are generated in a ``manual`` folder. The starting page is ``manual/index.html``
 
-> You can also document your own functions, check the [README](https://github.com/noc-lang/nocdoc#readme) of this tool.
+> You can also document your own functions, check the [nocdoc documentation](https://noc-lang.github.io/manual/nocdoc) of this tool.
 
 ## Updating and Uninstalling
 

@@ -1,0 +1,22 @@
+load nocdoc/nocdoc.noc
+load doc/library/config.noc
+load doc/wiki/config.noc
+load doc/nocdoc/config.noc
+load doc/include/utils.noc
+load sys
+
+def main = {
+    args
+    [
+        [[["wiki"]] [ "wiki-homepage" putVerbose
+                      wikiInfo generateHomePage
+                      [WIKI] wikiInfo wikiPageContents generate ]]
+        [[["library"]] [ "library-homepage" putVerbose
+                         libInfo generateHomePage
+                         [LIBRARY] libInfo libFunctions generate ]]
+        [[["nocdoc"]] [ "nocdoc-homepage" putVerbose
+                        nocdocInfo generateHomePage 
+                        [LIBRARY] nocdocInfo nocdocFunctions generate ]]
+        [[_] ["noc: no such argument\n" putstr 1 exit]]
+    ] case
+}
