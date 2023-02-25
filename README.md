@@ -9,7 +9,7 @@ This manual includes:
 
 ### Build locally the Noc Manual
 
-> Before to build the manual, you have to install pandoc to convert convert some Markdown snippets in HTML
+> Before to build the manual, you have to install pandoc to convert some Markdown snippets in HTML.
 
 ```sh
 git clone --recursive https://github.com/noc-lang/docs && cd docs
