@@ -4,7 +4,7 @@ convert_md_snippets_to_html() {
     echo -e "Converting all Markdown snippets in HTML...\n"
     mkdir -p include_html/$1
 
-    if [[ $1 == "wiki" ]]; then
+    if [[ $1 == "wiki" || $1 == "nocdoc" ]]; then
         md_paths=$(echo doc/$1/content/home.md doc/$1/content/*/*.md)
     else
         md_paths=$(echo doc/$1/content/home.md)

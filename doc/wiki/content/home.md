@@ -6,14 +6,27 @@ To get Noc, check the [Installation guide](installation.html).
 
 #### The Noc latest version
 
-> This version was rewritten partially (check this [section](optimizations.html) in C to embark a VM and it's not longer maintained, there are still some bugs or lack of features:
-> - callstack not works with recursive functions calls
-> - cannot format quotes
-> - cannot operate big ints (Arbitrary precision integers)
+<blockquote>
+    <p>This version was rewritten partially (check this <a href="optimizations.html">section</a>) in C to embark a VM and it's not longer maintained, there are still some bugs or lack of features:</p>
+    <ul>
+        <li>callstack not works with recursive functions calls</li>
+        <li>cannot format quotes</li>
+        <li>cannot operate big ints (Arbitrary precision integers)</li>
+    </ul>
+</blockquote>
 
 #### The Noc v0.1.0.0
 
 > This version is more operational but slower than the latest version because it's fully interpreted.
+
+In this version, theses functions are defined in these modules:
+
+|         Module          |                                 Functions                                         |
+| ----------------------- | --------------------------------------------------------------------------------- |
+| [prelude](library/prelude.html) | [putchar](library/prelude.html#[putchar])                                                 | 
+| [seq](library/seq.html)         | [pushr](library/seq.html#[pushr]), [popr](library/seq.html#[popr]), [unquote](library/seq.html#[unquote]) | 
+| [char](library/char.html)       | [chr](library/char.html#[chr]), [ord](library/char.html#[ord])                                    | 
+| [sys](library/sys.html)         | [args](library/sys.html#[args]), [catch](library/sys.html#[catch])                                |
 
 ### Some examples
 

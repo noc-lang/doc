@@ -22,8 +22,7 @@ def libInfo = {
         # table of contents
         [
             [ "Overview" 
-                [ "index.html" 
-                  "../index.html" 
+                [ "../index.html" 
                   "../nocdoc/index.html" ]]
 
             [ "Internal"

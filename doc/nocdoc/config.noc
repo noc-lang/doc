@@ -14,6 +14,8 @@ def nocdocInfo = {
                 [ "index.html" 
                   "../index.html" 
                   "../library/index.html" ]]
+            [ "Wiki"
+                ["html-tag-use.html"]]
 
             [ "Functions"
                 [ "page-rendering.html"
@@ -22,6 +24,12 @@ def nocdocInfo = {
             [ "Reference"
                 [ "constants.html" ]]
         ]
+    ]
+}
+
+def wikiPageNocdoc = {
+    [
+        ["include_html/nocdoc/html-tag-use.html" read "html-tag-use"]
     ]
 }
 

@@ -16,7 +16,8 @@ def main = {
                          [LIBRARY] libInfo libFunctions generate ]]
         [[["nocdoc"]] [ "nocdoc-homepage" putVerbose
                         nocdocInfo generateHomePage 
-                        [LIBRARY] nocdocInfo nocdocFunctions generate ]]
+                        [LIBRARY] nocdocInfo nocdocFunctions generate
+                        [WIKI] nocdocInfo wikiPageNocdoc generate ]]
         [[_] ["noc: no such argument\n" putstr 1 exit]]
     ] case
 }

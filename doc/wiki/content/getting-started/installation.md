@@ -36,7 +36,7 @@ make build_doc
 
 All HTML files are generated in a ``manual`` folder. The starting page is ``manual/index.html``
 
-> You can also document your own functions, check the [nocdoc documentation](https://noc-lang.github.io/manual/nocdoc) of this tool.
+> You can also document your own functions, check the [nocdoc documentation](nocdoc/index.html) of this tool.
 
 ## Updating and Uninstalling
 
