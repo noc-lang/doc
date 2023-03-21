@@ -3,219 +3,281 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>module : prelude</title>
+    <title>prelude</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <style>
+    /* Font */
+    .base-font { font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif; }
+    .merriweather-font { font-family: 'Merriweather', serif; }
+
+    /* Some selectors */
+    .white-color { color: #fff; }
+    .header-size { font-size: 20px; }
+
     * {
+        margin: 0;
         padding: 0;
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: 400;
     }
 
-    body {
-        background-color: ligthgrey;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 600;
-    }
-
-    p > code {
-        background-color: #efe9e9;
-        padding: 1px;
-        border-radius: 5px;
-    }
-
-    blockquote p {
-        color: grey;
-        font-style: italic;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-    }
-
-    li {
-        list-style: none;
-        word-break: break-all;
-        margin-top: 13px;
-    }
-
-    li a {
-        text-decoration: none;
-        color: rgb(63, 63, 63);
-        padding: 2px;
-        border-radius: 5px;
-    }
-
-    li a:hover {
-        color: rgb(83, 83, 83);
-    }
-
-    #table-of-contents {
-        border: 1px solid lightgrey;
-        margin-top: -1px;
-    }
-
-    #docs {
-        padding-left: 20px;
-        width: 100%;
-    }
-
-    #docs div {
-        border: 1px solid lightgrey;
-        padding-left: 10px;
-        padding-bottom: 11px;
-        background-color: #efe9e9;
-        border-radius: 10px;
-    }
-
-    #top-btn {
+    #top-btn { 
         position: fixed;
-        left: 90%;
-        top: 80%;
-        background-color: #008CBA;
-        padding: 15px;
-        color: #fff;
+        right: 0;
+        bottom: 0;
+        margin: auto 100px 100px auto;
         text-decoration: none;
-        border-radius: 5px;
-    }
-
-    h6 {
-        color: grey;
-    }
-
-    #sidebar {
-        width: 240px;
-    }
-
-    #sidebar2 {
-        border: 1px solid lightgrey;
-    }
-
-    #sidebar ul {
-        border-radius: 10px;
-        padding: 0px 20px 20px;
-    }
-
-    #container {
-        display:flex;
-    }
-
-    .section-title {
-        text-align: center;
-    }
-
-    .more-link {
-        background-color: lightblue;
-        padding: 5px;
+        padding: 15px 15px 10px 15px;
+        background-color: #3C798A;
+        color: #fff;
         border-radius: 5px;
         cursor: pointer;
-        display:none;
     }
 
-    input[type=checkbox] {
-        display:none;
+    /* Global layout */
+    #body {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        height: 100vh;
     }
 
-    @media (max-width: 700px) {
-        #container {
-            display: block;
-        }
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        white-space: normal;
+        padding-bottom: 10px;
+    }
 
-        #docs {
-            padding-left: 0px;
-        }
+    #btn-img { margin-right: 3px; }
 
-        #docs * {
-            word-break: break-all;
-        }
+    #title-text { word-break: break-all; }
 
-        #top-btn {
-            left: 80%;
-        }
+    #toggle-btn {
+        margin-top: 2px;
+        cursor: pointer
+    }
 
-        .more-link {
-            display:block;
-        }
+    /* Sidebar */
+    header, nav { border-bottom: 1px solid grey; }
 
-        #sidebar {
-            width: 100%;
-            text-align: center;
-        }
+    li { margin-top: 5px; }
 
-        #table-of-contents li {
-            display:none;
-        }
+    #sidebar {
+        background-color: #1c273c;
+        padding: 15px;
+    }
 
-        #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
-            display: block;
-        }
+    #sidebar ul li ul { margin-left: 10px; }
 
-        #sidebar2 li {
-            display:none;
-        }
+    #sidebar ul li ul li {
+        list-style-type: square;
+        color: #fff;
+    }
 
-        #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
-            display: block;
+    #sidebar a { text-decoration: none; }
+    #sidebar a:hover { color: lightgrey; }
+
+    #sidebar-1, #sidebar-2 {
+        margin-top: 15px; 
+        padding: 0px 10px 25px 10px;
+    }
+
+    #sidebar-1 ul li, #sidebar-2 ul li {
+        margin-left: 35px;  
+        list-style-type: none;
+        word-break: break-all;
+    }
+
+    #sidebar-1 ul h3, #sidebar-2 ul h3 { margin-bottom: 5px; }
+
+    #sidebar-2 ul .functions-name {
+        list-style-type: square;
+        color: #fff;
+    }
+
+    /* Content */
+    #content {
+        color: #333;
+        padding: 20px;
+    }
+    
+    #content ul { padding-left: 15px; }
+    #content ul li { margin-left: 15px; }
+
+    .function-block {
+        padding: 5px 15px 10px 15px;
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+        background-color: #f5eaea;
+        margin-bottom: 20px;
+    }
+
+    #content h1, h2, h3, h4, h5, h6 { padding: 20px 0px 10px 0px; }
+
+    #content p { margin-top: 10px; }
+
+    #content blockquote, #content blockquote p {
+        background-color: #e9e2e2;
+        color: #5c5c5c;
+    }
+
+    #content blockquote {
+        border-left: 4px solid #d6d6d6;
+        padding: 10px;
+        margin: 10px 0px 10px 0px;
+    }
+
+    #content pre {
+        background-color: #1f2430;
+        color: #fff;
+        padding: 10px;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    #content table {
+        border-collapse: collapse; 
+        word-break: break-all;
+        margin-top: 10px;
+    }
+
+    #content table thead tr th, #content table tbody tr td {
+        border: 2px solid #d6d6d6;
+        padding: 10px;
+    }
+
+    #content figcaption {
+        font-size: 13px;
+        color: #5c5c5c;
+    }
+
+    #content a { color: #5c5c5c; }
+
+    #content p code {
+        background-color: #f3f3f3;
+        padding: 2px;
+    }
+
+    /* Footer */
+    footer { margin-top: 10px; }
+    footer p { font-size: 12px; }
+    footer p>a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    /* Media queries */
+    @media screen and (max-width: 1150px) {
+        #body { grid-template-columns: none; }
+        #content { padding: 15px; margin: 0px; }
+        #top-btn { margin: auto 40px 100px auto }
+        #sidebar-1, #sidebar-2, footer { display:none }
+        header {
+            border-bottom: none;
+            padding-bottom: 0px;
         }
-}
+    }
 </style>
 <body>
-    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
-    
-    <h2>module : prelude</h2>
+    <a id="top-btn" class="base-font">Top</a>
 
-    <div>
-        <a id="top-btn" href="#start-of-page">Top</a>
+    <div id="body">
+        <!-- Sidebar -->
+        <div id="sidebar">
 
-        <div id="container">
-            <div id="sidebar">
-                <ul id="table-of-contents">
-                    <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../nocdoc/index.html">../nocdoc/index</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
-                    <li class="more-link" id="btn-1">
-                        <label for="check-1">more</label>
-                        <input type="checkbox" id="check-1" />
-                    </li>
+            <!-- Header -->
+            <header>
+                <div>
+                    <span class="merriweather-font white-color header-size">
+                        <img src="https://raw.githubusercontent.com/noc-lang/vscode-noc/main/assets/icon.svg" height="20" width="20" id="btn-img" />
+                        <span id="title-text">module / prelude</span>
+                    </span>
+                </div>
+
+                <div id="toggle-btn" data-clicked="false">
+                    <i class="fa-sharp fa-solid fa-bars white-color header-size"></i>
+                </div>
+            </header>
+
+            <!-- Table of contents -->
+            <nav id="sidebar-1">
+                <ul>
+                <h3 class="base-font white-color">Table of contents</h3>
+                <li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Overview</span><ul><li><a href="../index.html" class="white-color base-font">../index</a></li><li><a href="../nocdoc/index.html" class="white-color base-font">../nocdoc/index</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Internal</span><ul><li><a href="prelude.html" class="white-color base-font">prelude</a></li><li><a href="fs.html" class="white-color base-font">fs</a></li><li><a href="str.html" class="white-color base-font">str</a></li><li><a href="sys.html" class="white-color base-font">sys</a></li><li><a href="char.html" class="white-color base-font">char</a></li><li><a href="seq.html" class="white-color base-font">seq</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Std</span><ul><li><a href="std-bool.html" class="white-color base-font">std-bool</a></li><li><a href="std-dict.html" class="white-color base-font">std-dict</a></li><li><a href="std-fs.html" class="white-color base-font">std-fs</a></li><li><a href="std-io.html" class="white-color base-font">std-io</a></li><li><a href="std-list.html" class="white-color base-font">std-list</a></li><li><a href="std-math.html" class="white-color base-font">std-math</a></li><li><a href="std-stack.html" class="white-color base-font">std-stack</a></li><li><a href="std-string.html" class="white-color base-font">std-string</a></li></ul></li>
                 </ul>
+            </nav>
 
-                <ul id="sidebar2">
-                    <h3 class="section-title">Functions</h3><li><a href="#[dup]">[dup]</a></li><li><a href="#[pop]">[pop]</a></li><li><a href="#[zap]">[zap]</a></li><li><a href="#[cat]">[cat]</a></li><li><a href="#[rotNM]">[rotNM]</a></li><li><a href="#[+]">[+]</a></li><li><a href="#[-]">[-]</a></li><li><a href="#[*]">[*]</a></li><li><a href="#[/]">[/]</a></li><li><a href="#[^]">[^]</a></li><li><a href="#[print]">[print]</a></li><li><a href="#[putstr]">[putstr]</a></li><li><a href="#[putchar]">[putchar]</a></li><li><a href="#[ask]">[ask]</a></li><li><a href="#[>]">[>]</a></li><li><a href="#[<]">[<]</a></li><li><a href="#[>=]">[>=]</a></li><li><a href="#[<=]">[<=]</a></li><li><a href="#[and]">[and]</a></li><li><a href="#[or]">[or]</a></li><li><a href="#[id]">[id]</a></li><li><a href="#[str]">[str]</a></li><li><a href="#[int]">[int]</a></li><li><a href="#[float]">[float]</a></li><li><a href="#[bool]">[bool]</a></li><li><a href="#[help]">[help]</a></li><li><a href="#[case]">[case]</a></li><li><a href="#[trace]">[trace]</a></li>
-                    <li class="more-link" id="btn-2">
-                        <label for="check-2">more</label>
-                        <input type="checkbox" id="check-2" />
-                    </li>
-                </ul>
-            </div>
-            
-            <div id="docs"><div id="[dup]"><h3>[dup]</h3>docstring for 'dup' function:<br>------------<br>Duplicate the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  dup => [1 2 2]</div><br><br><div id="[pop]"><h3>[pop]</h3>docstring for 'pop' function:<br>------------<br>Remove the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  pop => [1]</div><br><br><div id="[zap]"><h3>[zap]</h3>docstring for 'zap' function:<br>------------<br>Clear all the stack<br><br>(example)<br>  stack: [1 2 3]<br>  zap: []</div><br><br><div id="[cat]"><h3>[cat]</h3>docstring for 'cat' function:<br>------------<br>Concatenate 2 values (string and quotes)<br><br>(example)<br>  [1] [2] cat => [1 2]<br>  "Hello, " "World!" cat => "Hello, World!"</div><br><br><div id="[rotNM]"><h3>[rotNM]</h3>docstring for 'rotNM' function:<br>------------<br>Rotate the stack N elements M times<br><br>(example)<br>  stack: [1 2 3]<br>  2 1 rotNM => [1 3 2]<br>  3 -1 rotNM => [2 3 1]</div><br><br><div id="[+]"><h3>[+]</h3>docstring for '+' function:<br>------------<br>Sum of the 2 top-stack elements<br><br>(example)<br>  stack: [5 6]<br>  + => [11]</div><br><br><div id="[-]"><h3>[-]</h3>docstring for '-' function:<br>------------<br>Difference of the 2 top-stack elements<br><br>(example)<br>  stack: [10 9]<br>  - => [1]</div><br><br><div id="[*]"><h3>[*]</h3>docstring for '*' function:<br>------------<br>Product of the 2 top-stack elements<br><br>(example)<br>  stack: [20 0.5]<br>  * => [10.0]</div><br><br><div id="[/]"><h3>[/]</h3>docstring for '/' function:<br>------------<br>Quotient of the 2 top-stack elements<br><br>(example)<br>  stack: [10 2]<br>  / => [5.0]</div><br><br><div id="[^]"><h3>[^]</h3>docstring for '^' function:<br>------------<br>The exponent of a number<br><br>(example)<br>  stack: [10 2]<br>  ^ => [100]</div><br><br><div id="[print]"><h3>[print]</h3>docstring for 'print' function:<br>------------<br>Output a value (Standard output)<br><br>(example)<br>  "Hello, World!" print => "Hello, World!"<br>  => []</div><br><br><div id="[putstr]"><h3>[putstr]</h3>docstring for 'putstr' function:<br>------------<br>Output a string value (Standard output)<br><br>(example)<br>  "Hello!" putstr => Hello!<br>  => []</div><br><br><div id="[putchar]"><h3>[putchar]</h3>docstring for 'putchar' function:<br>------------<br>Output a char value (Standard output)<br><br>(example)<br>  'a' putchar => a=> []</div><br><br><div id="[ask]"><h3>[ask]</h3>docstring for 'ask' function:<br>------------<br>Read line from the standard input<br><br>(example)<br>  "Your name: " ask<br>  Your name: john<br>  => ["john"]</div><br><br><div id="[>]"><h3>[>]</h3>docstring for '>' function:<br>------------<br>Compare if the first value is greater than the second value<br><br>(example)<br>  stack: [5 6]<br>  > => [False]</div><br><br><div id="[<]"><h3>[<]</h3>docstring for '<' function:<br>------------<br>Compare if the first value is less than the second value<br><br>(example)<br>  stack: [5 6]<br>  < => [True]</div><br><br><div id="[>=]"><h3>[>=]</h3>docstring for '>=' function:<br>------------<br>Compare if the first value is greater or equal than the second value<br><br>(example)<br>  stack: [5 5]<br>  >= => [True]</div><br><br><div id="[<=]"><h3>[<=]</h3>docstring for '<=' function:<br>------------<br>Compare if the first value is less or equal than the second value<br><br>(example)<br>  stack: [4 5]<br>  <= => [True]</div><br><br><div id="[and]"><h3>[and]</h3>docstring for 'and' function:<br>------------<br>The 'AND' logic operator<br><br>(example)<br>  True True and => [True]</div><br><br><div id="[or]"><h3>[or]</h3>docstring for 'or' function:<br>------------<br>The 'OR' logic operator<br><br>(example)<br>  False False or => [False]</div><br><br><div id="[id]"><h3>[id]</h3>docstring for 'id' function:<br>------------<br>Get the top-stack element (does nothing)<br><br>(example)<br>  stack: [5]<br>  id => [5]</div><br><br><div id="[str]"><h3>[str]</h3>docstring for 'str' function:<br>------------<br>Type conversion<br><br>(example)<br>  5 str => ["5"]</div><br><br><div id="[int]"><h3>[int]</h3>docstring for 'int' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10" int => [10]</div><br><br><div id="[float]"><h3>[float]</h3>docstring for 'float' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10.5" float => [10.5]</div><br><br><div id="[bool]"><h3>[bool]</h3>docstring for 'bool' function:<br>------------<br>Convert a value to boolean value<br><br>(example)<br> 1 Bool => [True]</div><br><br><div id="[help]"><h3>[help]</h3>docstring for 'help' function:<br>------------<br>Get a function's doc-string<br><br>(example)<br> [pop] help putstr <br> Output: <br> docstring for 'pop' function: <br> ------------ <br> Remove the top-stack element<br><br> (example)<br>   stack: [1 2]<br>   pop => [1]</div><br><br><div id="[case]"><h3>[case]</h3>docstring for 'case' function:<br>------------<br>Pattern matching combinator<br><br>(example)<br> def fact = { <br>   [<br>     [[0] [pop 1]]<br>     [[_] [dup 1 - quote [dup] cat fact *]] # wildcard (match any pattern)<br>   ] case<br> }<br> <br> def main = { <br>   [6 dup] fact <br> }</div><br><br><div id="[trace]"><h3>[trace]</h3>docstring for 'trace' function:<br>------------<br>Trace the Noc stack<br><br>(example)<br> 1 2 3 trace + => stack: [1 5]<br> output: [1 2 3]</div><br><br></div>
+            <!-- (Details | Functions) -->
+            <nav id="sidebar-2">
+                <ul><h3 class="white-color base-font">Functions</h3><li class="functions-name"><a href="#[dup]" class="white-color base-font">[dup]</a></li><li class="functions-name"><a href="#[pop]" class="white-color base-font">[pop]</a></li><li class="functions-name"><a href="#[zap]" class="white-color base-font">[zap]</a></li><li class="functions-name"><a href="#[cat]" class="white-color base-font">[cat]</a></li><li class="functions-name"><a href="#[rotNM]" class="white-color base-font">[rotNM]</a></li><li class="functions-name"><a href="#[+]" class="white-color base-font">[+]</a></li><li class="functions-name"><a href="#[-]" class="white-color base-font">[-]</a></li><li class="functions-name"><a href="#[*]" class="white-color base-font">[*]</a></li><li class="functions-name"><a href="#[/]" class="white-color base-font">[/]</a></li><li class="functions-name"><a href="#[^]" class="white-color base-font">[^]</a></li><li class="functions-name"><a href="#[print]" class="white-color base-font">[print]</a></li><li class="functions-name"><a href="#[putstr]" class="white-color base-font">[putstr]</a></li><li class="functions-name"><a href="#[putchar]" class="white-color base-font">[putchar]</a></li><li class="functions-name"><a href="#[ask]" class="white-color base-font">[ask]</a></li><li class="functions-name"><a href="#[>]" class="white-color base-font">[>]</a></li><li class="functions-name"><a href="#[<]" class="white-color base-font">[<]</a></li><li class="functions-name"><a href="#[>=]" class="white-color base-font">[>=]</a></li><li class="functions-name"><a href="#[<=]" class="white-color base-font">[<=]</a></li><li class="functions-name"><a href="#[and]" class="white-color base-font">[and]</a></li><li class="functions-name"><a href="#[or]" class="white-color base-font">[or]</a></li><li class="functions-name"><a href="#[id]" class="white-color base-font">[id]</a></li><li class="functions-name"><a href="#[str]" class="white-color base-font">[str]</a></li><li class="functions-name"><a href="#[int]" class="white-color base-font">[int]</a></li><li class="functions-name"><a href="#[float]" class="white-color base-font">[float]</a></li><li class="functions-name"><a href="#[bool]" class="white-color base-font">[bool]</a></li><li class="functions-name"><a href="#[help]" class="white-color base-font">[help]</a></li><li class="functions-name"><a href="#[case]" class="white-color base-font">[case]</a></li><li class="functions-name"><a href="#[trace]" class="white-color base-font">[trace]</a></li></ul>
+            </nav>
+
+            <!-- Footer -->
+            <footer>
+                <p class="base-font white-color">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></p>
+            </footer>
         </div>
+
+        <!-- Content -->
+        <div id="content" class="base-font"><div id="functions"><div id="[dup]" class="function-block"><h3>[dup]</h3>docstring for 'dup' function:<br>------------<br>Duplicate the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  dup => [1 2 2]</div><div id="[pop]" class="function-block"><h3>[pop]</h3>docstring for 'pop' function:<br>------------<br>Remove the top-stack element<br><br>(example)<br>  stack: [1 2]<br>  pop => [1]</div><div id="[zap]" class="function-block"><h3>[zap]</h3>docstring for 'zap' function:<br>------------<br>Clear all the stack<br><br>(example)<br>  stack: [1 2 3]<br>  zap: []</div><div id="[cat]" class="function-block"><h3>[cat]</h3>docstring for 'cat' function:<br>------------<br>Concatenate 2 values (string and quotes)<br><br>(example)<br>  [1] [2] cat => [1 2]<br>  "Hello, " "World!" cat => "Hello, World!"</div><div id="[rotNM]" class="function-block"><h3>[rotNM]</h3>docstring for 'rotNM' function:<br>------------<br>Rotate the stack N elements M times<br><br>(example)<br>  stack: [1 2 3]<br>  2 1 rotNM => [1 3 2]<br>  3 -1 rotNM => [2 3 1]</div><div id="[+]" class="function-block"><h3>[+]</h3>docstring for '+' function:<br>------------<br>Sum of the 2 top-stack elements<br><br>(example)<br>  stack: [5 6]<br>  + => [11]</div><div id="[-]" class="function-block"><h3>[-]</h3>docstring for '-' function:<br>------------<br>Difference of the 2 top-stack elements<br><br>(example)<br>  stack: [10 9]<br>  - => [1]</div><div id="[*]" class="function-block"><h3>[*]</h3>docstring for '*' function:<br>------------<br>Product of the 2 top-stack elements<br><br>(example)<br>  stack: [20 0.5]<br>  * => [10.0]</div><div id="[/]" class="function-block"><h3>[/]</h3>docstring for '/' function:<br>------------<br>Quotient of the 2 top-stack elements<br><br>(example)<br>  stack: [10 2]<br>  / => [5.0]</div><div id="[^]" class="function-block"><h3>[^]</h3>docstring for '^' function:<br>------------<br>The exponent of a number<br><br>(example)<br>  stack: [10 2]<br>  ^ => [100]</div><div id="[print]" class="function-block"><h3>[print]</h3>docstring for 'print' function:<br>------------<br>Output a value (Standard output)<br><br>(example)<br>  "Hello, World!" print => "Hello, World!"<br>  => []</div><div id="[putstr]" class="function-block"><h3>[putstr]</h3>docstring for 'putstr' function:<br>------------<br>Output a string value (Standard output)<br><br>(example)<br>  "Hello!" putstr => Hello!<br>  => []</div><div id="[putchar]" class="function-block"><h3>[putchar]</h3>docstring for 'putchar' function:<br>------------<br>Output a char value (Standard output)<br><br>(example)<br>  'a' putchar => a=> []</div><div id="[ask]" class="function-block"><h3>[ask]</h3>docstring for 'ask' function:<br>------------<br>Read line from the standard input<br><br>(example)<br>  "Your name: " ask<br>  Your name: john<br>  => ["john"]</div><div id="[>]" class="function-block"><h3>[>]</h3>docstring for '>' function:<br>------------<br>Compare if the first value is greater than the second value<br><br>(example)<br>  stack: [5 6]<br>  > => [False]</div><div id="[<]" class="function-block"><h3>[<]</h3>docstring for '<' function:<br>------------<br>Compare if the first value is less than the second value<br><br>(example)<br>  stack: [5 6]<br>  < => [True]</div><div id="[>=]" class="function-block"><h3>[>=]</h3>docstring for '>=' function:<br>------------<br>Compare if the first value is greater or equal than the second value<br><br>(example)<br>  stack: [5 5]<br>  >= => [True]</div><div id="[<=]" class="function-block"><h3>[<=]</h3>docstring for '<=' function:<br>------------<br>Compare if the first value is less or equal than the second value<br><br>(example)<br>  stack: [4 5]<br>  <= => [True]</div><div id="[and]" class="function-block"><h3>[and]</h3>docstring for 'and' function:<br>------------<br>The 'AND' logic operator<br><br>(example)<br>  True True and => [True]</div><div id="[or]" class="function-block"><h3>[or]</h3>docstring for 'or' function:<br>------------<br>The 'OR' logic operator<br><br>(example)<br>  False False or => [False]</div><div id="[id]" class="function-block"><h3>[id]</h3>docstring for 'id' function:<br>------------<br>Get the top-stack element (does nothing)<br><br>(example)<br>  stack: [5]<br>  id => [5]</div><div id="[str]" class="function-block"><h3>[str]</h3>docstring for 'str' function:<br>------------<br>Type conversion<br><br>(example)<br>  5 str => ["5"]</div><div id="[int]" class="function-block"><h3>[int]</h3>docstring for 'int' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10" int => [10]</div><div id="[float]" class="function-block"><h3>[float]</h3>docstring for 'float' function:<br>------------<br>Type conversion<br><br>(example)<br>  "10.5" float => [10.5]</div><div id="[bool]" class="function-block"><h3>[bool]</h3>docstring for 'bool' function:<br>------------<br>Convert a value to boolean value<br><br>(example)<br> 1 Bool => [True]</div><div id="[help]" class="function-block"><h3>[help]</h3>docstring for 'help' function:<br>------------<br>Get a function's doc-string<br><br>(example)<br> [pop] help putstr <br> Output: <br> docstring for 'pop' function: <br> ------------ <br> Remove the top-stack element<br><br> (example)<br>   stack: [1 2]<br>   pop => [1]</div><div id="[case]" class="function-block"><h3>[case]</h3>docstring for 'case' function:<br>------------<br>Pattern matching combinator<br><br>(example)<br> def fact = { <br>   [<br>     [[0] [pop 1]]<br>     [[_] [dup 1 - quote [dup] cat fact *]] # wildcard (match any pattern)<br>   ] case<br> }<br> <br> def main = { <br>   [6 dup] fact <br> }</div><div id="[trace]" class="function-block"><h3>[trace]</h3>docstring for 'trace' function:<br>------------<br>Trace the Noc stack<br><br>(example)<br> 1 2 3 trace + => stack: [1 5]<br> output: [1 2 3]</div></div></div>
     </div>
 
     <script>
-        let toggle = (button, menu, checkbox) => {
-            button.addEventListener("click", () => {
-                for(let i = 3; i < menu.length-1; i++) {
-                    if(checkbox.checked) {
-                        menu[i].style.display = "block";
-                    } else {
-                        menu[i].style.display = "none";
-                    }
-                }
-            });
+        let container = document.querySelector("#body");
+        let sidebar = document.querySelector("#sidebar");
+
+        // Utils
+        let isMobileScreen = () => {
+            return window.matchMedia("(max-width: 1150px)").matches;
         }
 
-        let buttons = document.querySelectorAll(".more-link");
-        let menu1 = document.querySelectorAll("#table-of-contents li");
-        let menu2 = document.querySelectorAll("#sidebar2 li");
-        let checkboxes = document.querySelectorAll("input[type=checkbox]");
+        // Sidebar style
+        let header = document.querySelector("header");
+        let toggleBtn = document.querySelector("#toggle-btn");
+        let sidebar1 = document.querySelector("#sidebar-1");
+        let sidebar2 = document.querySelector("#sidebar-2");
+        let footer = document.querySelector("footer");
 
-        toggle(buttons[0], menu1, checkboxes[0]);
-        toggle(buttons[1], menu2, checkboxes[1]);
+        let setMobileStyle = isClicked => {
+            Array(sidebar1, sidebar2, footer).forEach(elem => {
+                elem.style.display = !isClicked ? "block" : "none";
+            });
+            header.style.borderBottom = !isClicked ? "1px solid grey" : "none";
+            header.style.paddingBottom = !isClicked ? "10px" : "0px";
+        }
+
+        let setDesktopStyle = isClicked => { 
+            if(!isClicked) {
+                container.style.gridTemplateColumns = "1fr 9fr";
+                sidebar.style.whiteSpace = "nowrap";
+                sidebar.style.overflow = "hidden";
+            } else {
+                container.style.gridTemplateColumns = "1fr 5fr";
+                sidebar.style.whiteSpace = "normal";
+                sidebar.style.overflow = "visible";
+            }
+        }
+
+        let toggleSidebar = isClicked => {
+            if(isMobileScreen())
+                setMobileStyle(isClicked)
+            else
+                setDesktopStyle(isClicked);
+            toggleBtn.setAttribute("data-clicked", !isClicked);
+        }
+
+        // DOM Events
+        document.querySelector("#top-btn").addEventListener("click", () => {
+            window.scroll({top: 0, behavior: "smooth"});
+        });
+
+        toggleBtn.addEventListener('click', () => {
+            toggleSidebar(toggleBtn.getAttribute("data-clicked") == "true");
+            if(!isMobileScreen())
+                container.style.transition = ".5s ease";
+        });
     </script>
 </body>
 </html>

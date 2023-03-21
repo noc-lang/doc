@@ -3,219 +3,281 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>module : std-dict</title>
+    <title>std-dict</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <style>
+    /* Font */
+    .base-font { font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif; }
+    .merriweather-font { font-family: 'Merriweather', serif; }
+
+    /* Some selectors */
+    .white-color { color: #fff; }
+    .header-size { font-size: 20px; }
+
     * {
+        margin: 0;
         padding: 0;
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: 400;
     }
 
-    body {
-        background-color: ligthgrey;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 600;
-    }
-
-    p > code {
-        background-color: #efe9e9;
-        padding: 1px;
-        border-radius: 5px;
-    }
-
-    blockquote p {
-        color: grey;
-        font-style: italic;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-    }
-
-    li {
-        list-style: none;
-        word-break: break-all;
-        margin-top: 13px;
-    }
-
-    li a {
-        text-decoration: none;
-        color: rgb(63, 63, 63);
-        padding: 2px;
-        border-radius: 5px;
-    }
-
-    li a:hover {
-        color: rgb(83, 83, 83);
-    }
-
-    #table-of-contents {
-        border: 1px solid lightgrey;
-        margin-top: -1px;
-    }
-
-    #docs {
-        padding-left: 20px;
-        width: 100%;
-    }
-
-    #docs div {
-        border: 1px solid lightgrey;
-        padding-left: 10px;
-        padding-bottom: 11px;
-        background-color: #efe9e9;
-        border-radius: 10px;
-    }
-
-    #top-btn {
+    #top-btn { 
         position: fixed;
-        left: 90%;
-        top: 80%;
-        background-color: #008CBA;
-        padding: 15px;
-        color: #fff;
+        right: 0;
+        bottom: 0;
+        margin: auto 100px 100px auto;
         text-decoration: none;
-        border-radius: 5px;
-    }
-
-    h6 {
-        color: grey;
-    }
-
-    #sidebar {
-        width: 240px;
-    }
-
-    #sidebar2 {
-        border: 1px solid lightgrey;
-    }
-
-    #sidebar ul {
-        border-radius: 10px;
-        padding: 0px 20px 20px;
-    }
-
-    #container {
-        display:flex;
-    }
-
-    .section-title {
-        text-align: center;
-    }
-
-    .more-link {
-        background-color: lightblue;
-        padding: 5px;
+        padding: 15px 15px 10px 15px;
+        background-color: #3C798A;
+        color: #fff;
         border-radius: 5px;
         cursor: pointer;
-        display:none;
     }
 
-    input[type=checkbox] {
-        display:none;
+    /* Global layout */
+    #body {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        height: 100vh;
     }
 
-    @media (max-width: 700px) {
-        #container {
-            display: block;
-        }
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        white-space: normal;
+        padding-bottom: 10px;
+    }
 
-        #docs {
-            padding-left: 0px;
-        }
+    #btn-img { margin-right: 3px; }
 
-        #docs * {
-            word-break: break-all;
-        }
+    #title-text { word-break: break-all; }
 
-        #top-btn {
-            left: 80%;
-        }
+    #toggle-btn {
+        margin-top: 2px;
+        cursor: pointer
+    }
 
-        .more-link {
-            display:block;
-        }
+    /* Sidebar */
+    header, nav { border-bottom: 1px solid grey; }
 
-        #sidebar {
-            width: 100%;
-            text-align: center;
-        }
+    li { margin-top: 5px; }
 
-        #table-of-contents li {
-            display:none;
-        }
+    #sidebar {
+        background-color: #1c273c;
+        padding: 15px;
+    }
 
-        #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
-            display: block;
-        }
+    #sidebar ul li ul { margin-left: 10px; }
 
-        #sidebar2 li {
-            display:none;
-        }
+    #sidebar ul li ul li {
+        list-style-type: square;
+        color: #fff;
+    }
 
-        #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
-            display: block;
+    #sidebar a { text-decoration: none; }
+    #sidebar a:hover { color: lightgrey; }
+
+    #sidebar-1, #sidebar-2 {
+        margin-top: 15px; 
+        padding: 0px 10px 25px 10px;
+    }
+
+    #sidebar-1 ul li, #sidebar-2 ul li {
+        margin-left: 35px;  
+        list-style-type: none;
+        word-break: break-all;
+    }
+
+    #sidebar-1 ul h3, #sidebar-2 ul h3 { margin-bottom: 5px; }
+
+    #sidebar-2 ul .functions-name {
+        list-style-type: square;
+        color: #fff;
+    }
+
+    /* Content */
+    #content {
+        color: #333;
+        padding: 20px;
+    }
+    
+    #content ul { padding-left: 15px; }
+    #content ul li { margin-left: 15px; }
+
+    .function-block {
+        padding: 5px 15px 10px 15px;
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+        background-color: #f5eaea;
+        margin-bottom: 20px;
+    }
+
+    #content h1, h2, h3, h4, h5, h6 { padding: 20px 0px 10px 0px; }
+
+    #content p { margin-top: 10px; }
+
+    #content blockquote, #content blockquote p {
+        background-color: #e9e2e2;
+        color: #5c5c5c;
+    }
+
+    #content blockquote {
+        border-left: 4px solid #d6d6d6;
+        padding: 10px;
+        margin: 10px 0px 10px 0px;
+    }
+
+    #content pre {
+        background-color: #1f2430;
+        color: #fff;
+        padding: 10px;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    #content table {
+        border-collapse: collapse; 
+        word-break: break-all;
+        margin-top: 10px;
+    }
+
+    #content table thead tr th, #content table tbody tr td {
+        border: 2px solid #d6d6d6;
+        padding: 10px;
+    }
+
+    #content figcaption {
+        font-size: 13px;
+        color: #5c5c5c;
+    }
+
+    #content a { color: #5c5c5c; }
+
+    #content p code {
+        background-color: #f3f3f3;
+        padding: 2px;
+    }
+
+    /* Footer */
+    footer { margin-top: 10px; }
+    footer p { font-size: 12px; }
+    footer p>a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    /* Media queries */
+    @media screen and (max-width: 1150px) {
+        #body { grid-template-columns: none; }
+        #content { padding: 15px; margin: 0px; }
+        #top-btn { margin: auto 40px 100px auto }
+        #sidebar-1, #sidebar-2, footer { display:none }
+        header {
+            border-bottom: none;
+            padding-bottom: 0px;
         }
-}
+    }
 </style>
 <body>
-    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
-    
-    <h2>module : std-dict</h2>
+    <a id="top-btn" class="base-font">Top</a>
 
-    <div>
-        <a id="top-btn" href="#start-of-page">Top</a>
+    <div id="body">
+        <!-- Sidebar -->
+        <div id="sidebar">
 
-        <div id="container">
-            <div id="sidebar">
-                <ul id="table-of-contents">
-                    <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../nocdoc/index.html">../nocdoc/index</a></li></ul></li><li>Internal<ul><li><a href="prelude.html">prelude</a></li><li><a href="fs.html">fs</a></li><li><a href="str.html">str</a></li><li><a href="sys.html">sys</a></li><li><a href="char.html">char</a></li><li><a href="seq.html">seq</a></li></ul></li><li>Std<ul><li><a href="std-bool.html">std-bool</a></li><li><a href="std-dict.html">std-dict</a></li><li><a href="std-fs.html">std-fs</a></li><li><a href="std-io.html">std-io</a></li><li><a href="std-list.html">std-list</a></li><li><a href="std-math.html">std-math</a></li><li><a href="std-stack.html">std-stack</a></li><li><a href="std-string.html">std-string</a></li></ul></li>
-                    <li class="more-link" id="btn-1">
-                        <label for="check-1">more</label>
-                        <input type="checkbox" id="check-1" />
-                    </li>
+            <!-- Header -->
+            <header>
+                <div>
+                    <span class="merriweather-font white-color header-size">
+                        <img src="https://raw.githubusercontent.com/noc-lang/vscode-noc/main/assets/icon.svg" height="20" width="20" id="btn-img" />
+                        <span id="title-text">module / std-dict</span>
+                    </span>
+                </div>
+
+                <div id="toggle-btn" data-clicked="false">
+                    <i class="fa-sharp fa-solid fa-bars white-color header-size"></i>
+                </div>
+            </header>
+
+            <!-- Table of contents -->
+            <nav id="sidebar-1">
+                <ul>
+                <h3 class="base-font white-color">Table of contents</h3>
+                <li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Overview</span><ul><li><a href="../index.html" class="white-color base-font">../index</a></li><li><a href="../nocdoc/index.html" class="white-color base-font">../nocdoc/index</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Internal</span><ul><li><a href="prelude.html" class="white-color base-font">prelude</a></li><li><a href="fs.html" class="white-color base-font">fs</a></li><li><a href="str.html" class="white-color base-font">str</a></li><li><a href="sys.html" class="white-color base-font">sys</a></li><li><a href="char.html" class="white-color base-font">char</a></li><li><a href="seq.html" class="white-color base-font">seq</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Std</span><ul><li><a href="std-bool.html" class="white-color base-font">std-bool</a></li><li><a href="std-dict.html" class="white-color base-font">std-dict</a></li><li><a href="std-fs.html" class="white-color base-font">std-fs</a></li><li><a href="std-io.html" class="white-color base-font">std-io</a></li><li><a href="std-list.html" class="white-color base-font">std-list</a></li><li><a href="std-math.html" class="white-color base-font">std-math</a></li><li><a href="std-stack.html" class="white-color base-font">std-stack</a></li><li><a href="std-string.html" class="white-color base-font">std-string</a></li></ul></li>
                 </ul>
+            </nav>
 
-                <ul id="sidebar2">
-                    <h3 class="section-title">Functions</h3><li><a href="#[keys]">[keys]</a></li><li><a href="#[values]">[values]</a></li>
-                    <li class="more-link" id="btn-2">
-                        <label for="check-2">more</label>
-                        <input type="checkbox" id="check-2" />
-                    </li>
-                </ul>
-            </div>
-            
-            <div id="docs"><div id="[keys]"><h3>[keys]</h3>docstring for 'keys' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/dict.noc#L8">std/dict.noc#keys</a><br><br>    Get the dictionnary keys<br><br>    (example)<br>    [["A" 1] ["B" 2] ["C" 3]] keys => [["A" "B" "C"]]</div><br><br><div id="[values]"><h3>[values]</h3>docstring for 'values' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/dict.noc#L18">std/dict.noc#values</a><br><br>    Get the dictionnary values<br><br>    (example)<br>    [["A" 1] ["B" 2] ["C" 3]] values => [[1 2 3]]</div><br><br></div>
+            <!-- (Details | Functions) -->
+            <nav id="sidebar-2">
+                <ul><h3 class="white-color base-font">Functions</h3><li class="functions-name"><a href="#[keys]" class="white-color base-font">[keys]</a></li><li class="functions-name"><a href="#[values]" class="white-color base-font">[values]</a></li></ul>
+            </nav>
+
+            <!-- Footer -->
+            <footer>
+                <p class="base-font white-color">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></p>
+            </footer>
         </div>
+
+        <!-- Content -->
+        <div id="content" class="base-font"><div id="functions"><div id="[keys]" class="function-block"><h3>[keys]</h3>docstring for 'keys' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/dict.noc#L8">std/dict.noc#keys</a><br><br>    Get the dictionnary keys<br><br>    (example)<br>    [["A" 1] ["B" 2] ["C" 3]] keys => [["A" "B" "C"]]</div><div id="[values]" class="function-block"><h3>[values]</h3>docstring for 'values' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/dict.noc#L18">std/dict.noc#values</a><br><br>    Get the dictionnary values<br><br>    (example)<br>    [["A" 1] ["B" 2] ["C" 3]] values => [[1 2 3]]</div></div></div>
     </div>
 
     <script>
-        let toggle = (button, menu, checkbox) => {
-            button.addEventListener("click", () => {
-                for(let i = 3; i < menu.length-1; i++) {
-                    if(checkbox.checked) {
-                        menu[i].style.display = "block";
-                    } else {
-                        menu[i].style.display = "none";
-                    }
-                }
-            });
+        let container = document.querySelector("#body");
+        let sidebar = document.querySelector("#sidebar");
+
+        // Utils
+        let isMobileScreen = () => {
+            return window.matchMedia("(max-width: 1150px)").matches;
         }
 
-        let buttons = document.querySelectorAll(".more-link");
-        let menu1 = document.querySelectorAll("#table-of-contents li");
-        let menu2 = document.querySelectorAll("#sidebar2 li");
-        let checkboxes = document.querySelectorAll("input[type=checkbox]");
+        // Sidebar style
+        let header = document.querySelector("header");
+        let toggleBtn = document.querySelector("#toggle-btn");
+        let sidebar1 = document.querySelector("#sidebar-1");
+        let sidebar2 = document.querySelector("#sidebar-2");
+        let footer = document.querySelector("footer");
 
-        toggle(buttons[0], menu1, checkboxes[0]);
-        toggle(buttons[1], menu2, checkboxes[1]);
+        let setMobileStyle = isClicked => {
+            Array(sidebar1, sidebar2, footer).forEach(elem => {
+                elem.style.display = !isClicked ? "block" : "none";
+            });
+            header.style.borderBottom = !isClicked ? "1px solid grey" : "none";
+            header.style.paddingBottom = !isClicked ? "10px" : "0px";
+        }
+
+        let setDesktopStyle = isClicked => { 
+            if(!isClicked) {
+                container.style.gridTemplateColumns = "1fr 9fr";
+                sidebar.style.whiteSpace = "nowrap";
+                sidebar.style.overflow = "hidden";
+            } else {
+                container.style.gridTemplateColumns = "1fr 5fr";
+                sidebar.style.whiteSpace = "normal";
+                sidebar.style.overflow = "visible";
+            }
+        }
+
+        let toggleSidebar = isClicked => {
+            if(isMobileScreen())
+                setMobileStyle(isClicked)
+            else
+                setDesktopStyle(isClicked);
+            toggleBtn.setAttribute("data-clicked", !isClicked);
+        }
+
+        // DOM Events
+        document.querySelector("#top-btn").addEventListener("click", () => {
+            window.scroll({top: 0, behavior: "smooth"});
+        });
+
+        toggleBtn.addEventListener('click', () => {
+            toggleSidebar(toggleBtn.getAttribute("data-clicked") == "true");
+            if(!isMobileScreen())
+                container.style.transition = ".5s ease";
+        });
     </script>
 </body>
 </html>

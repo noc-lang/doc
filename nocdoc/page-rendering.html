@@ -3,219 +3,281 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>module : page-rendering</title>
+    <title>page-rendering</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
-    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap">
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
 </head>
 <style>
+    /* Font */
+    .base-font { font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif; }
+    .merriweather-font { font-family: 'Merriweather', serif; }
+
+    /* Some selectors */
+    .white-color { color: #fff; }
+    .header-size { font-size: 20px; }
+
     * {
+        margin: 0;
         padding: 0;
-        font-family: 'Ubuntu', sans-serif;
-        font-weight: 400;
     }
 
-    body {
-        background-color: ligthgrey;
-    }
-
-    h1, h2, h3, h4, h5, h6 {
-        font-weight: 600;
-    }
-
-    p > code {
-        background-color: #efe9e9;
-        padding: 1px;
-        border-radius: 5px;
-    }
-
-    blockquote p {
-        color: grey;
-        font-style: italic;
-    }
-
-    table, th, td {
-        border: 1px solid black;
-    }
-
-    li {
-        list-style: none;
-        word-break: break-all;
-        margin-top: 13px;
-    }
-
-    li a {
-        text-decoration: none;
-        color: rgb(63, 63, 63);
-        padding: 2px;
-        border-radius: 5px;
-    }
-
-    li a:hover {
-        color: rgb(83, 83, 83);
-    }
-
-    #table-of-contents {
-        border: 1px solid lightgrey;
-        margin-top: -1px;
-    }
-
-    #docs {
-        padding-left: 20px;
-        width: 100%;
-    }
-
-    #docs div {
-        border: 1px solid lightgrey;
-        padding-left: 10px;
-        padding-bottom: 11px;
-        background-color: #efe9e9;
-        border-radius: 10px;
-    }
-
-    #top-btn {
+    #top-btn { 
         position: fixed;
-        left: 90%;
-        top: 80%;
-        background-color: #008CBA;
-        padding: 15px;
-        color: #fff;
+        right: 0;
+        bottom: 0;
+        margin: auto 100px 100px auto;
         text-decoration: none;
-        border-radius: 5px;
-    }
-
-    h6 {
-        color: grey;
-    }
-
-    #sidebar {
-        width: 240px;
-    }
-
-    #sidebar2 {
-        border: 1px solid lightgrey;
-    }
-
-    #sidebar ul {
-        border-radius: 10px;
-        padding: 0px 20px 20px;
-    }
-
-    #container {
-        display:flex;
-    }
-
-    .section-title {
-        text-align: center;
-    }
-
-    .more-link {
-        background-color: lightblue;
-        padding: 5px;
+        padding: 15px 15px 10px 15px;
+        background-color: #3C798A;
+        color: #fff;
         border-radius: 5px;
         cursor: pointer;
-        display:none;
     }
 
-    input[type=checkbox] {
-        display:none;
+    /* Global layout */
+    #body {
+        display: grid;
+        grid-template-columns: 1fr 5fr;
+        height: 100vh;
     }
 
-    @media (max-width: 700px) {
-        #container {
-            display: block;
-        }
+    /* Header */
+    header {
+        display: flex;
+        justify-content: space-between;
+        white-space: normal;
+        padding-bottom: 10px;
+    }
 
-        #docs {
-            padding-left: 0px;
-        }
+    #btn-img { margin-right: 3px; }
 
-        #docs * {
-            word-break: break-all;
-        }
+    #title-text { word-break: break-all; }
 
-        #top-btn {
-            left: 80%;
-        }
+    #toggle-btn {
+        margin-top: 2px;
+        cursor: pointer
+    }
 
-        .more-link {
-            display:block;
-        }
+    /* Sidebar */
+    header, nav { border-bottom: 1px solid grey; }
 
-        #sidebar {
-            width: 100%;
-            text-align: center;
-        }
+    li { margin-top: 5px; }
 
-        #table-of-contents li {
-            display:none;
-        }
+    #sidebar {
+        background-color: #1c273c;
+        padding: 15px;
+    }
 
-        #table-of-contents li:first-child, #table-of-contents li:nth-child(2), #table-of-contents li:nth-child(3), #table-of-contents li:last-child {
-            display: block;
-        }
+    #sidebar ul li ul { margin-left: 10px; }
 
-        #sidebar2 li {
-            display:none;
-        }
+    #sidebar ul li ul li {
+        list-style-type: square;
+        color: #fff;
+    }
 
-        #sidebar2 li:nth-child(2), #sidebar2 li:nth-child(3), #sidebar2 li:nth-child(4), #sidebar2 li:last-child {
-            display: block;
+    #sidebar a { text-decoration: none; }
+    #sidebar a:hover { color: lightgrey; }
+
+    #sidebar-1, #sidebar-2 {
+        margin-top: 15px; 
+        padding: 0px 10px 25px 10px;
+    }
+
+    #sidebar-1 ul li, #sidebar-2 ul li {
+        margin-left: 35px;  
+        list-style-type: none;
+        word-break: break-all;
+    }
+
+    #sidebar-1 ul h3, #sidebar-2 ul h3 { margin-bottom: 5px; }
+
+    #sidebar-2 ul .functions-name {
+        list-style-type: square;
+        color: #fff;
+    }
+
+    /* Content */
+    #content {
+        color: #333;
+        padding: 20px;
+    }
+    
+    #content ul { padding-left: 15px; }
+    #content ul li { margin-left: 15px; }
+
+    .function-block {
+        padding: 5px 15px 10px 15px;
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+        background-color: #f5eaea;
+        margin-bottom: 20px;
+    }
+
+    #content h1, h2, h3, h4, h5, h6 { padding: 20px 0px 10px 0px; }
+
+    #content p { margin-top: 10px; }
+
+    #content blockquote, #content blockquote p {
+        background-color: #e9e2e2;
+        color: #5c5c5c;
+    }
+
+    #content blockquote {
+        border-left: 4px solid #d6d6d6;
+        padding: 10px;
+        margin: 10px 0px 10px 0px;
+    }
+
+    #content pre {
+        background-color: #1f2430;
+        color: #fff;
+        padding: 10px;
+        white-space: pre-wrap;
+        word-break: break-word;
+    }
+
+    #content table {
+        border-collapse: collapse; 
+        word-break: break-all;
+        margin-top: 10px;
+    }
+
+    #content table thead tr th, #content table tbody tr td {
+        border: 2px solid #d6d6d6;
+        padding: 10px;
+    }
+
+    #content figcaption {
+        font-size: 13px;
+        color: #5c5c5c;
+    }
+
+    #content a { color: #5c5c5c; }
+
+    #content p code {
+        background-color: #f3f3f3;
+        padding: 2px;
+    }
+
+    /* Footer */
+    footer { margin-top: 10px; }
+    footer p { font-size: 12px; }
+    footer p>a {
+        color: #fff;
+        text-decoration: underline;
+    }
+
+    /* Media queries */
+    @media screen and (max-width: 1150px) {
+        #body { grid-template-columns: none; }
+        #content { padding: 15px; margin: 0px; }
+        #top-btn { margin: auto 40px 100px auto }
+        #sidebar-1, #sidebar-2, footer { display:none }
+        header {
+            border-bottom: none;
+            padding-bottom: 0px;
         }
-}
+    }
 </style>
 <body>
-    <h6 id="start-of-page">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></h1>
-    
-    <h2>module : page-rendering</h2>
+    <a id="top-btn" class="base-font">Top</a>
 
-    <div>
-        <a id="top-btn" href="#start-of-page">Top</a>
+    <div id="body">
+        <!-- Sidebar -->
+        <div id="sidebar">
 
-        <div id="container">
-            <div id="sidebar">
-                <ul id="table-of-contents">
-                    <h3 class="section-title">Table of contents</h6>
-                    <li>Overview<ul><li><a href="index.html">index</a></li><li><a href="../index.html">../index</a></li><li><a href="../library/index.html">../library/index</a></li></ul></li><li>Functions<ul><li><a href="page-rendering.html">page-rendering</a></li><li><a href="generate-page.html">generate-page</a></li></ul></li><li>Reference<ul><li><a href="constants.html">constants</a></li></ul></li>
-                    <li class="more-link" id="btn-1">
-                        <label for="check-1">more</label>
-                        <input type="checkbox" id="check-1" />
-                    </li>
+            <!-- Header -->
+            <header>
+                <div>
+                    <span class="merriweather-font white-color header-size">
+                        <img src="https://raw.githubusercontent.com/noc-lang/vscode-noc/main/assets/icon.svg" height="20" width="20" id="btn-img" />
+                        <span id="title-text">module / page-rendering</span>
+                    </span>
+                </div>
+
+                <div id="toggle-btn" data-clicked="false">
+                    <i class="fa-sharp fa-solid fa-bars white-color header-size"></i>
+                </div>
+            </header>
+
+            <!-- Table of contents -->
+            <nav id="sidebar-1">
+                <ul>
+                <h3 class="base-font white-color">Table of contents</h3>
+                <li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Overview</span><ul><li><a href="index.html" class="white-color base-font">index</a></li><li><a href="../index.html" class="white-color base-font">../index</a></li><li><a href="../library/index.html" class="white-color base-font">../library/index</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Wiki</span><ul><li><a href="html-tag-use.html" class="white-color base-font">html-tag-use</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Functions</span><ul><li><a href="page-rendering.html" class="white-color base-font">page-rendering</a></li><li><a href="generate-page.html" class="white-color base-font">generate-page</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Reference</span><ul><li><a href="constants.html" class="white-color base-font">constants</a></li></ul></li>
                 </ul>
+            </nav>
 
-                <ul id="sidebar2">
-                    <h3 class="section-title">Functions</h3><li><a href="#[formatHTML]">[formatHTML]</a></li><li><a href="#[renderHomePage]">[renderHomePage]</a></li><li><a href="#[renderModule]">[renderModule]</a></li><li><a href="#[renderWikiPage]">[renderWikiPage]</a></li>
-                    <li class="more-link" id="btn-2">
-                        <label for="check-2">more</label>
-                        <input type="checkbox" id="check-2" />
-                    </li>
-                </ul>
-            </div>
-            
-            <div id="docs"><div id="[formatHTML]"><h3>[formatHTML]</h3>docstring for 'formatHTML' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L9">nocdoc/nocdoc.noc#formatHTML</a><br><br>    Format some website blocks in HTML<br><br>    Syntax: [const] formatHTML => "html_content"<br>        consts:<br>            - <a href="constants.html#[TABLE_OF_CONTENTS_SIDEBAR]">TABLE_OF_CONTENTS_SIDEBAR</a><br>            - <a href="constants.html#[TABLE_OF_CONTENTS_LINKS]">TABLE_OF_CONTENTS_LINKS</a><br>            - <a href="constants.html#[DETAILS_SIDEBAR]">DETAILS_SIDEBAR</a><br>            - <a href="constants.html#[FUNCTIONS_SIDEBAR]">FUNCTIONS_SIDEBAR</a><br>            - <a href="constants.html#[NOC_FUNCTIONS_DOCUMENTATION]">NOC_FUNCTIONS_DOCUMENTATION</a><br>            - <a href="constants.html#[PAGE]">PAGE</a></div><br><br><div id="[renderHomePage]"><h3>[renderHomePage]</h3>docstring for 'renderHomePage' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L107">nocdoc/nocdoc.noc#renderHomePage</a><br><br>    Render the homepage in HTML format string<br><br>    Syntax: info renderHomePage => "name.html" "html_content"<br>        info -> ["name" "author" [desc] "url_git" table_of_contents]</div><br><br><div id="[renderModule]"><h3>[renderModule]</h3>docstring for 'renderModule' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L157">nocdoc/nocdoc.noc#renderModule</a><br><br>    Render the Noc module in HTML format string<br><br>    Syntax: info functions "module_name" renderModule => "module_name.html" "html_content"<br>        info -> ["name" "author" [desc] "url_git" table_of_contents]<br>        functions -> [[func_a] [func_b] ...]</div><br><br><div id="[renderWikiPage]"><h3>[renderWikiPage]</h3>docstring for 'renderWikiPage' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/nocdoc.noc#L202">nocdoc/nocdoc.noc#renderWikiPage</a><br><br>    Render the Noc wiki in HTML format string<br><br>    Syntax: wikiInfo wikiPage "wiki_page_name" renderModule => "wiki_page_name.html" "html_content"<br>        wikiInfo -> ["name" "author" "desc" "url_git" table_of_contents]<br>        wikiPage -> content page in HTML</div><br><br></div>
+            <!-- (Details | Functions) -->
+            <nav id="sidebar-2">
+                <ul><h3 class="white-color base-font">Functions</h3><li class="functions-name"><a href="#[formatHTML]" class="white-color base-font">[formatHTML]</a></li><li class="functions-name"><a href="#[renderHomePage]" class="white-color base-font">[renderHomePage]</a></li><li class="functions-name"><a href="#[renderModule]" class="white-color base-font">[renderModule]</a></li><li class="functions-name"><a href="#[renderWikiPage]" class="white-color base-font">[renderWikiPage]</a></li></ul>
+            </nav>
+
+            <!-- Footer -->
+            <footer>
+                <p class="base-font white-color">Documentation powered by <a href="https://github.com/noc-lang/nocdoc">nocdoc</a></p>
+            </footer>
         </div>
+
+        <!-- Content -->
+        <div id="content" class="base-font"><div id="functions"><div id="[formatHTML]" class="function-block"><h3>[formatHTML]</h3>docstring for 'formatHTML' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/render_html.noc#L12">nocdoc/render_html.noc#formatHTML</a><br><br>    Format some website blocks in HTML<br><br>    Syntax: [const] formatHTML => "html_content"<br>        consts:<br>            - <a href="constants.html#[TABLE_OF_CONTENTS_SIDEBAR]">TABLE_OF_CONTENTS_SIDEBAR</a><br>            - <a href="constants.html#[TABLE_OF_CONTENTS_LINKS]">TABLE_OF_CONTENTS_LINKS</a><br>            - <a href="constants.html#[DETAILS_SIDEBAR]">DETAILS_SIDEBAR</a><br>            - <a href="constants.html#[FUNCTIONS_SIDEBAR]">FUNCTIONS_SIDEBAR</a><br>            - <a href="constants.html#[NOC_FUNCTIONS_DOCUMENTATION]">NOC_FUNCTIONS_DOCUMENTATION</a><br>            - <a href="constants.html#[PAGE]">PAGE</a></div><div id="[renderHomePage]" class="function-block"><h3>[renderHomePage]</h3>docstring for 'renderHomePage' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/render_html.noc#L120">nocdoc/render_html.noc#renderHomePage</a><br><br>    Render the homepage in HTML format string<br><br>    Syntax: info renderHomePage => "name.html" "html_content"<br>        info -> ["name" "author" [desc] "url_git" table_of_contents]</div><div id="[renderModule]" class="function-block"><h3>[renderModule]</h3>docstring for 'renderModule' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/render_html.noc#L170">nocdoc/render_html.noc#renderModule</a><br><br>    Render the Noc module in HTML format string<br><br>    Syntax: info functions "module_name" renderModule => "module_name.html" "html_content"<br>        info -> ["name" "author" [desc] "url_git" table_of_contents]<br>        functions -> [[func_a] [func_b] ...]</div><div id="[renderWikiPage]" class="function-block"><h3>[renderWikiPage]</h3>docstring for 'renderWikiPage' function:<br>------------<br>source: <a href="https://github.com/noc-lang/nocdoc/blob/main/render_html.noc#L215">nocdoc/render_html.noc#renderWikiPage</a><br><br>    Render the Noc wiki in HTML format string<br><br>    Syntax: wikiInfo wikiPage "wiki_page_name" renderModule => "wiki_page_name.html" "html_content"<br>        wikiInfo -> ["name" "author" "desc" "url_git" table_of_contents]<br>        wikiPage -> content page in HTML</div></div></div>
     </div>
 
     <script>
-        let toggle = (button, menu, checkbox) => {
-            button.addEventListener("click", () => {
-                for(let i = 3; i < menu.length-1; i++) {
-                    if(checkbox.checked) {
-                        menu[i].style.display = "block";
-                    } else {
-                        menu[i].style.display = "none";
-                    }
-                }
-            });
+        let container = document.querySelector("#body");
+        let sidebar = document.querySelector("#sidebar");
+
+        // Utils
+        let isMobileScreen = () => {
+            return window.matchMedia("(max-width: 1150px)").matches;
         }
 
-        let buttons = document.querySelectorAll(".more-link");
-        let menu1 = document.querySelectorAll("#table-of-contents li");
-        let menu2 = document.querySelectorAll("#sidebar2 li");
-        let checkboxes = document.querySelectorAll("input[type=checkbox]");
+        // Sidebar style
+        let header = document.querySelector("header");
+        let toggleBtn = document.querySelector("#toggle-btn");
+        let sidebar1 = document.querySelector("#sidebar-1");
+        let sidebar2 = document.querySelector("#sidebar-2");
+        let footer = document.querySelector("footer");
 
-        toggle(buttons[0], menu1, checkboxes[0]);
-        toggle(buttons[1], menu2, checkboxes[1]);
+        let setMobileStyle = isClicked => {
+            Array(sidebar1, sidebar2, footer).forEach(elem => {
+                elem.style.display = !isClicked ? "block" : "none";
+            });
+            header.style.borderBottom = !isClicked ? "1px solid grey" : "none";
+            header.style.paddingBottom = !isClicked ? "10px" : "0px";
+        }
+
+        let setDesktopStyle = isClicked => { 
+            if(!isClicked) {
+                container.style.gridTemplateColumns = "1fr 9fr";
+                sidebar.style.whiteSpace = "nowrap";
+                sidebar.style.overflow = "hidden";
+            } else {
+                container.style.gridTemplateColumns = "1fr 5fr";
+                sidebar.style.whiteSpace = "normal";
+                sidebar.style.overflow = "visible";
+            }
+        }
+
+        let toggleSidebar = isClicked => {
+            if(isMobileScreen())
+                setMobileStyle(isClicked)
+            else
+                setDesktopStyle(isClicked);
+            toggleBtn.setAttribute("data-clicked", !isClicked);
+        }
+
+        // DOM Events
+        document.querySelector("#top-btn").addEventListener("click", () => {
+            window.scroll({top: 0, behavior: "smooth"});
+        });
+
+        toggleBtn.addEventListener('click', () => {
+            toggleSidebar(toggleBtn.getAttribute("data-clicked") == "true");
+            if(!isMobileScreen())
+                container.style.transition = ".5s ease";
+        });
     </script>
 </body>
 </html>

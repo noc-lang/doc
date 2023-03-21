@@ -3,7 +3,7 @@
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta charset="UTF-8" />
-    <title>std-bool</title>
+    <title>html-tag-use</title>
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
@@ -192,7 +192,7 @@
                 <div>
                     <span class="merriweather-font white-color header-size">
                         <img src="https://raw.githubusercontent.com/noc-lang/vscode-noc/main/assets/icon.svg" height="20" width="20" id="btn-img" />
-                        <span id="title-text">module / std-bool</span>
+                        <span id="title-text">wiki / html-tag-use</span>
                     </span>
                 </div>
 
@@ -205,13 +205,19 @@
             <nav id="sidebar-1">
                 <ul>
                 <h3 class="base-font white-color">Table of contents</h3>
-                <li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Overview</span><ul><li><a href="../index.html" class="white-color base-font">../index</a></li><li><a href="../nocdoc/index.html" class="white-color base-font">../nocdoc/index</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Internal</span><ul><li><a href="prelude.html" class="white-color base-font">prelude</a></li><li><a href="fs.html" class="white-color base-font">fs</a></li><li><a href="str.html" class="white-color base-font">str</a></li><li><a href="sys.html" class="white-color base-font">sys</a></li><li><a href="char.html" class="white-color base-font">char</a></li><li><a href="seq.html" class="white-color base-font">seq</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Std</span><ul><li><a href="std-bool.html" class="white-color base-font">std-bool</a></li><li><a href="std-dict.html" class="white-color base-font">std-dict</a></li><li><a href="std-fs.html" class="white-color base-font">std-fs</a></li><li><a href="std-io.html" class="white-color base-font">std-io</a></li><li><a href="std-list.html" class="white-color base-font">std-list</a></li><li><a href="std-math.html" class="white-color base-font">std-math</a></li><li><a href="std-stack.html" class="white-color base-font">std-stack</a></li><li><a href="std-string.html" class="white-color base-font">std-string</a></li></ul></li>
+                <li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Overview</span><ul><li><a href="index.html" class="white-color base-font">index</a></li><li><a href="../index.html" class="white-color base-font">../index</a></li><li><a href="../library/index.html" class="white-color base-font">../library/index</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Wiki</span><ul><li><a href="html-tag-use.html" class="white-color base-font">html-tag-use</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Functions</span><ul><li><a href="page-rendering.html" class="white-color base-font">page-rendering</a></li><li><a href="generate-page.html" class="white-color base-font">generate-page</a></li></ul></li><li><i class="fa-solid fa-arrow-right white-color"></i> <span class="white-color base-font">Reference</span><ul><li><a href="constants.html" class="white-color base-font">constants</a></li></ul></li>
                 </ul>
             </nav>
 
             <!-- (Details | Functions) -->
             <nav id="sidebar-2">
-                <ul><h3 class="white-color base-font">Functions</h3><li class="functions-name"><a href="#[if]" class="white-color base-font">[if]</a></li><li class="functions-name"><a href="#[not]" class="white-color base-font">[not]</a></li><li class="functions-name"><a href="#[eq]" class="white-color base-font">[eq]</a></li><li class="functions-name"><a href="#[==]" class="white-color base-font">[==]</a></li><li class="functions-name"><a href="#[!=]" class="white-color base-font">[!=]</a></li></ul>
+                <ul>
+                    <h3 class="white-color base-font">Details</h3>
+                    <li>
+                        <b class="white-color base-font"><i class="fa-solid fa-at"></i> Author:</b> <span class="base-font white-color">mortim</span></li><li>
+                        <b class="white-color base-font"><i class="fa-solid fa-code-branch"></i> Git repos: </b><a href="https://github.com/noc-lang/nocdoc" class="white-color base-font">https://github.com/noc-lang/nocdoc</a>
+                    </li>
+                    </ul>
             </nav>
 
             <!-- Footer -->
@@ -221,7 +227,60 @@
         </div>
 
         <!-- Content -->
-        <div id="content" class="base-font"><div id="functions"><div id="[if]" class="function-block"><h3>[if]</h3>docstring for 'if' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/bool.noc#L8">std/bool.noc#if</a><br><br>  if statement<br>  <br>  (example)<br>  ["else"] ["then"] True if => ["then"]</div><div id="[not]" class="function-block"><h3>[not]</h3>docstring for 'not' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/bool.noc#L21">std/bool.noc#not</a><br><br>    (Logical operator) Get False if the value is True and True if the value is False<br><br>    (example)<br>    True not => [False]<br>    False not => [True]</div><div id="[eq]" class="function-block"><h3>[eq]</h3>docstring for 'eq' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/bool.noc#L36">std/bool.noc#eq</a><br><br>    Check if 2 values are equal<br><br>    (example)<br>    5 6 eq => [False]<br>    [Right "ok"] [Right "ok"] eq => [True]</div><div id="[==]" class="function-block"><h3>[==]</h3>docstring for '==' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/bool.noc#L47">std/bool.noc#(==)</a><br><br>  Check if 2 values are equal <br><br>  (example)<br>  5 6 eq => [False]<br>  [Right "ok"] [Right "ok"] eq => [True]</div><div id="[!=]" class="function-block"><h3>[!=]</h3>docstring for '!=' function:<br>------------<br>source: <a href="https://github.com/noc-lang/noc/blob/23054fe0c3f28b03ca13359594aa99689035d19a/std/bool.noc#L58">std/bool.noc#(!=)</a><br><br>  Compare if the first value is different than the second value<br><br>  (example)<br>  5 6 != => [True]</div></div></div>
+        <div id="content" class="base-font"><p>To format your own documentation, you can use these HTML tags:</p>
+<blockquote>
+<p>To write your nocdoc documentation in Markdown, you have to convert all Markdown snippets to HTML with <strong>pandoc</strong> (check this <a href="https://github.com/noc-lang/manual/blob/main/setup.sh">link</a>)</p>
+</blockquote>
+<h3 id="paragraph">Paragraph</h3>
+<pre><code>&lt;p&gt;..&lt;/p&gt;</code></pre>
+<h3 id="line-block">Line block</h3>
+<pre><code>&lt;p&gt;
+    &lt;code&gt;...&lt;/code&gt;
+&lt;/p&gt;</code></pre>
+<h3 id="code-block">Code Block</h3>
+<pre><code>&lt;pre&gt;
+    &lt;code&gt;...&lt;/code&gt;
+&lt;/pre&gt;</code></pre>
+<h3 id="quoting">Quoting</h3>
+<pre><code>&lt;blockquote&gt;&lt;p&gt;..&lt;/p&gt;&lt;/blockquote&gt;</code></pre>
+<h3 id="bold-text">Bold text</h3>
+<pre><code>&lt;strong&gt;..&lt;/strong&gt;</code></pre>
+<h3 id="italic-text">Italic text</h3>
+<pre><code>&lt;i&gt;..&lt;/i&gt;</code></pre>
+<h3 id="image-with-caption">Image with caption</h3>
+<pre><code>&lt;figure&gt;
+    &lt;img src=&quot;img_path&quot; alt=&quot;&quot;&gt;
+    &lt;figcaption&gt;caption&lt;/figcaption&gt;
+&lt;/figure&gt;</code></pre>
+<h3 id="link">Link</h3>
+<pre><code>&lt;p&gt;&lt;a href=&quot;url&quot;&gt;title&lt;/a&gt;&lt;/p&gt;</code></pre>
+<h3 id="table">Table</h3>
+<pre><code>&lt;table&gt;
+    &lt;thead&gt;
+        &lt;tr&gt;
+            &lt;th&gt;a&lt;/th&gt;
+            ...
+        &lt;/tr&gt;
+    &lt;/thead&gt;
+
+    &lt;tbody&gt;
+        &lt;tr&gt;
+            &lt;td&gt;f&lt;/td&gt;
+            ...
+        &lt;/tr&gt;
+
+        &lt;tr&gt;
+            &lt;td&gt;k&lt;/td&gt;
+            ...
+        &lt;/tr&gt;
+        
+        &lt;tr&gt;
+            &lt;td&gt;p&lt;/td&gt;
+            ...
+        &lt;/tr&gt;
+    &lt;/tbody&gt;
+&lt;/table&gt;</code></pre>
+</div>
     </div>
 
     <script>
