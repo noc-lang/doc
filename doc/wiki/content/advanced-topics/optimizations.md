@@ -2,14 +2,14 @@ In the latest version, Noc runs in a virtual machine written in C, this feature 
 
 Here is the Noc codebase:
 
-- [CLI](https://github.com/noc-lang/noc/blob/master/app/Command/CLI.hs) (written in Haskell)
--  [Parser](https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Syntax/AST.hs)/[Lexer](https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Syntax/Lexer.hs) (written in Haskell)
+- [CLI](https://github.com/noc-lang/noc/blob/main/app/Command/CLI.hs) (written in Haskell)
+-  [Parser](https://github.com/noc-lang/noc/blob/main/src/Language/Noc/Syntax/AST.hs)/[Lexer](https://github.com/noc-lang/noc/blob/main/src/Language/Noc/Syntax/Lexer.hs) (written in Haskell)
 -  Pre-compilation (written in Haskell)
-    - [Name Resolution](https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Resolution/Imports.hs)
+    - [Name Resolution](https://github.com/noc-lang/noc/blob/main/src/Language/Noc/Resolution/Imports.hs)
 - Compiler (written in Haskell)
-    - [Bytecode](https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Compiler/Bytecode.hs)
-    - [Serializer](https://github.com/noc-lang/noc/blob/master/src/Language/Noc/Compiler/Serialize.hs)
-- [Virtual Machine](https://github.com/noc-lang/noc/tree/master/src/Language/Noc/VM) (written in C)
+    - [Bytecode](https://github.com/noc-lang/noc/blob/main/src/Language/Noc/Compiler/Bytecode.hs)
+    - [Serializer](https://github.com/noc-lang/noc/blob/main/src/Language/Noc/Compiler/Serialize.hs)
+- [Virtual Machine](https://github.com/noc-lang/noc/tree/main/src/Language/Noc/VM) (written in C)
 
 ------------------------------------------------------------------------
 

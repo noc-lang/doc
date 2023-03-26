@@ -18,7 +18,7 @@ The `[_]` pattern run the default action (otherwise), it matches any pattern.
 
 Example: **(if combinator)**
 
-##### Source: [std/bool.noc](https://github.com/noc-lang/noc/blob/master/std/bool.noc)
+##### Source: [std/bool.noc](https://github.com/noc-lang/noc/blob/main/std/bool.noc)
 
 ```scala
 def if = {

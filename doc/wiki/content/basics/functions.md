@@ -28,7 +28,7 @@ def (function) = { atom1 atom2 ... atomN }
 
 It's useful for have a better syntax to define operators.
 
-##### Source: [std/string.noc](https://github.com/noc-lang/noc/blob/master/std/string.noc#L7)
+##### Source: [std/string.noc](https://github.com/noc-lang/noc/blob/main/std/string.noc#L7)
 
 ```scala
 def ($) = {

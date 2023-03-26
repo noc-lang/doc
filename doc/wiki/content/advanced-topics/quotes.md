@@ -30,7 +30,7 @@ We can efficiently pattern match a string in converting her to a quote of chars.
 
 > There is a Noc module dedicated to lists in the Noc STD.
 
-##### Source: [std/list.noc](https://github.com/noc-lang/noc/blob/master/std/list.noc)
+##### Source: [std/list.noc](https://github.com/noc-lang/noc/blob/main/std/list.noc)
 
 ```scala
 [1 2 3] len => [3]
@@ -49,7 +49,7 @@ noc> [["A" 1] ["B" 2] ["C" 3]]
 
 > There is a Noc module dedicated to dicts in the Noc STD.
 
-##### Source: [std/dict.noc](https://github.com/noc-lang/noc/blob/master/std/dict.noc)
+##### Source: [std/dict.noc](https://github.com/noc-lang/noc/blob/main/std/dict.noc)
 
 ```scala
 [["A" 1] ["B" 2] ["C" 3]] keys => [["A" "B" "C"]]
