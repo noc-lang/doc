@@ -8,14 +8,14 @@ load sys
 def main = {
     args
     [
-        [[["wiki"]] [ "wiki-homepage" putVerbose
-                      wikiInfo generateHomePage
+        [[["wiki"]] [ wikiInfo generateHomePage
+                      "wiki-homepage" putVerbose
                       [WIKI] wikiInfo wikiPageContents generate ]]
-        [[["library"]] [ "library-homepage" putVerbose
-                         libInfo generateHomePage
+        [[["library"]] [ libInfo generateHomePage
+                         "library-homepage" putVerbose
                          [LIBRARY] libInfo libFunctions generate ]]
-        [[["nocdoc"]] [ "nocdoc-homepage" putVerbose
-                        nocdocInfo generateHomePage 
+        [[["nocdoc"]] [ nocdocInfo generateHomePage 
+                        "nocdoc-homepage" putVerbose
                         [LIBRARY] nocdocInfo nocdocFunctions generate
                         [WIKI] nocdocInfo wikiPageNocdoc generate ]]
         [[_] ["noc: no such argument\n" putstr 1 exit]]
