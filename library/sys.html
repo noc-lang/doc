@@ -105,7 +105,7 @@
     #content ul, #content ol { padding-left: 15px; }
     #content ul li, #content ol li { margin-left: 15px; }
 
-    #content div {
+    #content #functions div {
         padding: 5px 15px 10px 15px;
         border-radius: 5px;
         border: 1px solid lightgrey;
@@ -234,7 +234,7 @@
         </div>
 
         <!-- Content -->
-        <div id="content" class="base-font"><div id="[exit]"><h3>[exit]</h3>docstring for 'exit' function:<br>------------<br>Exit program after the current instruction<br><br>(example)<br> def main = {<br> "ERROR! ..." print<br> 1 exit<br> "other instructions..." print <br> }<br> /*<br> Output:<br> "ERROR! ..."<br> *** Exception: ExitFailure 1<br> */<br> ---------<br> def main = {<br> "other instructions..." print<br> 0 exit<br> }<br> /*<br> Output: <br> "other instructions..."<br> */</div><div id="[args]"><h3>[args]</h3>docstring for 'args' function:<br>------------<br>Get the program's command line arguments<br><br>(example)<br>  def main = {<br>    args print<br>  }<br> /*<br> noc file.noc a b<br> Output:<br> ["a", "b"]<br> -----<br> noc file.noc -- a b --arg c<br> ["a" "b" "--arg" "c"]<br> */</div><div id="[catch]"><h3>[catch]</h3>docstring for 'catch' function:<br>------------<br>Catch errors in a quote<br><br>(example)<br>[1 + "2" +] ["An error has occured." putstrln] catch<br>[1 2 +] ["Another error has occured." putstrln] catch<br>== Output ==<br>An error has occured.<br>=> []<br>=> [3]</div></div>
+        <div id="content" class="base-font"><div id="functions"><div id="[exit]"><h3>[exit]</h3>docstring for 'exit' function:<br>------------<br>Exit program after the current instruction<br><br>(example)<br> def main = {<br> "ERROR! ..." print<br> 1 exit<br> "other instructions..." print <br> }<br> /*<br> Output:<br> "ERROR! ..."<br> *** Exception: ExitFailure 1<br> */<br> ---------<br> def main = {<br> "other instructions..." print<br> 0 exit<br> }<br> /*<br> Output: <br> "other instructions..."<br> */</div><div id="[args]"><h3>[args]</h3>docstring for 'args' function:<br>------------<br>Get the program's command line arguments<br><br>(example)<br>  def main = {<br>    args print<br>  }<br> /*<br> noc file.noc a b<br> Output:<br> ["a", "b"]<br> -----<br> noc file.noc -- a b --arg c<br> ["a" "b" "--arg" "c"]<br> */</div><div id="[catch]"><h3>[catch]</h3>docstring for 'catch' function:<br>------------<br>Catch errors in a quote<br><br>(example)<br>[1 + "2" +] ["An error has occured." putstrln] catch<br>[1 2 +] ["Another error has occured." putstrln] catch<br>== Output ==<br>An error has occured.<br>=> []<br>=> [3]</div></div></div>
     </div>
 
     <script>

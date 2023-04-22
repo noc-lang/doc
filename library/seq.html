@@ -105,7 +105,7 @@
     #content ul, #content ol { padding-left: 15px; }
     #content ul li, #content ol li { margin-left: 15px; }
 
-    #content div {
+    #content #functions div {
         padding: 5px 15px 10px 15px;
         border-radius: 5px;
         border: 1px solid lightgrey;
@@ -234,7 +234,7 @@
         </div>
 
         <!-- Content -->
-        <div id="content" class="base-font"><div id="[unquote]"><h3>[unquote]</h3>docstring for 'unquote' function:<br>------------<br>Evaluate instruction into a quote<br><br>(example)<br>  [[5 5 +] 5 5 +] unquote => [[5 5 +] 10]</div><div id="[pushr]"><h3>[pushr]</h3>docstring for 'pushr' function:<br>------------<br>Push a value into a quote<br><br>(example)<br>  [5] 5 pushr => [[5 5]]</div><div id="[popr]"><h3>[popr]</h3>docstring for 'popr' function:<br>------------<br>Get out the top-element in the quote<br>n<br>(example)<br>  [1 2] popr => [[1] 2]</div><div id="[step]"><h3>[step]</h3>docstring for 'step' function:<br>------------<br>Execute a specific function for each element of a quote<br><br>quote [function] step <br><br>(example)<br> ["noc" "hello" "world!"] [$ len] step => [[3 5 6]]</div><div id="[fold]"><h3>[fold]</h3>docstring for 'fold' function:<br>------------<br>Reduce a quote of elements to one value in accumulating each elements with a specific function<br><br>quote (initial_value -> accumulator) [function] fold <br><br>(example)<br> [1 2 3] 0 [+] fold => [6]</div></div>
+        <div id="content" class="base-font"><div id="functions"><div id="[unquote]"><h3>[unquote]</h3>docstring for 'unquote' function:<br>------------<br>Evaluate instruction into a quote<br><br>(example)<br>  [[5 5 +] 5 5 +] unquote => [[5 5 +] 10]</div><div id="[pushr]"><h3>[pushr]</h3>docstring for 'pushr' function:<br>------------<br>Push a value into a quote<br><br>(example)<br>  [5] 5 pushr => [[5 5]]</div><div id="[popr]"><h3>[popr]</h3>docstring for 'popr' function:<br>------------<br>Get out the top-element in the quote<br>n<br>(example)<br>  [1 2] popr => [[1] 2]</div><div id="[step]"><h3>[step]</h3>docstring for 'step' function:<br>------------<br>Execute a specific function for each element of a quote<br><br>quote [function] step <br><br>(example)<br> ["noc" "hello" "world!"] [$ len] step => [[3 5 6]]</div><div id="[fold]"><h3>[fold]</h3>docstring for 'fold' function:<br>------------<br>Reduce a quote of elements to one value in accumulating each elements with a specific function<br><br>quote (initial_value -> accumulator) [function] fold <br><br>(example)<br> [1 2 3] 0 [+] fold => [6]</div></div></div>
     </div>
 
     <script>
