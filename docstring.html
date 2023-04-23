@@ -266,29 +266,27 @@ Remove the top-stack element
 
     <script>
         // Toggle sidebar (mobile only)
-        if(window.matchMedia("(max-width: 1250px)").matches) {
-            const sidebar = [
-                document.querySelector("header"),
-                document.querySelector("#sidebar-1"),
-                document.querySelector("#sidebar-2"),
-                document.querySelector("footer")
-            ];
-            const btn = document.querySelector("#toggle-btn");
-            const topBtn = document.querySelector("#top-btn");
+        const sidebar = [
+            document.querySelector("header"),
+            document.querySelector("#sidebar-1"),
+            document.querySelector("#sidebar-2"),
+            document.querySelector("footer")
+        ];
+        const btn = document.querySelector("#toggle-btn");
+        const topBtn = document.querySelector("#top-btn");
 
-            btn.addEventListener("click", () => {
-                sidebar.slice(1).forEach(elem => {
-                    elem.classList.toggle("hide-sidebar-mobile");
-                });
-                sidebar[0].classList.toggle("remove-sidebar-border-mobile");
-                sidebar[0].classList.toggle("remove-sidebar-padding-mobile");
+        btn.addEventListener("click", () => {
+            sidebar.slice(1).forEach(elem => {
+                elem.classList.toggle("hide-sidebar-mobile");
             });
+            sidebar[0].classList.toggle("remove-sidebar-border-mobile");
+            sidebar[0].classList.toggle("remove-sidebar-padding-mobile");
+        });
 
-            // Scroll to top page
-            topBtn.addEventListener("click", () => {
-                window.scroll({"top": 1, "behavior": "smooth"});
-            });
-        }
+        // Scroll to top page
+        topBtn.addEventListener("click", () => {
+            window.scroll({"top": 1, "behavior": "smooth"});
+        });
     </script>
 </body>
 </html>
