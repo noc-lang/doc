@@ -287,15 +287,16 @@ cannot operate big ints (Arbitrary precision integers)
 <h3 id="some-examples">Some examples</h3>
 <p>fact.noc</p>
 <div class="sourceCode" id="cb1"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true"></a><span class="kw">def</span> fact = {</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>   [</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>     [[<span class="dv">1</span>] []]</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>     [[_] [dup <span class="dv">1</span> - dup fact *]]</span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>   ] <span class="kw">case</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>}</span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a></span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a>   <span class="dv">6</span> dup fact print</span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>}</span></code></pre></div>
+<span id="cb1-2"><a href="#cb1-2" aria-hidden="true"></a>  dup</span>
+<span id="cb1-3"><a href="#cb1-3" aria-hidden="true"></a>   [</span>
+<span id="cb1-4"><a href="#cb1-4" aria-hidden="true"></a>     [[<span class="dv">0</span>] [pop <span class="dv">1</span>]]</span>
+<span id="cb1-5"><a href="#cb1-5" aria-hidden="true"></a>     [[_] [dup <span class="dv">1</span> - fact *]]</span>
+<span id="cb1-6"><a href="#cb1-6" aria-hidden="true"></a>   ] <span class="kw">case</span></span>
+<span id="cb1-7"><a href="#cb1-7" aria-hidden="true"></a>}</span>
+<span id="cb1-8"><a href="#cb1-8" aria-hidden="true"></a></span>
+<span id="cb1-9"><a href="#cb1-9" aria-hidden="true"></a><span class="kw">def</span> main = {</span>
+<span id="cb1-10"><a href="#cb1-10" aria-hidden="true"></a>  <span class="dv">6</span> fact print</span>
+<span id="cb1-11"><a href="#cb1-11" aria-hidden="true"></a>}</span></code></pre></div>
 <p>greater-or-less.noc</p>
 <div class="sourceCode" id="cb2"><pre class="sourceCode scala"><code class="sourceCode scala"><span id="cb2-1"><a href="#cb2-1" aria-hidden="true"></a>load std:stack</span>
 <span id="cb2-2"><a href="#cb2-2" aria-hidden="true"></a>load std:bool</span>
