@@ -7,185 +7,183 @@
     <link rel="icon" href="https://raw.githubusercontent.com/mortim/vscode-noc/master/assets/icon.png" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.3.0/css/all.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Merriweather&display=swap" rel="stylesheet">
-</head>
-<style>
-    /* Font */
-    .base-font { font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif; }
-    .merriweather-font { font-family: 'Merriweather', serif; }
-
-    /* Some selectors */
-    .white-color { color: #fff; }
-    .header-size { font-size: 20px; }
-
-    * {
-        margin: 0;
-        padding: 0;
-    }
-
-    a { text-decoration: underline; }
-
-    #top-btn { 
-        position: fixed;
-        right: 0;
-        bottom: 0;
-        margin: auto 50px 50px auto;
-        text-decoration: none;
-        padding: 15px 15px 10px 15px;
-        background-color: #3C798A;
-        color: #fff;
-        border-radius: 5px;
-        cursor: pointer;
-    }
-
-    /* Global layout */
-    #body {
-        display: grid;
-        grid-template-columns: 1fr 5fr;
-        height: 100vh;
-    }
-
-    /* Sidebar */
-    header {
-        display: flex;
-        justify-content: center;
-        white-space: normal;
-        padding-bottom: 10px;
-    }
-
-    #btn-img { margin-right: 5px; }
-
-    #title-text { word-break: break-all; }
-
-    #toggle-btn {
-        display: none;
-        margin: 2px 0px 0px 10px;
-        cursor: pointer;
-    }
-
-    header, #sidebar nav { border-bottom: 1px solid grey; }
-
-    #sidebar nav li { margin-top: 5px; }
-
-    #sidebar {
-        background-color: #1c273c;
-        padding: 15px;
-    }
-
-    #sidebar nav ul li ul { margin-left: 10px; }
-
-    #sidebar nav ul li ul li {
-        list-style-type: square;
-        color: #fff;
-    }
-
-    #sidebar nav a:hover { color: lightgrey; }
-
-    #sidebar nav { padding: 0px 10px 25px 10px; }
-
-    #sidebar nav ul li {
-        margin-left: 35px;  
-        list-style-type: none;
-        word-break: break-all;
-    }
-
-    #sidebar nav ul h3 { margin-bottom: 5px; }
-
-    #sidebar-2 ul .functions-name {
-        list-style-type: square;
-        color: #fff;
-    }
-
-    /* Content */
-    #content {
-        color: #333;
-        padding: 5px 20px 20px 20px;
-    }
-
-    #content ul, #content ol { padding-left: 15px; }
-    #content ul li, #content ol li { margin-left: 15px; }
-
-    #content #functions div {
-        padding: 5px 15px 10px 15px;
-        border-radius: 5px;
-        border: 1px solid lightgrey;
-        background-color: #f5eaea;
-        margin: 10px 0px 15px 0px;
-        word-break: break-all;
-    }
-
-    #content h1, h2, h3, h4, h5, h6 { padding: 20px 0px 10px 0px; }
-
-    #content p { margin-top: 10px; }
-
-    #content blockquote, #content blockquote p {
-        background-color: #e9e2e2;
-        color: #5c5c5c;
-    }
-
-    #content blockquote {
-        border-left: 4px solid #d6d6d6;
-        padding: 10px;
-        margin: 10px 0px 10px 0px;
-    }
-
-    #content img { max-width: 100%; }
-
-    #content pre {
-        background-color: #1f2430;
-        color: #fff;
-        padding: 10px;
-        white-space: pre-wrap;
-        word-break: break-word;
-    }
-
-    #content table {
-        border-collapse: collapse; 
-        word-break: break-all;
-        margin-top: 10px;
-    }
-
-    #content table thead tr th, #content table tbody tr td {
-        border: 2px solid #d6d6d6;
-        padding: 10px;
-    }
-
-    #content figcaption {
-        font-size: 13px;
-        color: #5c5c5c;
-    }
-
-    #content a { color: #5c5c5c; }
-
-    #content p code {
-        background-color: #f3f3f3;
-        padding: 2px;
-    }
-
-    /* Footer */
-    footer { margin-top: 10px; }
-
-    footer p { font-size: 12px; }
-
-    footer p>a { color: #fff; }
-
-    /* Media queries */
-    @media screen and (max-width: 1250px) {
-        #body {
-            grid-template-columns: none;
-            grid-template-rows: min-content auto;
+    <style>
+        /* Font */
+        .base-font { font-family: "Helvetica Neue",Helvetica,"Segoe UI",Arial,freesans,sans-serif; }
+        .merriweather-font { font-family: 'Merriweather', serif; }
+    
+        /* Some selectors */
+        .white-color { color: #fff; }
+        .header-size { font-size: 20px; }
+    
+        * {
+            margin: 0;
+            padding: 0;
         }
+    
+        a { text-decoration: none; }
+    
+        #top-btn { 
+            position: fixed;
+            right: 0;
+            bottom: 0;
+            margin: auto 50px 50px auto;
+            padding: 10px 10px 10px 10px;
+            background-color: #3C798A;
+            color: #fff;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+    
+        /* Global layout */
+        #body {
+            display: grid;
+            grid-template-columns: 1fr 5fr;
+            height: 100vh;
+        }
+    
+        /* Sidebar */
+        header {
+            display: flex;
+            justify-content: center;
+            white-space: normal;
+            padding-bottom: 10px;
+        }
+    
+        #btn-img { margin-right: 5px; }
+    
+        #title-text { word-break: break-all; }
+    
+        #toggle-btn {
+            display: none;
+            margin: 2px 0px 0px 10px;
+            cursor: pointer;
+        }
+    
+        header, #sidebar nav { border-bottom: 1px solid grey; }
+    
+        #sidebar nav li { margin-top: 5px; }
+    
+        #sidebar {
+            background-color: #1c273c;
+            padding: 15px;
+        }
+    
+        #sidebar nav ul li ul { margin-left: 10px; }
+    
+        #sidebar nav ul li ul li {
+            list-style-type: square;
+            color: #fff;
+        }
+    
+        #sidebar nav a:hover { color: lightgrey; }
+    
+        #sidebar nav { padding: 0px 10px 25px 10px; }
+    
+        #sidebar nav ul li {
+            margin-left: 35px;  
+            list-style-type: none;
+            word-break: break-all;
+        }
+    
+        #sidebar nav ul h3 { margin-bottom: 5px; }
+    
+        #sidebar-2 ul .functions-name {
+            list-style-type: square;
+            color: #fff;
+        }
+    
+        /* Content */
+        #content {
+            color: #333;
+            padding: 10px 40px 0px 40px;
+            line-height: 2;
+        }
+    
+        #content ul, #content ol { padding-left: 15px; }
+        #content ul li, #content ol li { margin-left: 15px; }
+    
+        #content #functions div {
+            padding: 5px 15px 10px 15px;
+            border-radius: 5px;
+            border: 1px solid lightgrey;
+            background-color: #f5eaea;
+            margin: 10px 0px 15px 0px;
+            word-break: break-all;
+        }
+    
+        #content h1, h2, h3, h4, h5, h6 { padding: 20px 0px 10px 0px; }
 
-        #sidebar header { justify-content: space-between; }
-
-        #toggle-btn { display: block; }
-
-        .hide-sidebar-mobile { display: none; }
-
-        .remove-sidebar-border-mobile { border-bottom: 0px !important; }
-
-        .remove-sidebar-padding-mobile { padding: 0px; }
-    }
-</style>
+        #content blockquote, #content blockquote p {
+            background-color: #e9e2e2;
+            color: #5c5c5c;
+        }
+    
+        #content blockquote {
+            border-left: 4px solid #d6d6d6;
+            padding: 10px;
+            margin: 10px 0px 10px 0px;
+        }
+    
+        #content img { max-width: 100%; }
+    
+        #content pre {
+            background-color: #1f2430;
+            color: #fff;
+            padding: 10px;
+            white-space: pre-wrap;
+            word-break: break-word;
+        }
+    
+        #content table {
+            border-collapse: collapse; 
+            word-break: break-all;
+            margin-top: 10px;
+        }
+    
+        #content table thead tr th, #content table tbody tr td {
+            border: 2px solid #d6d6d6;
+            padding: 10px;
+        }
+    
+        #content figcaption {
+            font-size: 13px;
+            color: #5c5c5c;
+        }
+    
+        #content a { color: #5c5c5c; }
+    
+        #content p code {
+            background-color: #f3f3f3;
+            padding: 2px;
+        }
+    
+        /* Footer */
+        footer { margin-top: 10px; }
+    
+        footer p { font-size: 12px; }
+    
+        footer p>a { color: #fff; }
+    
+        /* Media queries */
+        @media screen and (max-width: 1250px) {
+            #body {
+                grid-template-columns: none;
+                grid-template-rows: min-content auto;
+            }
+    
+            #sidebar header { justify-content: space-between; }
+    
+            #toggle-btn { display: block; }
+    
+            .hide-sidebar-mobile { display: none; }
+    
+            .remove-sidebar-border-mobile { border-bottom: 0px !important; }
+    
+            .remove-sidebar-padding-mobile { padding: 0px; }
+        }
+    </style>
+</head>
 <body>
     <a id="top-btn" class="base-font">Top</a>
 
@@ -197,7 +195,6 @@
             <header class="remove-sidebar-border-mobile remove-sidebar-padding-mobile">
                 <div>
                     <span class="white-color header-size">
-                        <img src="https://raw.githubusercontent.com/noc-lang/vscode-noc/main/assets/icon.svg" height="20" width="20" id="btn-img" />
                         <span id="title-text" class="merriweather-font">home / noc</span>
                     </span>
                 </div>
@@ -246,10 +243,8 @@
             document.querySelector("#sidebar-2"),
             document.querySelector("footer")
         ];
-        const btn = document.querySelector("#toggle-btn");
-        const topBtn = document.querySelector("#top-btn");
 
-        btn.addEventListener("click", () => {
+        document.querySelector("#toggle-btn").addEventListener("click", () => {
             sidebar.slice(1).forEach(elem => {
                 elem.classList.toggle("hide-sidebar-mobile");
             });
@@ -258,7 +253,7 @@
         });
 
         // Scroll to top page
-        topBtn.addEventListener("click", () => {
+        document.querySelector("#top-btn").addEventListener("click", () => {
             window.scroll({"top": 1, "behavior": "smooth"});
         });
     </script>
